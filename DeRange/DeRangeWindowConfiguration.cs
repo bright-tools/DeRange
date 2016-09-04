@@ -10,6 +10,8 @@ namespace DeRange
     [XmlRoot(ElementName = "DeRangeWindowConfiguration")]
     public class DeRangeWindowConfiguration : INotifyPropertyChanged
     {
+        [XmlElement(ElementName = "WindowPositions")]
+        public BindingList<DeRangeWindowPosition> m_windowPositions = new BindingList<DeRangeWindowPosition>();
 
         public event PropertyChangedEventHandler PropertyChanged;
 

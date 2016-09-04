@@ -56,6 +56,12 @@
     <Compile Include="DeRangeMain.Designer.cs">
       <DependentUpon>DeRangeMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeRangePositionEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeRangePositionEdit.Designer.cs">
+      <DependentUpon>DeRangePositionEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeRangeWindowConfiguration.cs" />
     <Compile Include="DeRangeWindowEdit.cs">
       <SubType>Form</SubType>
@@ -69,10 +75,15 @@
     <Compile Include="DeRangeWindowList.Designer.cs">
       <DependentUpon>DeRangeWindowList.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeRangeWindowModifier.cs" />
+    <Compile Include="DeRangeWindowPosition.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DeRangeMain.resx">
       <DependentUpon>DeRangeMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeRangePositionEdit.resx">
+      <DependentUpon>DeRangePositionEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeRangeWindowEdit.resx">
       <DependentUpon>DeRangeWindowEdit.cs</DependentUpon>
@@ -93,6 +104,7 @@
     <None Include="DeRange.nuspec" />
     <None Include="Properties\DataSources\DeRangeConfiguration.datasource" />
     <None Include="Properties\DataSources\DeRangeWindowConfiguration.datasource" />
+    <None Include="Properties\DataSources\DeRangeWindowPosition.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -26,5 +26,10 @@ namespace DeRange
             winList.Show();
         }
 
+        private void showWindowPositionsButton_Click(object sender, EventArgs e)
+        {
+            DeRangePositionEdit winPost = new DeRangePositionEdit(m_config);
+            winPost.Show();
+        }
     }
 }

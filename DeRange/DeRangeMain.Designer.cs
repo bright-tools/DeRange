@@ -51,6 +51,7 @@
             this.showWindowPositionsButton.TabIndex = 1;
             this.showWindowPositionsButton.Text = "Show/Edit Window Positions";
             this.showWindowPositionsButton.UseVisualStyleBackColor = true;
+            this.showWindowPositionsButton.Click += new System.EventHandler(this.showWindowPositionsButton_Click);
             // 
             // showWindowCollectionButton
             // 
