@@ -78,7 +78,6 @@
             this.windowConfigListBox.Name = "windowConfigListBox";
             this.windowConfigListBox.Size = new System.Drawing.Size(338, 342);
             this.windowConfigListBox.TabIndex = 2;
-            this.windowConfigListBox.DisplayMemberChanged += new System.EventHandler(this.windowConfigListBox_DisplayMemberChanged);
             // 
             // windowConfigurationsBindingSource
             // 

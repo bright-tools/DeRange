@@ -25,7 +25,19 @@ namespace DeRange
 
             this.windowConfigurationsBindingSource.DataSource = m_config;
 
-            windowConfigListBox_DisplayMemberChanged(null,null);
+            m_config.windowConfigurations.ListChanged += windowConfigurationListChanged;
+
+            updateButtonStatuses();
+        }
+
+        private void updateButtonStatuses()
+        {
+            removeButton.Enabled = (m_config.windowConfigurations.Count > 0);
+        }
+
+        void windowConfigurationListChanged(object sender, ListChangedEventArgs e)
+        {
+            updateButtonStatuses();
         }
 
         private void updateActiveWindowsList_Click(object sender, EventArgs e)
@@ -59,11 +71,6 @@ namespace DeRange
             {
                 m_config.windowConfigurations.Add(windowConfig);
             }
-        }
-
-        private void windowConfigListBox_DisplayMemberChanged(object sender, EventArgs e)
-        {
-            removeButton.Enabled = (windowConfigListBox.Items.Count > 0);
         }
 
         private void removeButton_Click(object sender, EventArgs e)

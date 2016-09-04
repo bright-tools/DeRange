@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeRange", "DeRange\DeRange.csproj", "{741737C2-F3B6-497C-9E18-C138A414368C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{632F72C0-0D20-48D3-B432-59F1C647B55D} = {632F72C0-0D20-48D3-B432-59F1C647B55D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win32Interop.WinHandles", "..\Win32Interop.WinHandles\src\Win32Interop.WinHandles\Win32Interop.WinHandles.csproj", "{632F72C0-0D20-48D3-B432-59F1C647B55D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{741737C2-F3B6-497C-9E18-C138A414368C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{741737C2-F3B6-497C-9E18-C138A414368C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{741737C2-F3B6-497C-9E18-C138A414368C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{632F72C0-0D20-48D3-B432-59F1C647B55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{632F72C0-0D20-48D3-B432-59F1C647B55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{632F72C0-0D20-48D3-B432-59F1C647B55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{632F72C0-0D20-48D3-B432-59F1C647B55D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
