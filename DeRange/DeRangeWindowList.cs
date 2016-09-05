@@ -7,14 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Win32Interop.WinHandles;
 
 namespace DeRange
 {
     public partial class DeRangeWindowList : Form
     {
-
-        private IEnumerable<WindowHandle> currentWindows = null;
         public  DeRangeConfiguration      m_config;
 
         public DeRangeWindowList(DeRangeConfiguration p_config)
@@ -40,42 +37,55 @@ namespace DeRange
             updateButtonStatuses();
         }
 
-        private void updateActiveWindowsList_Click(object sender, EventArgs e)
+        private void SetConfigurationEditEnabled( bool p_enabled )
         {
-            captureButton.Enabled = false;
-            activeWindowsListBox.Items.Clear();
-
-            currentWindows = TopLevelWindowUtils.FindWindows(w => (w.IsVisible() == true) && (w.GetWindowText() != ""));
-
-            activeWindowsListBox.BeginUpdate();
-
-            foreach (WindowHandle windowHandle in currentWindows)
-            {
-                activeWindowsListBox.Items.Insert(activeWindowsListBox.Items.Count, windowHandle.GetWindowText());
-            }
-
-            activeWindowsListBox.EndUpdate();
+            captureButton.Enabled = p_enabled;
+            
+            windowNameTextbox.Enabled = p_enabled;
+            windowClassTextbox.Enabled = p_enabled;
+            processFileTextbox.Enabled = p_enabled;
+            processFileMatchEnabledCheckbox.Enabled = p_enabled;
+            windowNameMatchEnabledCheckbox.Enabled = p_enabled;
+            windowClassMatchEnabledCheckbox.Enabled = p_enabled;
         }
 
         private void activeWindowsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            captureButton.Enabled = true;
+
+            if (windowConfigListBox.SelectedItem != null)
+            {
+                this.deRangeWindowConfigurationBindingSource.DataSource = (DeRangeWindowConfiguration)windowConfigListBox.SelectedItem;
+                SetConfigurationEditEnabled(true);
+            }
+            else if( windowConfigListBox.Items.Count == 0 )
+            {
+                this.deRangeWindowConfigurationBindingSource.Clear();
+                SetConfigurationEditEnabled(false);
+            }
         }
 
         private void captureButton_Click(object sender, EventArgs e)
         {
-            DeRangeWindowConfiguration windowConfig = new DeRangeWindowConfiguration(currentWindows.ElementAt(activeWindowsListBox.SelectedIndex));
-            DeRangeWindowEdit winEdit = new DeRangeWindowEdit(windowConfig);
-
-            if( winEdit.ShowDialog() == DialogResult.OK )
+            DeRangeActiveWindowSelector selector = new DeRangeActiveWindowSelector();
+            if( selector.ShowDialog() == DialogResult.OK )
             {
-                m_config.windowConfigurations.Add(windowConfig);
+                ((DeRangeWindowConfiguration)windowConfigListBox.SelectedItem).UpdateFrom(selector.Window);
+                this.deRangeWindowConfigurationBindingSource.DataSource = (DeRangeWindowConfiguration)windowConfigListBox.SelectedItem;
             }
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
             m_config.windowConfigurations.Remove((DeRangeWindowConfiguration)windowConfigListBox.SelectedItem);
+            activeWindowsListBox_SelectedIndexChanged(sender, e);
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            DeRangeWindowConfiguration newConfig = new DeRangeWindowConfiguration();
+            m_config.windowConfigurations.Add(newConfig);
+            newConfig.m_windowTitle = "New";
+            deRangeWindowConfigurationBindingSource.DataSource = (DeRangeWindowConfiguration)windowConfigListBox.SelectedItem;
         }
     }
 }

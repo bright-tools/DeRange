@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeRangeActiveWindowSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeRangeActiveWindowSelector.Designer.cs">
+      <DependentUpon>DeRangeActiveWindowSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeRangeApp.cs" />
     <Compile Include="DeRangeConfiguration.cs" />
     <Compile Include="DeRangeMain.cs">
@@ -63,12 +69,6 @@
       <DependentUpon>DeRangePositionEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="DeRangeWindowConfiguration.cs" />
-    <Compile Include="DeRangeWindowEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeRangeWindowEdit.Designer.cs">
-      <DependentUpon>DeRangeWindowEdit.cs</DependentUpon>
-    </Compile>
     <Compile Include="DeRangeWindowList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,14 +79,14 @@
     <Compile Include="DeRangeWindowPosition.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DeRangeActiveWindowSelector.resx">
+      <DependentUpon>DeRangeActiveWindowSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeRangeMain.resx">
       <DependentUpon>DeRangeMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeRangePositionEdit.resx">
       <DependentUpon>DeRangePositionEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeRangeWindowEdit.resx">
-      <DependentUpon>DeRangeWindowEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeRangeWindowList.resx">
       <DependentUpon>DeRangeWindowList.cs</DependentUpon>

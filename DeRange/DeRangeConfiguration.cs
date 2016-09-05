@@ -15,6 +15,9 @@ namespace DeRange
 
         private BindingList<DeRangeWindowConfiguration> p_windowConfigurations = new BindingList<DeRangeWindowConfiguration>();
 
+        [XmlElement(ElementName = "WindowPositions")]
+        public BindingList<DeRangeWindowPosition> m_windowPositions = new BindingList<DeRangeWindowPosition>();
+
         [XmlArray("WindowConfigurations")]
         public BindingList<DeRangeWindowConfiguration> windowConfigurations
         {

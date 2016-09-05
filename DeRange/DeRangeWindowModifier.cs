@@ -23,15 +23,19 @@ namespace DeRange
                     }
                     else
                     {
-                        break;
+                        continue;
                     }
                 }
 
                 if (matches)
                 {
-                    if (p_pos.xyPosEnabled)
+                    if (p_pos.XYPosEnabled)
                     {
-                        windowHandle.SetWindowXY(p_pos.xPos, p_pos.yPos);
+                        windowHandle.SetWindowXY(p_pos.XPos, p_pos.YPos);
+                    }
+                    if (p_pos.SizeEnabled)
+                    {
+                        windowHandle.SetWindowSize(p_pos.Width, p_pos.Height);
                     }
                 }
             }

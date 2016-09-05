@@ -14,7 +14,7 @@ namespace DeRange
 
         private int mp_xpos;
         [XmlElement(ElementName = "XPos")]
-        public int xPos {
+        public int XPos {
             get { return mp_xpos; }
             set
             {
@@ -28,7 +28,7 @@ namespace DeRange
 
         private int mp_ypos;
         [XmlElement(ElementName = "YPos")]
-        public int yPos
+        public int YPos
         {
             get { return mp_ypos; }
             set
@@ -43,7 +43,7 @@ namespace DeRange
 
         private bool mp_xyposEnabled;
         [XmlElement(ElementName = "XYPosEnabled")]
-        public bool xyPosEnabled
+        public bool XYPosEnabled
         {
             get { return mp_xyposEnabled; }
             set
@@ -56,6 +56,50 @@ namespace DeRange
             }
         }
 
+        private int mp_height;
+        [XmlElement(ElementName = "Height")]
+        public int Height
+        {
+            get { return mp_height; }
+            set
+            {
+                if (mp_height != value)
+                {
+                    mp_height = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private int mp_width;
+        [XmlElement(ElementName = "Width")]
+        public int Width
+        {
+            get { return mp_width; }
+            set
+            {
+                if (mp_width != value)
+                {
+                    mp_width = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool mp_sizeEnabled;
+        [XmlElement(ElementName = "SizeEnabled")]
+        public bool SizeEnabled
+        {
+            get { return mp_sizeEnabled; }
+            set
+            {
+                if (mp_sizeEnabled != value)
+                {
+                    mp_sizeEnabled = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
