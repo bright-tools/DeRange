@@ -1,16 +1,28 @@
 ﻿using System;
 using System.Xml.Serialization;
 using Win32Interop.WinHandles;
-using System.Runtime.CompilerServices;
 using System.ComponentModel;
 
 namespace DeRange
 {
     [Serializable]
     [XmlRoot(ElementName = "DeRangeWindowConfiguration")]
-    public class DeRangeWindowConfiguration : INotifyPropertyChanged
+    public class DeRangeWindowConfiguration : DeRangeConfigurationItem
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public DeRangeWindowConfiguration()
+        {
+
+        }
+
+        public DeRangeWindowConfiguration(WindowHandle p_windowHandle)
+        {
+            UpdateFrom(p_windowHandle);
+
+            m_matchWindowClass = true;
+            m_matchProcessFile = true;
+            m_matchProcessName = true;
+            m_matchWindowTitle = true;
+        }
 
         private string mp_windowTitle;
         [XmlElement(ElementName = "WindowTitle")]
@@ -130,33 +142,11 @@ namespace DeRange
             }
         }
 
-        public DeRangeWindowConfiguration()
-        {
-
-        }
-
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
         public void UpdateFrom(WindowHandle p_windowHandle)
         {
             m_windowTitle = p_windowHandle.GetWindowText();
             m_windowClass = p_windowHandle.GetClassName();
             m_processFile = p_windowHandle.GetWindowExec();
-            m_matchWindowClass = true;
-            m_matchProcessFile = true;
-            m_matchProcessName = true;
-            m_matchWindowTitle = true;
-        }
-
-        public DeRangeWindowConfiguration(WindowHandle p_windowHandle)
-        {
-            UpdateFrom(p_windowHandle);
         }
     }
 }

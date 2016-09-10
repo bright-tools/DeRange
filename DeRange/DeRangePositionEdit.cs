@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Win32Interop.WinHandles;
 
 namespace DeRange
 {
@@ -20,12 +21,17 @@ namespace DeRange
 
             this.deRangeWindowPositionListBindingSource.DataSource = m_config.m_windowPositions;
 
+            updateButtons();
         }
 
-        private void addPositionButton_Click(object sender, EventArgs e)
+        private void updateButtons()
         {
-            DeRangeWindowPosition newPosn = new DeRangeWindowPosition();
-            m_config.m_windowPositions.Add(newPosn);
+            bool itemsInList = (positionList.Items.Count > 0);
+            bool itemSelected = (positionList.SelectedItem != null);
+
+            removePositionButton.Enabled = itemsInList;
+
+            testButton.Enabled = itemSelected;
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -35,6 +41,7 @@ namespace DeRange
             {
                 this.deRangeWindowPositionBindingSource.DataSource = m_config.m_windowPositions.ElementAt(posnIdx);
             }
+            updateButtons();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -45,15 +52,42 @@ namespace DeRange
             yPosTextbox.Enabled = enabled;
         }
 
-        private void testButton_Click(object sender, EventArgs e)
+        private void applyButton_Click(object sender, EventArgs e)
         {
-            DeRangeActiveWindowSelector selector = new DeRangeActiveWindowSelector();
-            if (selector.ShowDialog() == DialogResult.OK)
+            DeRangeActiveWindowSelector winList = new DeRangeActiveWindowSelector();
+
+            if (winList.ShowDialog() == DialogResult.OK)
             {
-                int posnIdx = positionList.SelectedIndex;
-                DeRangeWindowPosition pos = m_config.m_windowPositions.ElementAt(posnIdx);
-                DeRangeWindowConfiguration win = new DeRangeWindowConfiguration(selector.Window);
+                DeRangeWindowConfiguration win= new DeRangeWindowConfiguration( winList.Window );
+                DeRangeWindowPosition pos = (DeRangeWindowPosition)positionList.SelectedItem;
+
                 DeRangeWindowModifier.ApplyModification(win, pos);
+            }
+        }
+
+        private void addPositionButton_Click_1(object sender, EventArgs e)
+        {
+            DeRangeWindowPosition newPosn = new DeRangeWindowPosition();
+            m_config.m_windowPositions.Add(newPosn);
+            updateButtons();
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            if(positionList.SelectedItem!= null)
+            {
+                m_config.m_windowPositions.Remove((DeRangeWindowPosition)positionList.SelectedItem);
+            }
+            updateButtons();
+        }
+
+        private void updateFromWindowButton_Click(object sender, EventArgs e)
+        {
+            DeRangeActiveWindowSelector winList = new DeRangeActiveWindowSelector();
+
+            if (winList.ShowDialog() == DialogResult.OK)
+            {
+                ((DeRangeWindowPosition)positionList.SelectedItem).UpdateFrom(winList.Window);
             }
         }
     }

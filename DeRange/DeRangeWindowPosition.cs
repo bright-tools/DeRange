@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Xml.Serialization;
-using Win32Interop.WinHandles;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
+using Win32Interop.WinHandles;
 
 namespace DeRange
 {
     [Serializable]
     [XmlRoot(ElementName = "DeRangeWindowPosition")]
-    public class DeRangeWindowPosition : INotifyPropertyChanged
+    public class DeRangeWindowPosition : DeRangeConfigurationItem
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private int mp_xpos;
         [XmlElement(ElementName = "XPos")]
         public int XPos {
@@ -101,12 +99,70 @@ namespace DeRange
             }
         }
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        private String mp_name = "";
+        [XmlElement(ElementName = "Name")]
+        public String Name
         {
-            if (PropertyChanged != null)
+            get { return mp_name; }
+            set
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                if (mp_name != value)
+                {
+                    mp_name = value;
+                    NotifyPropertyChanged();
+                }
             }
+        }
+
+        [XmlIgnore]
+        public String StringOf
+        {
+            get
+            {
+                String retVal;
+                if( Name.Length > 0 )
+                {
+                    retVal = Name;
+                }
+                else
+                {
+                    retVal = "";
+                    if(XYPosEnabled )
+                    {
+                        retVal += "X: " + XPos + " Y: " + YPos;
+                    }
+                    if (SizeEnabled)
+                    {
+                        if( retVal.Length > 0 )
+                        {
+                            retVal += " ";
+                        }
+                        retVal += "W: " + Width + " H: " + Height;
+                    }
+                    if( retVal.Length == 0)
+                    {
+                        retVal = "(empty)";
+                    }
+                }
+                return retVal;
+            }
+        }
+
+        new protected void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            base.NotifyPropertyChanged(propertyName);
+            base.NotifyPropertyChanged("StringOf");
+        }
+
+        public void UpdateFrom(WindowHandle p_windowHandle)
+        {
+            WindowHandleExtensions.WINDOWPLACEMENT placement = new WindowHandleExtensions.WINDOWPLACEMENT();
+            p_windowHandle.GetWindowPlacement(ref placement);
+
+            XPos = placement.rcNormalPosition.left;
+            YPos = placement.rcNormalPosition.top;
+            Width = placement.rcNormalPosition.right - XPos;
+            Height = placement.rcNormalPosition.bottom - YPos;
         }
     }
 }

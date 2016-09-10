@@ -13,11 +13,14 @@ namespace DeRange
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private BindingList<DeRangeWindowConfiguration> p_windowConfigurations = new BindingList<DeRangeWindowConfiguration>();
+        public DeRangeConfiguration()
+        {
+        }
 
         [XmlElement(ElementName = "WindowPositions")]
         public BindingList<DeRangeWindowPosition> m_windowPositions = new BindingList<DeRangeWindowPosition>();
 
+        private BindingList<DeRangeWindowConfiguration> p_windowConfigurations = new BindingList<DeRangeWindowConfiguration>();
         [XmlArray("WindowConfigurations")]
         public BindingList<DeRangeWindowConfiguration> windowConfigurations
         {
@@ -33,10 +36,6 @@ namespace DeRange
                     NotifyPropertyChanged();
                 }
             }
-        }
-
-        public DeRangeConfiguration()
-        {
         }
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
