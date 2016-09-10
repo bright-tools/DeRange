@@ -10,6 +10,11 @@ namespace DeRange.Config
     [XmlRoot(ElementName = "Location")]
     public class Location : ParentItem
     {
+        public Location() : base()
+        {
+
+        }
+
         private int mp_xpos;
         [XmlElement(ElementName = "XPos")]
         public int XPos {

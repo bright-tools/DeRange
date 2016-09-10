@@ -5,15 +5,15 @@ using Win32Interop.WinHandles;
 namespace DeRange.Config
 {
     [Serializable]
-    [XmlRoot(ElementName = "DeRangeWindowConfiguration")]
+    [XmlRoot(ElementName = "Window")]
     public class Window : ParentItem
     {
-        public Window()
+        public Window() : base()
         {
 
         }
 
-        public Window(WindowHandle p_windowHandle)
+        public Window(WindowHandle p_windowHandle) : base()
         {
             UpdateFrom(p_windowHandle);
 
