@@ -22,10 +22,16 @@ namespace DeRange
             InitializeComponent();
 
             deRangeArrangementListBindingSource.DataSource = m_config.Arrangements;
+            this.keyCombobox.DataSource = System.Enum.GetValues(typeof(Keys));
 
             if (m_config.Arrangements.Count > 0)
             {
                 arrangementListBox.SelectedItem = m_config.Arrangements[0];
+                keyboardShortCutBindingSource.DataSource = m_config.Arrangements[0].Shortcut;
+            }
+            else
+            {
+                keyboardShortCutBindingSource.DataSource = new Arrangement();
             }
 
             m_config.Arrangements.ListChanged += windowConfigurationListChanged;
@@ -49,6 +55,11 @@ namespace DeRange
         private void arrangementListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetArrangementEditEnabled(arrangementListBox.SelectedItem != null);
+
+            if( arrangementListBox.SelectedItem != null )
+            {
+                keyboardShortCutBindingSource.DataSource = ((Arrangement)arrangementListBox.SelectedItem).Shortcut;
+            }
         }
 
         void windowConfigurationListChanged(object sender, ListChangedEventArgs e)

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace DeRange.Config
@@ -16,6 +12,10 @@ namespace DeRange.Config
         {
             Name = "New";
         }
+
+        [XmlElement(ElementName = "KeyboardShortcut")]
+        public KeyboardShortcut Shortcut
+        { get; set; } = new KeyboardShortcut();
 
         [XmlElement(ElementName = "Name")]
         public String Name
