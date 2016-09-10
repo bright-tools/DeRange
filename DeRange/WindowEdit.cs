@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace DeRange
 {
-    public partial class DeRangeWindowList : Form
+    public partial class WindowEdit : Form
     {
-        public  DeRangeConfiguration      m_config;
+        public  Config.Top      m_config;
 
-        public DeRangeWindowList(DeRangeConfiguration p_config)
+        public WindowEdit(Config.Top p_config)
         {
             m_config = p_config;
 
@@ -54,7 +54,7 @@ namespace DeRange
 
             if (windowConfigListBox.SelectedItem != null)
             {
-                this.deRangeWindowConfigurationBindingSource.DataSource = (DeRangeWindowConfiguration)windowConfigListBox.SelectedItem;
+                this.deRangeWindowConfigurationBindingSource.DataSource = (Config.Window)windowConfigListBox.SelectedItem;
                 SetConfigurationEditEnabled(true);
             }
             else if( windowConfigListBox.Items.Count == 0 )
@@ -66,26 +66,26 @@ namespace DeRange
 
         private void captureButton_Click(object sender, EventArgs e)
         {
-            DeRangeActiveWindowSelector selector = new DeRangeActiveWindowSelector();
+            ActiveWindowSelector selector = new ActiveWindowSelector();
             if( selector.ShowDialog() == DialogResult.OK )
             {
-                ((DeRangeWindowConfiguration)windowConfigListBox.SelectedItem).UpdateFrom(selector.Window);
-                this.deRangeWindowConfigurationBindingSource.DataSource = (DeRangeWindowConfiguration)windowConfigListBox.SelectedItem;
+                ((Config.Window)windowConfigListBox.SelectedItem).UpdateFrom(selector.Window);
+                this.deRangeWindowConfigurationBindingSource.DataSource = (Config.Window)windowConfigListBox.SelectedItem;
             }
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            m_config.windowConfigurations.Remove((DeRangeWindowConfiguration)windowConfigListBox.SelectedItem);
+            m_config.windowConfigurations.Remove((Config.Window)windowConfigListBox.SelectedItem);
             activeWindowsListBox_SelectedIndexChanged(sender, e);
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            DeRangeWindowConfiguration newConfig = new DeRangeWindowConfiguration();
+            Config.Window newConfig = new Config.Window();
             m_config.windowConfigurations.Add(newConfig);
             newConfig.m_windowTitle = "New";
-            deRangeWindowConfigurationBindingSource.DataSource = (DeRangeWindowConfiguration)windowConfigListBox.SelectedItem;
+            deRangeWindowConfigurationBindingSource.DataSource = (Config.Window)windowConfigListBox.SelectedItem;
         }
     }
 }

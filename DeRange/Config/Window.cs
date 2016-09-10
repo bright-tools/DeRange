@@ -3,18 +3,18 @@ using System.Xml.Serialization;
 using Win32Interop.WinHandles;
 using System.ComponentModel;
 
-namespace DeRange
+namespace DeRange.Config
 {
     [Serializable]
     [XmlRoot(ElementName = "DeRangeWindowConfiguration")]
-    public class DeRangeWindowConfiguration : DeRangeConfigurationItem
+    public class Window : ParentItem
     {
-        public DeRangeWindowConfiguration()
+        public Window()
         {
 
         }
 
-        public DeRangeWindowConfiguration(WindowHandle p_windowHandle)
+        public Window(WindowHandle p_windowHandle)
         {
             UpdateFrom(p_windowHandle);
 

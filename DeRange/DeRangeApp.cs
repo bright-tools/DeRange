@@ -14,7 +14,7 @@ namespace DeRange
     {
         DeRange configWindow;
         NotifyIcon notifyIcon;
-        DeRangeConfiguration config;
+        Config.Top config;
 
         public DeRangeApp()
         {
@@ -41,11 +41,11 @@ namespace DeRange
 
         void loadConfig()
         {
-            config = new DeRangeConfiguration();
+            config = new Config.Top();
             XmlSerializer serializer;
             try
             {
-                serializer = new XmlSerializer(typeof(DeRangeConfiguration));
+                serializer = new XmlSerializer(typeof(Config.Top));
             } 
             catch( Exception e)
             {
@@ -58,7 +58,7 @@ namespace DeRange
                 if (isoStore.FileExists(configFile))
                 {
                     IsolatedStorageFileStream fs = new IsolatedStorageFileStream(configFile, FileMode.Open, isoStore);
-                    config = (DeRangeConfiguration)serializer.Deserialize(fs);
+                    config = (Config.Top)serializer.Deserialize(fs);
                     fs.Close();
                 }
                 else
@@ -75,7 +75,7 @@ namespace DeRange
         void writeConfig()
         {
             IsolatedStorageFile isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null);
-            XmlSerializer serializer = new XmlSerializer(typeof(DeRangeConfiguration));
+            XmlSerializer serializer = new XmlSerializer(typeof(Config.Top));
 
             using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream(configFile, FileMode.Create, isoStore))
             {

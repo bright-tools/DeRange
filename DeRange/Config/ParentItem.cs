@@ -2,9 +2,9 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DeRange
+namespace DeRange.Config
 {
-    public class DeRangeConfigurationItem : INotifyPropertyChanged
+    public class ParentItem : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -1,6 +1,6 @@
 ﻿namespace DeRange
 {
-    partial class DeRangeWindowList
+    partial class WindowEdit
     {
         /// <summary>
         /// Required designer variable.

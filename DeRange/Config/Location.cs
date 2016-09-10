@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Xml.Serialization;
 using System.Runtime.CompilerServices;
-using System.ComponentModel;
 using Win32Interop.WinHandles;
 
-namespace DeRange
+namespace DeRange.Config
 {
     [Serializable]
-    [XmlRoot(ElementName = "DeRangeWindowPosition")]
-    public class DeRangeWindowPosition : DeRangeConfigurationItem
+    [XmlRoot(ElementName = "Location")]
+    public class Location : ParentItem
     {
         private int mp_xpos;
         [XmlElement(ElementName = "XPos")]

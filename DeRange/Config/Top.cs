@@ -5,24 +5,24 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DeRange
+namespace DeRange.Config
 {
     [Serializable]
     [XmlRoot(ElementName = "DeRangeConfiguration")]
-    public class DeRangeConfiguration : INotifyPropertyChanged
+    public class Top : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public DeRangeConfiguration()
+        public Top()
         {
         }
 
         [XmlElement(ElementName = "WindowPositions")]
-        public BindingList<DeRangeWindowPosition> m_windowPositions = new BindingList<DeRangeWindowPosition>();
+        public BindingList<Location> m_windowPositions = new BindingList<Location>();
 
-        private BindingList<DeRangeWindowConfiguration> p_windowConfigurations = new BindingList<DeRangeWindowConfiguration>();
+        private BindingList<Window> p_windowConfigurations = new BindingList<Window>();
         [XmlArray("WindowConfigurations")]
-        public BindingList<DeRangeWindowConfiguration> windowConfigurations
+        public BindingList<Window> windowConfigurations
         {
             get
             {

@@ -12,8 +12,8 @@ namespace DeRange
 {
     public partial class DeRange : Form
     {
-        private DeRangeConfiguration m_config;
-        public DeRange(DeRangeConfiguration p_config)
+        private Config.Top m_config;
+        public DeRange(Config.Top p_config)
         {
             InitializeComponent();
 
@@ -22,13 +22,13 @@ namespace DeRange
 
         private void showWindowsButton_Click(object sender, EventArgs e)
         {
-            DeRangeWindowList winList = new DeRangeWindowList(m_config);
+            WindowEdit winList = new WindowEdit(m_config);
             winList.Show();
         }
 
         private void showWindowPositionsButton_Click(object sender, EventArgs e)
         {
-            DeRangePositionEdit winPost = new DeRangePositionEdit(m_config);
+            LocationEdit winPost = new LocationEdit(m_config);
             winPost.Show();
         }
     }

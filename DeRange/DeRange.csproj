@@ -55,8 +55,8 @@
       <DependentUpon>DeRangeActiveWindowSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="DeRangeApp.cs" />
-    <Compile Include="DeRangeConfiguration.cs" />
-    <Compile Include="DeRangeConfigurationItem.cs" />
+    <Compile Include="Config\Top.cs" />
+    <Compile Include="Config\ParentItem.cs" />
     <Compile Include="DeRangeMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,15 +69,15 @@
     <Compile Include="DeRangePositionEdit.Designer.cs">
       <DependentUpon>DeRangePositionEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeRangeWindowConfiguration.cs" />
+    <Compile Include="Config\Window.cs" />
     <Compile Include="DeRangeWindowList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DeRangeWindowList.Designer.cs">
       <DependentUpon>DeRangeWindowList.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeRangeWindowModifier.cs" />
-    <Compile Include="DeRangeWindowPosition.cs" />
+    <Compile Include="WindowModifier.cs" />
+    <Compile Include="Config\Location.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DeRangeActiveWindowSelector.resx">

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Win32Interop.WinHandles;
 
 namespace DeRange
 {
-    class DeRangeWindowModifier
+    class WindowModifier
     {
-        static public void ApplyModification(DeRangeWindowConfiguration p_win, DeRangeWindowPosition p_pos)
+        static public void ApplyModification(Config.Window p_win, Config.Location p_pos)
         {
             IEnumerable<WindowHandle> currentWindows = TopLevelWindowUtils.FindWindows(w => (w.IsVisible() == true) && (w.GetWindowText() != ""));
             foreach (WindowHandle windowHandle in currentWindows)

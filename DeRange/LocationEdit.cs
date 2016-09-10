@@ -11,10 +11,10 @@ using Win32Interop.WinHandles;
 
 namespace DeRange
 {
-    public partial class DeRangePositionEdit : Form
+    public partial class LocationEdit : Form
     {
-        private DeRangeConfiguration m_config;
-        public DeRangePositionEdit(DeRangeConfiguration p_config)
+        private Config.Top m_config;
+        public LocationEdit(Config.Top p_config)
         {
             m_config = p_config;
             InitializeComponent();
@@ -54,20 +54,20 @@ namespace DeRange
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            DeRangeActiveWindowSelector winList = new DeRangeActiveWindowSelector();
+            ActiveWindowSelector winList = new ActiveWindowSelector();
 
             if (winList.ShowDialog() == DialogResult.OK)
             {
-                DeRangeWindowConfiguration win= new DeRangeWindowConfiguration( winList.Window );
-                DeRangeWindowPosition pos = (DeRangeWindowPosition)positionList.SelectedItem;
+                Config.Window win= new Config.Window( winList.Window );
+                Config.Location pos = (Config.Location)positionList.SelectedItem;
 
-                DeRangeWindowModifier.ApplyModification(win, pos);
+                WindowModifier.ApplyModification(win, pos);
             }
         }
 
         private void addPositionButton_Click_1(object sender, EventArgs e)
         {
-            DeRangeWindowPosition newPosn = new DeRangeWindowPosition();
+            Config.Location newPosn = new Config.Location();
             m_config.m_windowPositions.Add(newPosn);
             updateButtons();
         }
@@ -76,18 +76,18 @@ namespace DeRange
         {
             if(positionList.SelectedItem!= null)
             {
-                m_config.m_windowPositions.Remove((DeRangeWindowPosition)positionList.SelectedItem);
+                m_config.m_windowPositions.Remove((Config.Location)positionList.SelectedItem);
             }
             updateButtons();
         }
 
         private void updateFromWindowButton_Click(object sender, EventArgs e)
         {
-            DeRangeActiveWindowSelector winList = new DeRangeActiveWindowSelector();
+            ActiveWindowSelector winList = new ActiveWindowSelector();
 
             if (winList.ShowDialog() == DialogResult.OK)
             {
-                ((DeRangeWindowPosition)positionList.SelectedItem).UpdateFrom(winList.Window);
+                ((Config.Location)positionList.SelectedItem).UpdateFrom(winList.Window);
             }
         }
     }
