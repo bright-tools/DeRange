@@ -7,13 +7,13 @@ using Win32Interop.WinHandles;
 
 namespace DeRange
 {
-    public partial class DeRangeActiveWindowSelector : Form
+    public partial class ActiveWindowSelector : Form
     {
         private List<WindowHandle> m_currentWindows = null;
 
         public WindowHandle Window { get; set; }
 
-        public DeRangeActiveWindowSelector()
+        public ActiveWindowSelector()
         {
             InitializeComponent();
 

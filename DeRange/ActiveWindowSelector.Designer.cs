@@ -1,6 +1,6 @@
 ﻿namespace DeRange
 {
-    partial class DeRangeActiveWindowSelector
+    partial class ActiveWindowSelector
     {
         /// <summary>
         /// Required designer variable.

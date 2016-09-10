@@ -1,6 +1,6 @@
 ﻿namespace DeRange
 {
-    partial class DeRangePositionEdit
+    partial class LocationEdit
     {
         /// <summary>
         /// Required designer variable.

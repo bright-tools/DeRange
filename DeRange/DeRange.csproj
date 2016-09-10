@@ -48,11 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeRangeActiveWindowSelector.cs">
+    <Compile Include="ActiveWindowSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeRangeActiveWindowSelector.Designer.cs">
-      <DependentUpon>DeRangeActiveWindowSelector.cs</DependentUpon>
+    <Compile Include="ActiveWindowSelector.Designer.cs">
+      <DependentUpon>ActiveWindowSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="DeRangeApp.cs" />
     <Compile Include="Config\Top.cs" />
@@ -63,34 +63,34 @@
     <Compile Include="DeRangeMain.Designer.cs">
       <DependentUpon>DeRangeMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeRangePositionEdit.cs">
+    <Compile Include="LocationEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeRangePositionEdit.Designer.cs">
-      <DependentUpon>DeRangePositionEdit.cs</DependentUpon>
+    <Compile Include="LocationEdit.Designer.cs">
+      <DependentUpon>LocationEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Config\Window.cs" />
-    <Compile Include="DeRangeWindowList.cs">
+    <Compile Include="WindowEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeRangeWindowList.Designer.cs">
-      <DependentUpon>DeRangeWindowList.cs</DependentUpon>
+    <Compile Include="WindowEdit.Designer.cs">
+      <DependentUpon>WindowEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowModifier.cs" />
     <Compile Include="Config\Location.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DeRangeActiveWindowSelector.resx">
-      <DependentUpon>DeRangeActiveWindowSelector.cs</DependentUpon>
+    <EmbeddedResource Include="ActiveWindowSelector.resx">
+      <DependentUpon>ActiveWindowSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeRangeMain.resx">
       <DependentUpon>DeRangeMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeRangePositionEdit.resx">
-      <DependentUpon>DeRangePositionEdit.cs</DependentUpon>
+    <EmbeddedResource Include="LocationEdit.resx">
+      <DependentUpon>LocationEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeRangeWindowList.resx">
-      <DependentUpon>DeRangeWindowList.cs</DependentUpon>
+    <EmbeddedResource Include="WindowEdit.resx">
+      <DependentUpon>WindowEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
