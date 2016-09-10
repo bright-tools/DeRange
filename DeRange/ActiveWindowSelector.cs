@@ -46,5 +46,11 @@ namespace DeRange
             okButton.Enabled = true;
             Window = m_currentWindows[activeWindowsListBox.SelectedIndex];
         }
+
+        private void activeWindowsListBox_DoubleClick(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
     }
 }

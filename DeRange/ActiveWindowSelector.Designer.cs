@@ -44,38 +44,43 @@
             this.activeWindowsListBox.Size = new System.Drawing.Size(446, 238);
             this.activeWindowsListBox.TabIndex = 1;
             this.activeWindowsListBox.SelectedIndexChanged += new System.EventHandler(this.activeWindowsListBox_SelectedIndexChanged);
+            this.activeWindowsListBox.DoubleClick += new System.EventHandler(this.activeWindowsListBox_DoubleClick);
             // 
             // cancelButton
             // 
+            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(369, 247);
+            this.cancelButton.Location = new System.Drawing.Point(363, 247);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 5;
+            this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // okButton
             // 
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okButton.Enabled = false;
-            this.okButton.Location = new System.Drawing.Point(288, 247);
+            this.okButton.Location = new System.Drawing.Point(284, 247);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 4;
+            this.okButton.TabIndex = 2;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             // 
-            // DeRangeActiveWindowSelector
+            // ActiveWindowSelector
             // 
+            this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(449, 273);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.activeWindowsListBox);
-            this.Name = "DeRangeActiveWindowSelector";
-            this.Text = "DeRangeActiveWindowSelector";
+            this.Name = "ActiveWindowSelector";
+            this.Text = "Select Window";
             this.ResumeLayout(false);
 
         }
