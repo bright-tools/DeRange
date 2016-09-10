@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
 using Win32Interop.WinHandles;
-using System.ComponentModel;
 
 namespace DeRange.Config
 {
