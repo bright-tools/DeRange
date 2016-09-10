@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Linq;
 
 namespace DeRange.Config
 {
@@ -16,6 +17,9 @@ namespace DeRange.Config
         public Top()
         {
         }
+
+        [XmlElement(ElementName = "Arrangements")]
+        public BindingList<Arrangement> Arrangements = new BindingList<Arrangement>();
 
         [XmlElement(ElementName = "WindowPositions")]
         public BindingList<Location> WindowPositions = new BindingList<Location>();
@@ -36,6 +40,16 @@ namespace DeRange.Config
                     NotifyPropertyChanged();
                 }
             }
+        }
+
+        public Window GetWindow(Guid p_guid)
+        {
+            return WindowConfigurations.First(d => d.GUID == p_guid);
+        }
+
+        public Location GetLocation( Guid p_guid )
+        {
+            return WindowPositions.First(d => d.GUID == p_guid);
         }
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")

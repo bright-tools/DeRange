@@ -61,6 +61,7 @@
             this.showWindowCollectionButton.TabIndex = 2;
             this.showWindowCollectionButton.Text = "Show/Edit Window Collections";
             this.showWindowCollectionButton.UseVisualStyleBackColor = true;
+            this.showWindowCollectionButton.Click += new System.EventHandler(this.showWindowCollectionButton_Click);
             // 
             // DeRange
             // 

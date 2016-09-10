@@ -26,13 +26,6 @@ namespace DeRange
             {
                 positionList.SelectedItem = m_config.WindowPositions[0];
             }
-            else
-            {
-                // Give the controls something to bind to.  In the case that there no items in the
-                //  window configuration list, this prevents an error where attempt is made to bind
-                //  to a property of NULL 
-                this.deRangeWindowPositionBindingSource.DataSource = new Config.Window();
-            }
 
             updateButtons();
         }
@@ -58,11 +51,6 @@ namespace DeRange
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int posnIdx = positionList.SelectedIndex;
-            if (posnIdx >= 0)
-            {
-                this.deRangeWindowPositionBindingSource.DataSource = m_config.WindowPositions.ElementAt(posnIdx);
-            }
             updateButtons();
         }
 

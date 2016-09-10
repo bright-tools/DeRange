@@ -20,13 +20,6 @@ namespace DeRange
             {
                 windowConfigListBox.SelectedItem = m_config.WindowConfigurations[0];
             }
-            else
-            {
-                // Give the controls something to bind to.  In the case that there no items in the
-                //  window configuration list, this prevents an error where attempt is made to bind
-                //  to a property of NULL 
-                this.deRangeWindowConfigurationBindingSource.DataSource = new Config.Window();
-            }
 
             m_config.WindowConfigurations.ListChanged += windowConfigurationListChanged;
 
@@ -57,17 +50,7 @@ namespace DeRange
 
         private void activeWindowsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (windowConfigListBox.SelectedItem != null)
-            {
-                this.deRangeWindowConfigurationBindingSource.DataSource = (Config.Window)windowConfigListBox.SelectedItem;
-                SetConfigurationEditEnabled(true);
-            }
-            else if( windowConfigListBox.Items.Count == 0 )
-            {
-                this.deRangeWindowConfigurationBindingSource.Clear();
-                SetConfigurationEditEnabled(false);
-            }
+            SetConfigurationEditEnabled(windowConfigListBox.SelectedItem != null);   
         }
 
         private void captureButton_Click(object sender, EventArgs e)
@@ -76,7 +59,6 @@ namespace DeRange
             if( selector.ShowDialog() == DialogResult.OK )
             {
                 ((Config.Window)windowConfigListBox.SelectedItem).UpdateFrom(selector.Window);
-                this.deRangeWindowConfigurationBindingSource.DataSource = (Config.Window)windowConfigListBox.SelectedItem;
             }
         }
 
@@ -91,8 +73,6 @@ namespace DeRange
             Config.Window newConfig = new Config.Window();
             m_config.WindowConfigurations.Add(newConfig);
             newConfig.m_windowTitle = "New";
-            deRangeWindowConfigurationBindingSource.DataSource = (Config.Window)windowConfigListBox.SelectedItem;
         }
-
     }
 }

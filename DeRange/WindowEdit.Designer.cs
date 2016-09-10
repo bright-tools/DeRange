@@ -35,7 +35,6 @@
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.processFileMatchEnabledCheckbox = new System.Windows.Forms.CheckBox();
-            this.deRangeWindowConfigurationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.windowClassMatchEnabledCheckbox = new System.Windows.Forms.CheckBox();
             this.windowNameMatchEnabledCheckbox = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,7 +49,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deRangeWindowConfigurationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // windowConfigListBox
@@ -127,7 +125,7 @@
             // processFileMatchEnabledCheckbox
             // 
             this.processFileMatchEnabledCheckbox.AutoSize = true;
-            this.processFileMatchEnabledCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.deRangeWindowConfigurationBindingSource, "m_matchProcessFile", true));
+            this.processFileMatchEnabledCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "m_matchProcessFile", true));
             this.processFileMatchEnabledCheckbox.Enabled = false;
             this.processFileMatchEnabledCheckbox.Location = new System.Drawing.Point(430, 83);
             this.processFileMatchEnabledCheckbox.Name = "processFileMatchEnabledCheckbox";
@@ -138,7 +136,7 @@
             // windowClassMatchEnabledCheckbox
             // 
             this.windowClassMatchEnabledCheckbox.AutoSize = true;
-            this.windowClassMatchEnabledCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.deRangeWindowConfigurationBindingSource, "m_matchWindowClass", true));
+            this.windowClassMatchEnabledCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "m_matchWindowClass", true));
             this.windowClassMatchEnabledCheckbox.Enabled = false;
             this.windowClassMatchEnabledCheckbox.Location = new System.Drawing.Point(430, 57);
             this.windowClassMatchEnabledCheckbox.Name = "windowClassMatchEnabledCheckbox";
@@ -149,7 +147,7 @@
             // windowNameMatchEnabledCheckbox
             // 
             this.windowNameMatchEnabledCheckbox.AutoSize = true;
-            this.windowNameMatchEnabledCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.deRangeWindowConfigurationBindingSource, "m_matchWindowTitle", true));
+            this.windowNameMatchEnabledCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "m_matchWindowTitle", true));
             this.windowNameMatchEnabledCheckbox.Enabled = false;
             this.windowNameMatchEnabledCheckbox.Location = new System.Drawing.Point(430, 32);
             this.windowNameMatchEnabledCheckbox.Name = "windowNameMatchEnabledCheckbox";
@@ -168,7 +166,7 @@
             // 
             // processFileTextbox
             // 
-            this.processFileTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deRangeWindowConfigurationBindingSource, "m_processFile", true));
+            this.processFileTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.windowConfigurationsBindingSource, "m_processFile", true));
             this.processFileTextbox.Enabled = false;
             this.processFileTextbox.Location = new System.Drawing.Point(97, 80);
             this.processFileTextbox.Name = "processFileTextbox";
@@ -177,7 +175,7 @@
             // 
             // windowClassTextbox
             // 
-            this.windowClassTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deRangeWindowConfigurationBindingSource, "m_windowClass", true));
+            this.windowClassTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.windowConfigurationsBindingSource, "m_windowClass", true));
             this.windowClassTextbox.Enabled = false;
             this.windowClassTextbox.Location = new System.Drawing.Point(97, 54);
             this.windowClassTextbox.Name = "windowClassTextbox";
@@ -204,7 +202,7 @@
             // 
             // windowNameTextbox
             // 
-            this.windowNameTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deRangeWindowConfigurationBindingSource, "m_windowTitle", true));
+            this.windowNameTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.windowConfigurationsBindingSource, "m_windowTitle", true));
             this.windowNameTextbox.Enabled = false;
             this.windowNameTextbox.Location = new System.Drawing.Point(97, 30);
             this.windowNameTextbox.Name = "windowNameTextbox";
@@ -237,7 +235,6 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.deRangeWindowConfigurationBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,7 +245,6 @@
         private System.Windows.Forms.Button captureButton;
         private System.Windows.Forms.BindingSource windowConfigurationsBindingSource;
         private System.Windows.Forms.Button removeButton;
-        private System.Windows.Forms.BindingSource deRangeWindowConfigurationBindingSource;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.CheckBox processFileMatchEnabledCheckbox;
         private System.Windows.Forms.CheckBox windowClassMatchEnabledCheckbox;

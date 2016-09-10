@@ -31,5 +31,11 @@ namespace DeRange
             LocationEdit winPost = new LocationEdit(m_config);
             winPost.Show();
         }
+
+        private void showWindowCollectionButton_Click(object sender, EventArgs e)
+        {
+            ArrangementEdit winArr = new ArrangementEdit(m_config);
+            winArr.Show();
+        }
     }
 }

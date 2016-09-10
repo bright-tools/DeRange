@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.deRangeWindowPositionListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.deRangeWindowPositionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.removePositionButton = new System.Windows.Forms.Button();
             this.addPositionButton = new System.Windows.Forms.Button();
@@ -51,7 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.xPosTextbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.deRangeWindowPositionListBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deRangeWindowPositionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -269,7 +267,6 @@
             this.Name = "LocationEdit";
             this.Text = "DeRangePositionEdit";
             ((System.ComponentModel.ISupportInitialize)(this.deRangeWindowPositionListBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deRangeWindowPositionBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
@@ -281,7 +278,6 @@
 
         #endregion
         private System.Windows.Forms.BindingSource deRangeWindowPositionListBindingSource;
-        private System.Windows.Forms.BindingSource deRangeWindowPositionBindingSource;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button addPositionButton;
         private System.Windows.Forms.ListBox positionList;
