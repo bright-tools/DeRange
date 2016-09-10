@@ -19,7 +19,20 @@ namespace DeRange
             m_config = p_config;
             InitializeComponent();
 
-            this.deRangeWindowPositionListBindingSource.DataSource = m_config.m_windowPositions;
+            this.statusComboBox.DataSource = System.Enum.GetValues(typeof(Config.Location.WindowStatus));
+            this.deRangeWindowPositionListBindingSource.DataSource = m_config.WindowPositions;
+
+            if (m_config.WindowPositions.Count > 0)
+            {
+                positionList.SelectedItem = m_config.WindowPositions[0];
+            }
+            else
+            {
+                // Give the controls something to bind to.  In the case that there no items in the
+                //  window configuration list, this prevents an error where attempt is made to bind
+                //  to a property of NULL 
+                this.deRangeWindowPositionBindingSource.DataSource = new Config.Window();
+            }
 
             updateButtons();
         }
@@ -32,6 +45,15 @@ namespace DeRange
             removePositionButton.Enabled = itemsInList;
 
             testButton.Enabled = itemSelected;
+            updateFromWindowButton.Enabled = itemSelected;
+            nameTextBox.Enabled = itemSelected;
+            xPosTextbox.Enabled = itemSelected;
+            yPosTextbox.Enabled = itemSelected;
+            xyPosEnabledCheckBox.Enabled = itemSelected;
+            widthTextbox.Enabled = itemSelected;
+            heightTextbox.Enabled = itemSelected;
+            statusComboBox.Enabled = itemSelected;
+            sizeEnabledCheckbox.Enabled = itemSelected;
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,7 +61,7 @@ namespace DeRange
             int posnIdx = positionList.SelectedIndex;
             if (posnIdx >= 0)
             {
-                this.deRangeWindowPositionBindingSource.DataSource = m_config.m_windowPositions.ElementAt(posnIdx);
+                this.deRangeWindowPositionBindingSource.DataSource = m_config.WindowPositions.ElementAt(posnIdx);
             }
             updateButtons();
         }
@@ -68,7 +90,7 @@ namespace DeRange
         private void addPositionButton_Click_1(object sender, EventArgs e)
         {
             Config.Location newPosn = new Config.Location();
-            m_config.m_windowPositions.Add(newPosn);
+            m_config.WindowPositions.Add(newPosn);
             updateButtons();
         }
 
@@ -76,7 +98,7 @@ namespace DeRange
         {
             if(positionList.SelectedItem!= null)
             {
-                m_config.m_windowPositions.Remove((Config.Location)positionList.SelectedItem);
+                m_config.WindowPositions.Remove((Config.Location)positionList.SelectedItem);
             }
             updateButtons();
         }

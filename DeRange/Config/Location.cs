@@ -2,6 +2,7 @@
 using System.Xml.Serialization;
 using System.Runtime.CompilerServices;
 using Win32Interop.WinHandles;
+using System.ComponentModel;
 
 namespace DeRange.Config
 {
@@ -108,6 +109,34 @@ namespace DeRange.Config
                 if (mp_name != value)
                 {
                     mp_name = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        [TypeConverter(typeof(EnumDescriptionTypeConverter))]
+        public enum WindowStatus
+        {
+            [Description("Located")]
+            Located,
+            [Description("Minimized")]
+            Minimised,
+            [Description("Maximized")]
+            Maximised,
+            [Description("Don't Change")]
+            NoChange,
+        }
+
+        private WindowStatus mp_status;
+        [XmlElement(ElementName = "Status")]
+        public WindowStatus Status
+        {
+            get { return mp_status; }
+            set
+            {
+                if (mp_status != value)
+                {
+                    mp_status = value;
                     NotifyPropertyChanged();
                 }
             }

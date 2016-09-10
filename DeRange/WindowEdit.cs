@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DeRange
@@ -20,16 +14,28 @@ namespace DeRange
 
             InitializeComponent();
 
-            this.windowConfigurationsBindingSource.DataSource = m_config;
+            this.windowConfigurationsBindingSource.DataSource = m_config.WindowConfigurations;
 
-            m_config.windowConfigurations.ListChanged += windowConfigurationListChanged;
+            if(m_config.WindowConfigurations.Count > 0)
+            {
+                windowConfigListBox.SelectedItem = m_config.WindowConfigurations[0];
+            }
+            else
+            {
+                // Give the controls something to bind to.  In the case that there no items in the
+                //  window configuration list, this prevents an error where attempt is made to bind
+                //  to a property of NULL 
+                this.deRangeWindowConfigurationBindingSource.DataSource = new Config.Window();
+            }
+
+            m_config.WindowConfigurations.ListChanged += windowConfigurationListChanged;
 
             updateButtonStatuses();
         }
 
         private void updateButtonStatuses()
         {
-            removeButton.Enabled = (m_config.windowConfigurations.Count > 0);
+            removeButton.Enabled = (m_config.WindowConfigurations.Count > 0);
         }
 
         void windowConfigurationListChanged(object sender, ListChangedEventArgs e)
@@ -76,16 +82,17 @@ namespace DeRange
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            m_config.windowConfigurations.Remove((Config.Window)windowConfigListBox.SelectedItem);
+            m_config.WindowConfigurations.Remove((Config.Window)windowConfigListBox.SelectedItem);
             activeWindowsListBox_SelectedIndexChanged(sender, e);
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
             Config.Window newConfig = new Config.Window();
-            m_config.windowConfigurations.Add(newConfig);
+            m_config.WindowConfigurations.Add(newConfig);
             newConfig.m_windowTitle = "New";
             deRangeWindowConfigurationBindingSource.DataSource = (Config.Window)windowConfigListBox.SelectedItem;
         }
+
     }
 }

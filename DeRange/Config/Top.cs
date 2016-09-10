@@ -18,11 +18,11 @@ namespace DeRange.Config
         }
 
         [XmlElement(ElementName = "WindowPositions")]
-        public BindingList<Location> m_windowPositions = new BindingList<Location>();
+        public BindingList<Location> WindowPositions = new BindingList<Location>();
 
         private BindingList<Window> p_windowConfigurations = new BindingList<Window>();
-        [XmlArray("WindowConfigurations")]
-        public BindingList<Window> windowConfigurations
+        [XmlArray(ElementName = "WindowConfigurations")]
+        public BindingList<Window> WindowConfigurations
         {
             get
             {

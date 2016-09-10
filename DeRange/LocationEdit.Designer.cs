@@ -35,11 +35,12 @@
             this.removePositionButton = new System.Windows.Forms.Button();
             this.addPositionButton = new System.Windows.Forms.Button();
             this.positionList = new System.Windows.Forms.ListBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.statusComboBox = new System.Windows.Forms.ComboBox();
+            this.sizeEnabledCheckbox = new System.Windows.Forms.CheckBox();
+            this.heightTextbox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.widthTextbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.updateFromWindowButton = new System.Windows.Forms.Button();
@@ -70,11 +71,12 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.checkBox1);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.statusComboBox);
+            this.splitContainer1.Panel2.Controls.Add(this.sizeEnabledCheckbox);
+            this.splitContainer1.Panel2.Controls.Add(this.heightTextbox);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.widthTextbox);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.nameTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.updateFromWindowButton);
@@ -123,23 +125,33 @@
             this.positionList.Size = new System.Drawing.Size(345, 238);
             this.positionList.TabIndex = 3;
             // 
-            // checkBox1
+            // statusComboBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.deRangeWindowPositionListBindingSource, "SizeEnabled", true));
-            this.checkBox1.Location = new System.Drawing.Point(169, 107);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 20;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.statusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.deRangeWindowPositionListBindingSource, "Status", true));
+            this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusComboBox.FormattingEnabled = true;
+            this.statusComboBox.Location = new System.Drawing.Point(49, 142);
+            this.statusComboBox.Name = "statusComboBox";
+            this.statusComboBox.Size = new System.Drawing.Size(121, 21);
+            this.statusComboBox.TabIndex = 21;
             // 
-            // textBox1
+            // sizeEnabledCheckbox
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deRangeWindowPositionListBindingSource, "Height", true));
-            this.textBox1.Location = new System.Drawing.Point(49, 116);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 19;
+            this.sizeEnabledCheckbox.AutoSize = true;
+            this.sizeEnabledCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.deRangeWindowPositionListBindingSource, "SizeEnabled", true));
+            this.sizeEnabledCheckbox.Location = new System.Drawing.Point(169, 107);
+            this.sizeEnabledCheckbox.Name = "sizeEnabledCheckbox";
+            this.sizeEnabledCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.sizeEnabledCheckbox.TabIndex = 20;
+            this.sizeEnabledCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // heightTextbox
+            // 
+            this.heightTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deRangeWindowPositionListBindingSource, "Height", true));
+            this.heightTextbox.Location = new System.Drawing.Point(49, 116);
+            this.heightTextbox.Name = "heightTextbox";
+            this.heightTextbox.Size = new System.Drawing.Size(100, 20);
+            this.heightTextbox.TabIndex = 19;
             // 
             // label4
             // 
@@ -159,13 +171,13 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "Width";
             // 
-            // textBox2
+            // widthTextbox
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deRangeWindowPositionListBindingSource, "Width", true));
-            this.textBox2.Location = new System.Drawing.Point(49, 90);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 16;
+            this.widthTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.deRangeWindowPositionListBindingSource, "Width", true));
+            this.widthTextbox.Location = new System.Drawing.Point(49, 90);
+            this.widthTextbox.Name = "widthTextbox";
+            this.widthTextbox.Size = new System.Drawing.Size(100, 20);
+            this.widthTextbox.TabIndex = 16;
             // 
             // label3
             // 
@@ -248,13 +260,13 @@
             this.xPosTextbox.Size = new System.Drawing.Size(100, 20);
             this.xPosTextbox.TabIndex = 7;
             // 
-            // DeRangePositionEdit
+            // LocationEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 283);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "DeRangePositionEdit";
+            this.Name = "LocationEdit";
             this.Text = "DeRangePositionEdit";
             ((System.ComponentModel.ISupportInitialize)(this.deRangeWindowPositionListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deRangeWindowPositionBindingSource)).EndInit();
@@ -280,13 +292,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox xPosTextbox;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox sizeEnabledCheckbox;
+        private System.Windows.Forms.TextBox heightTextbox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox widthTextbox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Button removePositionButton;
+        private System.Windows.Forms.ComboBox statusComboBox;
     }
 }
