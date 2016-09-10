@@ -34,6 +34,22 @@ namespace DeRange
                         windowHandle.SetWindowSize(p_pos.Width, p_pos.Height);
                     }
                 }
+
+                switch( p_pos.Status )
+                {
+                    case Config.Location.WindowStatus.Maximised:
+                        windowHandle.MaximizeWindow();
+                        break;
+                    case Config.Location.WindowStatus.Minimised:
+                        windowHandle.MinimizeWindow();
+                        break;
+                    case Config.Location.WindowStatus.Located:
+                        windowHandle.ShowWindow();
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
     }
