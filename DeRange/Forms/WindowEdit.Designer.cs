@@ -1,4 +1,4 @@
-﻿namespace DeRange
+﻿namespace DeRange.Forms
 {
     partial class WindowEdit
     {
@@ -34,6 +34,9 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
+            this.processFileAsRegexCheckbox = new System.Windows.Forms.CheckBox();
+            this.windowNameIsRegexCheckbox = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.processFileMatchEnabledCheckbox = new System.Windows.Forms.CheckBox();
             this.windowClassMatchEnabledCheckbox = new System.Windows.Forms.CheckBox();
             this.windowNameMatchEnabledCheckbox = new System.Windows.Forms.CheckBox();
@@ -44,9 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.windowNameTextbox = new System.Windows.Forms.TextBox();
             this.captureButton = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.windowNameIsRegexCheckbox = new System.Windows.Forms.CheckBox();
-            this.processFileAsRegexCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.windowConfigurationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -127,6 +127,37 @@
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
+            // processFileAsRegexCheckbox
+            // 
+            this.processFileAsRegexCheckbox.AutoSize = true;
+            this.processFileAsRegexCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "ProcessFileIsRegex", true));
+            this.processFileAsRegexCheckbox.Enabled = false;
+            this.processFileAsRegexCheckbox.Location = new System.Drawing.Point(453, 84);
+            this.processFileAsRegexCheckbox.Name = "processFileAsRegexCheckbox";
+            this.processFileAsRegexCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.processFileAsRegexCheckbox.TabIndex = 22;
+            this.processFileAsRegexCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // windowNameIsRegexCheckbox
+            // 
+            this.windowNameIsRegexCheckbox.AutoSize = true;
+            this.windowNameIsRegexCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "WindowTitleIsRegex", true));
+            this.windowNameIsRegexCheckbox.Enabled = false;
+            this.windowNameIsRegexCheckbox.Location = new System.Drawing.Point(453, 31);
+            this.windowNameIsRegexCheckbox.Name = "windowNameIsRegexCheckbox";
+            this.windowNameIsRegexCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.windowNameIsRegexCheckbox.TabIndex = 21;
+            this.windowNameIsRegexCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(441, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Regex";
             // 
             // processFileMatchEnabledCheckbox
             // 
@@ -227,37 +258,6 @@
             this.captureButton.UseVisualStyleBackColor = true;
             this.captureButton.Click += new System.EventHandler(this.captureButton_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(441, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Regex";
-            // 
-            // windowNameIsRegexCheckbox
-            // 
-            this.windowNameIsRegexCheckbox.AutoSize = true;
-            this.windowNameIsRegexCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "WindowTitleIsRegex", true));
-            this.windowNameIsRegexCheckbox.Enabled = false;
-            this.windowNameIsRegexCheckbox.Location = new System.Drawing.Point(453, 31);
-            this.windowNameIsRegexCheckbox.Name = "windowNameIsRegexCheckbox";
-            this.windowNameIsRegexCheckbox.Size = new System.Drawing.Size(15, 14);
-            this.windowNameIsRegexCheckbox.TabIndex = 21;
-            this.windowNameIsRegexCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // processFileAsRegexCheckbox
-            // 
-            this.processFileAsRegexCheckbox.AutoSize = true;
-            this.processFileAsRegexCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "ProcessFileIsRegex", true));
-            this.processFileAsRegexCheckbox.Enabled = false;
-            this.processFileAsRegexCheckbox.Location = new System.Drawing.Point(453, 84);
-            this.processFileAsRegexCheckbox.Name = "processFileAsRegexCheckbox";
-            this.processFileAsRegexCheckbox.Size = new System.Drawing.Size(15, 14);
-            this.processFileAsRegexCheckbox.TabIndex = 22;
-            this.processFileAsRegexCheckbox.UseVisualStyleBackColor = true;
-            // 
             // WindowEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +266,8 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "WindowEdit";
             this.Text = "DeRangeWindow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.Load += new System.EventHandler(this.Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.windowConfigurationsBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

@@ -1,4 +1,4 @@
-﻿namespace DeRange
+﻿namespace DeRange.Forms
 {
     partial class ActiveWindowSelector
     {
@@ -82,8 +82,8 @@
             this.MinimumSize = new System.Drawing.Size(200, 150);
             this.Name = "ActiveWindowSelector";
             this.Text = "Select Window";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ActiveWindowSelector_FormClosing);
-            this.Load += new System.EventHandler(this.ActiveWindowSelector_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.Load += new System.EventHandler(this.Form_Load);
             this.ResumeLayout(false);
 
         }

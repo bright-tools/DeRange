@@ -1,4 +1,4 @@
-﻿namespace DeRange
+﻿namespace DeRange.Forms
 {
     partial class LocationEdit
     {
@@ -266,6 +266,8 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "LocationEdit";
             this.Text = "DeRangePositionEdit";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.Load += new System.EventHandler(this.Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.deRangeWindowPositionListBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

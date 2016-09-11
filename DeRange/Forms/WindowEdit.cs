@@ -2,11 +2,47 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace DeRange
+namespace DeRange.Forms
 {
-    public partial class WindowEdit : Form
+    public partial class WindowEdit : ParentForm
     {
         public  Config.Top      m_config;
+
+        protected override System.Drawing.Size WindowSettingSize
+        {
+            get
+            {
+                return Properties.Settings.Default.WindowEditSize;
+            }
+            set
+            {
+                Properties.Settings.Default.WindowEditSize = value;
+            }
+        }
+
+        protected override System.Windows.Forms.FormWindowState WindowSettingState
+        {
+            get
+            {
+                return Properties.Settings.Default.WindowEditState;
+            }
+            set
+            {
+                Properties.Settings.Default.WindowEditState = value;
+            }
+        }
+
+        protected override System.Drawing.Point WindowSettingLocation
+        {
+            get
+            {
+                return Properties.Settings.Default.WindowEditLocation;
+            }
+            set
+            {
+                Properties.Settings.Default.WindowEditLocation = value;
+            }
+        }
 
         public WindowEdit(Config.Top p_config)
         {
@@ -57,7 +93,7 @@ namespace DeRange
 
         private void captureButton_Click(object sender, EventArgs e)
         {
-            ActiveWindowSelector selector = new ActiveWindowSelector();
+            Forms.ActiveWindowSelector selector = new Forms.ActiveWindowSelector();
             if( selector.ShowDialog() == DialogResult.OK )
             {
                 ((Config.Window)windowConfigListBox.SelectedItem).UpdateFrom(selector.Window);

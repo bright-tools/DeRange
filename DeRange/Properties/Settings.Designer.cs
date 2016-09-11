@@ -58,5 +58,185 @@ namespace DeRange.Properties {
                 this["ActiveWindowSelectorSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState ArrangementEditState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["ArrangementEditState"]));
+            }
+            set {
+                this["ArrangementEditState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point ArrangementEditLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["ArrangementEditLocation"]));
+            }
+            set {
+                this["ArrangementEditLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Size ArrangementEditSize {
+            get {
+                return ((global::System.Drawing.Size)(this["ArrangementEditSize"]));
+            }
+            set {
+                this["ArrangementEditSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState DeRangeMainState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["DeRangeMainState"]));
+            }
+            set {
+                this["DeRangeMainState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point DeRangeMainLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["DeRangeMainLocation"]));
+            }
+            set {
+                this["DeRangeMainLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Size DeRangeMainSize {
+            get {
+                return ((global::System.Drawing.Size)(this["DeRangeMainSize"]));
+            }
+            set {
+                this["DeRangeMainSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState LocationEditState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["LocationEditState"]));
+            }
+            set {
+                this["LocationEditState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point LocationEditLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["LocationEditLocation"]));
+            }
+            set {
+                this["LocationEditLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Size LocationEditSize {
+            get {
+                return ((global::System.Drawing.Size)(this["LocationEditSize"]));
+            }
+            set {
+                this["LocationEditSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState WindowEditState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["WindowEditState"]));
+            }
+            set {
+                this["WindowEditState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point WindowEditLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["WindowEditLocation"]));
+            }
+            set {
+                this["WindowEditLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Size WindowEditSize {
+            get {
+                return ((global::System.Drawing.Size)(this["WindowEditSize"]));
+            }
+            set {
+                this["WindowEditSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState WindowLocationSelectorState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["WindowLocationSelectorState"]));
+            }
+            set {
+                this["WindowLocationSelectorState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point WindowLocationSelectorLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["WindowLocationSelectorLocation"]));
+            }
+            set {
+                this["WindowLocationSelectorLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Size WindowLocationSelectorSize {
+            get {
+                return ((global::System.Drawing.Size)(this["WindowLocationSelectorSize"]));
+            }
+            set {
+                this["WindowLocationSelectorSize"] = value;
+            }
+        }
     }
 }

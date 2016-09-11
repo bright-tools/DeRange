@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace DeRange
 {
-    public partial class ArrangementEdit : Form
+    public partial class ArrangementEdit : ParentForm
     {
         Top m_config;
 
@@ -20,6 +20,42 @@ namespace DeRange
             get 
             {
                 return (Arrangement)(arrangementListBox.SelectedItem);
+            }
+        }
+
+        protected override System.Drawing.Size WindowSettingSize
+        {
+            get
+            {
+                return Properties.Settings.Default.ArrangementEditSize;
+            }
+            set
+            {
+                Properties.Settings.Default.ArrangementEditSize = value;
+            }
+        }
+
+        protected override System.Windows.Forms.FormWindowState WindowSettingState
+        {
+            get
+            {
+                return Properties.Settings.Default.ArrangementEditState;
+            }
+            set
+            {
+                Properties.Settings.Default.ArrangementEditState = value;
+            }
+        }
+
+        protected override System.Drawing.Point WindowSettingLocation
+        {
+            get
+            {
+                return Properties.Settings.Default.ArrangementEditLocation;
+            }
+            set
+            {
+                Properties.Settings.Default.ArrangementEditLocation = value;
             }
         }
 

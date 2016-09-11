@@ -1,18 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace DeRange
+namespace DeRange.Forms
 {
-    public partial class DeRange : Form
+    public partial class DeRange : ParentForm
     {
         private Config.Top m_config;
+
+        protected override System.Drawing.Size WindowSettingSize
+        {
+            get
+            {
+                return Properties.Settings.Default.DeRangeMainSize;
+            }
+            set
+            {
+                Properties.Settings.Default.DeRangeMainSize = value;
+            }
+        }
+
+        protected override System.Windows.Forms.FormWindowState WindowSettingState
+        {
+            get
+            {
+                return Properties.Settings.Default.DeRangeMainState;
+            }
+            set
+            {
+                Properties.Settings.Default.DeRangeMainState = value;
+            }
+        }
+
+        protected override System.Drawing.Point WindowSettingLocation
+        {
+            get
+            {
+                return Properties.Settings.Default.DeRangeMainLocation;
+            }
+            set
+            {
+                Properties.Settings.Default.DeRangeMainLocation = value;
+            }
+        }
+
         public DeRange(Config.Top p_config)
         {
             InitializeComponent();

@@ -9,11 +9,48 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Win32Interop.WinHandles;
 
-namespace DeRange
+namespace DeRange.Forms
 {
-    public partial class LocationEdit : Form
+    public partial class LocationEdit : ParentForm
     {
         private Config.Top m_config;
+
+        protected override System.Drawing.Size WindowSettingSize
+        {
+            get
+            {
+                return Properties.Settings.Default.LocationEditSize;
+            }
+            set
+            {
+                Properties.Settings.Default.LocationEditSize = value;
+            }
+        }
+
+        protected override System.Windows.Forms.FormWindowState WindowSettingState
+        {
+            get
+            {
+                return Properties.Settings.Default.LocationEditState;
+            }
+            set
+            {
+                Properties.Settings.Default.LocationEditState = value;
+            }
+        }
+
+        protected override System.Drawing.Point WindowSettingLocation
+        {
+            get
+            {
+                return Properties.Settings.Default.LocationEditLocation;
+            }
+            set
+            {
+                Properties.Settings.Default.LocationEditLocation = value;
+            }
+        }
+
         public LocationEdit(Config.Top p_config)
         {
             m_config = p_config;
@@ -64,7 +101,7 @@ namespace DeRange
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            ActiveWindowSelector winList = new ActiveWindowSelector();
+            Forms.ActiveWindowSelector winList = new Forms.ActiveWindowSelector();
 
             if (winList.ShowDialog() == DialogResult.OK)
             {
@@ -96,7 +133,7 @@ namespace DeRange
 
         private void updateFromWindowButton_Click(object sender, EventArgs e)
         {
-            ActiveWindowSelector winList = new ActiveWindowSelector();
+            Forms.ActiveWindowSelector winList = new Forms.ActiveWindowSelector();
 
             if (winList.ShowDialog() == DialogResult.OK)
             {

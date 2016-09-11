@@ -1,17 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Windows.Forms;
 using Win32Interop.WinHandles;
 
-namespace DeRange
+namespace DeRange.Forms
 {
-    public partial class ActiveWindowSelector : Form
+    public partial class ActiveWindowSelector : ParentForm
     {
         private List<WindowHandle> m_currentWindows = null;
 
         public WindowHandle Window { get; set; }
+
+        protected override System.Drawing.Size WindowSettingSize {
+            get
+            {
+                return Properties.Settings.Default.ActiveWindowSelectorSize;
+            }
+            set
+            {
+                Properties.Settings.Default.ActiveWindowSelectorSize = value;
+            }
+        }
+
+        protected override System.Windows.Forms.FormWindowState WindowSettingState {
+            get
+            {
+                return Properties.Settings.Default.ActiveWindowSelectorState;
+            }
+            set
+            {
+                Properties.Settings.Default.ActiveWindowSelectorState = value;
+            }
+        }
+
+        protected override System.Drawing.Point WindowSettingLocation {
+            get
+            {
+                return Properties.Settings.Default.ActiveWindowSelectorLocation;
+            }
+            set
+            {
+                Properties.Settings.Default.ActiveWindowSelectorLocation = value;
+            }
+        }
 
         public ActiveWindowSelector()
         {
@@ -51,40 +82,6 @@ namespace DeRange
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void ActiveWindowSelector_Load(object sender, EventArgs e)
-        {
-            if ((Properties.Settings.Default.ActiveWindowSelectorSize.Width != 0 ) && (Properties.Settings.Default.ActiveWindowSelectorSize.Height != 0))
-            {
-                this.WindowState = Properties.Settings.Default.ActiveWindowSelectorState;
-
-                // we don't want a minimized window at startup
-                if (this.WindowState == FormWindowState.Minimized) this.WindowState = FormWindowState.Normal;
-
-                this.Location = Properties.Settings.Default.ActiveWindowSelectorLocation;
-                this.Size = Properties.Settings.Default.ActiveWindowSelectorSize;
-            }
-        }
-
-        private void ActiveWindowSelector_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Properties.Settings.Default.ActiveWindowSelectorState = this.WindowState;
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                // save location and size if the state is normal
-                Properties.Settings.Default.ActiveWindowSelectorLocation = this.Location;
-                Properties.Settings.Default.ActiveWindowSelectorSize = this.Size;
-            }
-            else
-            {
-                // save the RestoreBounds if the form is minimized or maximized!
-                Properties.Settings.Default.ActiveWindowSelectorLocation = this.RestoreBounds.Location;
-                Properties.Settings.Default.ActiveWindowSelectorSize = this.RestoreBounds.Size;
-            }
-
-            // don't forget to save the settings
-            Properties.Settings.Default.Save();
         }
     }
 }

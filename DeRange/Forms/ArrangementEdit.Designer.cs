@@ -34,6 +34,7 @@
             this.addArrangementButton = new System.Windows.Forms.Button();
             this.arrangementListBox = new System.Windows.Forms.ListBox();
             this.deRangeArrangementListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
@@ -48,7 +49,6 @@
             this.altCheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.testButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -120,6 +120,16 @@
             this.arrangementListBox.Size = new System.Drawing.Size(170, 264);
             this.arrangementListBox.TabIndex = 0;
             this.arrangementListBox.SelectedIndexChanged += new System.EventHandler(this.arrangementListBox_SelectedIndexChanged);
+            // 
+            // testButton
+            // 
+            this.testButton.Location = new System.Drawing.Point(242, 286);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(38, 23);
+            this.testButton.TabIndex = 12;
+            this.testButton.Text = "Test";
+            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.Click += new System.EventHandler(this.testButton_Click);
             // 
             // removeButton
             // 
@@ -248,16 +258,6 @@
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 0;
             // 
-            // testButton
-            // 
-            this.testButton.Location = new System.Drawing.Point(242, 286);
-            this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(38, 23);
-            this.testButton.TabIndex = 12;
-            this.testButton.Text = "Test";
-            this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.testButton_Click);
-            // 
             // ArrangementEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +266,8 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "ArrangementEdit";
             this.Text = "ArrangementEdit";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.Load += new System.EventHandler(this.Form_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();

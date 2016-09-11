@@ -10,9 +10,45 @@ using System.Windows.Forms;
 
 namespace DeRange.Forms
 {
-    public partial class WindowLocationSelector : Form
+    public partial class WindowLocationSelector : ParentForm
     {
         private Config.Top m_config;
+
+        protected override System.Drawing.Size WindowSettingSize
+        {
+            get
+            {
+                return Properties.Settings.Default.WindowLocationSelectorSize;
+            }
+            set
+            {
+                Properties.Settings.Default.WindowLocationSelectorSize = value;
+            }
+        }
+
+        protected override System.Windows.Forms.FormWindowState WindowSettingState
+        {
+            get
+            {
+                return Properties.Settings.Default.WindowLocationSelectorState;
+            }
+            set
+            {
+                Properties.Settings.Default.WindowLocationSelectorState = value;
+            }
+        }
+
+        protected override System.Drawing.Point WindowSettingLocation
+        {
+            get
+            {
+                return Properties.Settings.Default.WindowLocationSelectorLocation;
+            }
+            set
+            {
+                Properties.Settings.Default.WindowLocationSelectorLocation = value;
+            }
+        }
 
         public Config.Window SelectedWindow
         {

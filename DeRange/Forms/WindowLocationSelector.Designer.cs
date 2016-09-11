@@ -127,6 +127,8 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "WindowLocationSelector";
             this.Text = "Choose Window & Location Combination";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.Load += new System.EventHandler(this.Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.locationListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowListBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);

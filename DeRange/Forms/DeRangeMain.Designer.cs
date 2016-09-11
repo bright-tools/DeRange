@@ -1,4 +1,4 @@
-﻿namespace DeRange
+﻿namespace DeRange.Forms
 {
     partial class DeRange
     {
@@ -73,6 +73,8 @@
             this.Controls.Add(this.showWindowsButton);
             this.Name = "DeRange";
             this.Text = "DeRange";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.Load += new System.EventHandler(this.Form_Load);
             this.ResumeLayout(false);
 
         }

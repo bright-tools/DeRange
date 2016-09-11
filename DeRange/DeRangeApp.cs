@@ -8,7 +8,7 @@ namespace DeRange
 {
     public class DeRangeApp : ApplicationContext
     {
-        DeRange configWindow;
+        Forms.DeRange configWindow;
         NotifyIcon notifyIcon;
         Config.Top config;
 
@@ -19,7 +19,7 @@ namespace DeRange
             setupNotifyIcon();
             loadConfig();
 
-            configWindow = new DeRange(config);
+            configWindow = new Forms.DeRange(config);
         }
 
         const String configFile = "derange_config.xml";
