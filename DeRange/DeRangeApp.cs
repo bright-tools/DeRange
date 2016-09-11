@@ -26,6 +26,12 @@ namespace DeRange
 
         void setupNotifyIcon()
         {
+            // TODO: Add ability to choose an arrangement to apply from the menu
+            
+            // TODO: Add import/export function from menu
+
+            // TODO: Add keyboard shortcuts to menu.
+
             MenuItem configMenuItem = new MenuItem("Configuration", new EventHandler(ShowConfig));
             MenuItem exitMenuItem = new MenuItem("Exit", new EventHandler(Exit));
 

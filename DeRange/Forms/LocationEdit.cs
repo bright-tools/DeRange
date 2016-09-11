@@ -84,7 +84,10 @@ namespace DeRange
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            if(positionList.SelectedItem!= null)
+            // TODO: Add warning/confirmation in the case that location is referenced in a
+            //       locatedwindow
+
+            if (positionList.SelectedItem!= null)
             {
                 m_config.WindowPositions.Remove((Config.Location)positionList.SelectedItem);
             }
