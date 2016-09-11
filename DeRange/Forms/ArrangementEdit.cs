@@ -16,6 +16,13 @@ namespace DeRange
     {
         Top m_config;
 
+        private Config.Arrangement SelectedArrangement {
+            get 
+            {
+                return (Arrangement)(arrangementListBox.SelectedItem);
+            }
+        }
+
         public ArrangementEdit(Top p_config)
         {
             m_config = p_config;
@@ -43,7 +50,7 @@ namespace DeRange
 
         private void removeArrangementButton_Click(object sender, EventArgs e)
         {
-            m_config.Arrangements.Remove((Arrangement)(arrangementListBox.SelectedItem));
+            m_config.Arrangements.Remove(SelectedArrangement);
         }
 
         private void SetArrangementEditEnabled(bool p_enabled)
@@ -57,8 +64,8 @@ namespace DeRange
 
             if( arrangementListBox.SelectedItem != null )
             {
-                keyboardShortCutBindingSource.DataSource = ((Arrangement)arrangementListBox.SelectedItem).Shortcut;
-                locatedWindowBindingSource.DataSource = ((Arrangement)arrangementListBox.SelectedItem).WindowPositions;
+                keyboardShortCutBindingSource.DataSource = SelectedArrangement.Shortcut;
+                locatedWindowBindingSource.DataSource = SelectedArrangement.WindowPositions;
             }
         }
 
@@ -85,14 +92,14 @@ namespace DeRange
                 locWin.LocationGUID = winSelect.SelectedLocation.GUID;
                 locWin.WindowGUID = winSelect.SelectedWindow.GUID;
 
-                ((Arrangement)(arrangementListBox.SelectedItem)).WindowPositions.Add(locWin);
+                SelectedArrangement.WindowPositions.Add(locWin);
                 updateLocatedWindowButtons();
             }
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            ((Arrangement)(arrangementListBox.SelectedItem)).WindowPositions.Remove((LocatedWindow)(locatedWindowListbox.SelectedItem));
+            SelectedArrangement.WindowPositions.Remove((LocatedWindow)(locatedWindowListbox.SelectedItem));
             updateLocatedWindowButtons();
         }
 
@@ -111,6 +118,11 @@ namespace DeRange
                 locWin.LocationGUID = winSelect.SelectedLocation.GUID;
                 locWin.WindowGUID = winSelect.SelectedWindow.GUID;
             }
+        }
+
+        private void testButton_Click(object sender, EventArgs e)
+        {
+            WindowModifier.ApplyArrangement(m_config, SelectedArrangement);
         }
     }
 }

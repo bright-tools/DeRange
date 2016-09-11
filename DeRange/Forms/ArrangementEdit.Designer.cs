@@ -48,6 +48,7 @@
             this.altCheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.testButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -72,6 +73,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.testButton);
             this.splitContainer1.Panel2.Controls.Add(this.removeButton);
             this.splitContainer1.Panel2.Controls.Add(this.updateButton);
             this.splitContainer1.Panel2.Controls.Add(this.addButton);
@@ -79,14 +81,14 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.nameTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(681, 262);
+            this.splitContainer1.Size = new System.Drawing.Size(681, 312);
             this.splitContainer1.SplitterDistance = 176;
             this.splitContainer1.TabIndex = 0;
             // 
             // removeArrangementButton
             // 
             this.removeArrangementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.removeArrangementButton.Location = new System.Drawing.Point(85, 236);
+            this.removeArrangementButton.Location = new System.Drawing.Point(85, 286);
             this.removeArrangementButton.Name = "removeArrangementButton";
             this.removeArrangementButton.Size = new System.Drawing.Size(75, 23);
             this.removeArrangementButton.TabIndex = 2;
@@ -97,7 +99,7 @@
             // addArrangementButton
             // 
             this.addArrangementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addArrangementButton.Location = new System.Drawing.Point(3, 236);
+            this.addArrangementButton.Location = new System.Drawing.Point(3, 286);
             this.addArrangementButton.Name = "addArrangementButton";
             this.addArrangementButton.Size = new System.Drawing.Size(75, 23);
             this.addArrangementButton.TabIndex = 1;
@@ -115,7 +117,7 @@
             this.arrangementListBox.FormattingEnabled = true;
             this.arrangementListBox.Location = new System.Drawing.Point(3, 13);
             this.arrangementListBox.Name = "arrangementListBox";
-            this.arrangementListBox.Size = new System.Drawing.Size(170, 212);
+            this.arrangementListBox.Size = new System.Drawing.Size(170, 264);
             this.arrangementListBox.TabIndex = 0;
             this.arrangementListBox.SelectedIndexChanged += new System.EventHandler(this.arrangementListBox_SelectedIndexChanged);
             // 
@@ -156,7 +158,7 @@
             this.locatedWindowListbox.FormattingEnabled = true;
             this.locatedWindowListbox.Location = new System.Drawing.Point(3, 163);
             this.locatedWindowListbox.Name = "locatedWindowListbox";
-            this.locatedWindowListbox.Size = new System.Drawing.Size(233, 95);
+            this.locatedWindowListbox.Size = new System.Drawing.Size(233, 147);
             this.locatedWindowListbox.TabIndex = 6;
             this.locatedWindowListbox.SelectedIndexChanged += new System.EventHandler(this.locatedWindowListbox_SelectedIndexChanged);
             // 
@@ -246,11 +248,21 @@
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 0;
             // 
+            // testButton
+            // 
+            this.testButton.Location = new System.Drawing.Point(242, 286);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(38, 23);
+            this.testButton.TabIndex = 12;
+            this.testButton.Text = "Test";
+            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            // 
             // ArrangementEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 262);
+            this.ClientSize = new System.Drawing.Size(681, 312);
             this.Controls.Add(this.splitContainer1);
             this.Name = "ArrangementEdit";
             this.Text = "ArrangementEdit";
@@ -289,5 +301,6 @@
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.Button testButton;
     }
 }

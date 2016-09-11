@@ -192,6 +192,10 @@ namespace DeRange.Config
             WindowHandleExtensions.WINDOWPLACEMENT placement = new WindowHandleExtensions.WINDOWPLACEMENT();
             p_windowHandle.GetWindowPlacement(ref placement);
 
+            // TODO: Look into how 'snapped' windows are handled (i.e. those that are
+            //       maximised in one dimension only.  The width/height don't seem
+            //       to reflect this.
+
             XPos = placement.rcNormalPosition.left;
             YPos = placement.rcNormalPosition.top;
             Width = placement.rcNormalPosition.right - XPos;

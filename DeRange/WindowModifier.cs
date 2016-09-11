@@ -5,6 +5,22 @@ namespace DeRange
 {
     class WindowModifier
     {
+        static public void ApplyArrangement(Config.Top p_config, Config.Arrangement p_arrangement)
+        {
+            foreach (Config.LocatedWindow locWin in p_arrangement.WindowPositions )
+            {
+                ApplyLocatedWindow(p_config,locWin);
+            }
+        }
+
+        static public void ApplyLocatedWindow(Config.Top p_config, Config.LocatedWindow p_locatedWindow )
+        {
+            Config.Location loc = p_config.GetLocation(p_locatedWindow.LocationGUID);
+            Config.Window win = p_config.GetWindow(p_locatedWindow.WindowGUID);
+
+            ApplyModification(win, loc);
+        }
+
         static public void ApplyModification(Config.Window p_win, Config.Location p_pos)
         {
             IEnumerable<WindowHandle> currentWindows = TopLevelWindowUtils.FindWindows(w => (w.IsVisible() == true) && (w.GetWindowText() != ""));
@@ -14,6 +30,18 @@ namespace DeRange
                 if (p_win.m_matchWindowClass)
                 {
                     if (p_win.m_windowClass.Equals(windowHandle.GetClassName()))
+                    {
+                        matches = true;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
+                if (p_win.m_matchWindowTitle)
+                {
+                    if (p_win.m_windowTitle.Equals(windowHandle.GetWindowText()))
                     {
                         matches = true;
                     }
