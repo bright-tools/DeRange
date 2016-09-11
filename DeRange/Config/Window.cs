@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using Win32Interop.WinHandles;
 
@@ -21,6 +22,8 @@ namespace DeRange.Config
             m_matchProcessFile = true;
             m_matchProcessName = true;
             m_matchWindowTitle = true;
+            WindowTitleIsRegex = false;
+            ProcessFileIsRegex = false;
         }
 
         private string mp_windowTitle;
@@ -47,6 +50,21 @@ namespace DeRange.Config
                 if( mp_matchWindowTitle != value )
                 {
                     mp_matchWindowTitle = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private bool mp_regexWindowTitle;
+        [XmlElement(ElementName = "WindowTitleAsRegex")]
+        public bool WindowTitleIsRegex
+        {
+            get { return mp_regexWindowTitle; }
+            set
+            {
+                if (mp_regexWindowTitle != value)
+                {
+                    mp_regexWindowTitle = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -111,6 +129,22 @@ namespace DeRange.Config
             }
         }
 
+        private bool mp_regexProcessFile;
+        [XmlElement(ElementName = "ProcessFileAsRegex")]
+        public bool ProcessFileIsRegex
+        {
+            get { return mp_regexProcessFile; }
+            set
+            {
+                if (mp_regexProcessFile != value)
+                {
+                    mp_regexProcessFile = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+
         private String mp_windowClass;
         [XmlElement(ElementName = "WindowClass")]
         public String m_windowClass
@@ -146,6 +180,66 @@ namespace DeRange.Config
             m_windowTitle = p_windowHandle.GetWindowText();
             m_windowClass = p_windowHandle.GetClassName();
             m_processFile = p_windowHandle.GetWindowExec();
+        }
+
+        public bool IsMatchFor(WindowHandle p_windowHandle)
+        {
+            bool matched = false;
+            bool failed = false;
+
+            if (m_matchWindowClass)
+            {
+                if (m_windowClass.Equals(p_windowHandle.GetClassName()))
+                {
+                    matched = true;
+                }
+                else
+                {
+                    failed = true;
+                }
+            }
+
+            if (m_matchProcessFile)
+            {
+                if (m_processFile.Equals(p_windowHandle.GetWindowExec()))
+                {
+                    matched = true;
+                }
+                else
+                {
+                    failed = true;
+                }
+            }
+
+            if (m_matchWindowTitle)
+            {
+                String windowTitle = p_windowHandle.GetWindowText();
+                if (WindowTitleIsRegex)
+                {
+                    Regex winTitleRegex = new Regex(m_windowTitle);
+                    if( winTitleRegex.IsMatch(windowTitle))
+                    {
+                        matched = true;
+                    }
+                    else
+                    {
+                        failed = true;
+                    }
+                }
+                else
+                {
+                    if (m_windowTitle.Equals(windowTitle))
+                    {
+                        matched = true;
+                    }
+                    else
+                    {
+                        failed = true;
+                    }
+                }
+            }
+
+            return matched && !failed;
         }
     }
 }

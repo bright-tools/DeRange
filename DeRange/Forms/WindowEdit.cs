@@ -46,6 +46,8 @@ namespace DeRange
             processFileMatchEnabledCheckbox.Enabled = p_enabled;
             windowNameMatchEnabledCheckbox.Enabled = p_enabled;
             windowClassMatchEnabledCheckbox.Enabled = p_enabled;
+            processFileAsRegexCheckbox.Enabled = p_enabled;
+            windowNameIsRegexCheckbox.Enabled = p_enabled;
         }
 
         private void activeWindowsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,6 +66,8 @@ namespace DeRange
 
         private void removeButton_Click(object sender, EventArgs e)
         {
+            // TODO: Add warning/confirmation in the case that window is referenced in a
+            //       locatedwindow
             m_config.WindowConfigurations.Remove((Config.Window)windowConfigListBox.SelectedItem);
             activeWindowsListBox_SelectedIndexChanged(sender, e);
         }
