@@ -52,5 +52,39 @@ namespace DeRange
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void ActiveWindowSelector_Load(object sender, EventArgs e)
+        {
+            if ((Properties.Settings.Default.ActiveWindowSelectorSize.Width != 0 ) && (Properties.Settings.Default.ActiveWindowSelectorSize.Height != 0))
+            {
+                this.WindowState = Properties.Settings.Default.ActiveWindowSelectorState;
+
+                // we don't want a minimized window at startup
+                if (this.WindowState == FormWindowState.Minimized) this.WindowState = FormWindowState.Normal;
+
+                this.Location = Properties.Settings.Default.ActiveWindowSelectorLocation;
+                this.Size = Properties.Settings.Default.ActiveWindowSelectorSize;
+            }
+        }
+
+        private void ActiveWindowSelector_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.ActiveWindowSelectorState = this.WindowState;
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                // save location and size if the state is normal
+                Properties.Settings.Default.ActiveWindowSelectorLocation = this.Location;
+                Properties.Settings.Default.ActiveWindowSelectorSize = this.Size;
+            }
+            else
+            {
+                // save the RestoreBounds if the form is minimized or maximized!
+                Properties.Settings.Default.ActiveWindowSelectorLocation = this.RestoreBounds.Location;
+                Properties.Settings.Default.ActiveWindowSelectorSize = this.RestoreBounds.Size;
+            }
+
+            // don't forget to save the settings
+            Properties.Settings.Default.Save();
+        }
     }
 }
