@@ -35,14 +35,18 @@
             this.arrangementListBox = new System.Windows.Forms.ListBox();
             this.deRangeArrangementListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.keyCombobox = new System.Windows.Forms.ComboBox();
+            this.keyboardShortCutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ctrlCheckbox = new System.Windows.Forms.CheckBox();
+            this.altCheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.altCheckbox = new System.Windows.Forms.CheckBox();
-            this.ctrlCheckbox = new System.Windows.Forms.CheckBox();
-            this.keyboardShortCutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.keyCombobox = new System.Windows.Forms.ComboBox();
+            this.locatedWindowListbox = new System.Windows.Forms.ListBox();
+            this.locatedWindowBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -50,6 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deRangeArrangementListBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyboardShortCutBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locatedWindowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -66,16 +71,20 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.updateButton);
+            this.splitContainer1.Panel2.Controls.Add(this.addButton);
+            this.splitContainer1.Panel2.Controls.Add(this.locatedWindowListbox);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.nameTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(681, 261);
+            this.splitContainer1.Size = new System.Drawing.Size(681, 262);
             this.splitContainer1.SplitterDistance = 176;
             this.splitContainer1.TabIndex = 0;
             // 
             // removeArrangementButton
             // 
-            this.removeArrangementButton.Location = new System.Drawing.Point(85, 235);
+            this.removeArrangementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.removeArrangementButton.Location = new System.Drawing.Point(85, 236);
             this.removeArrangementButton.Name = "removeArrangementButton";
             this.removeArrangementButton.Size = new System.Drawing.Size(75, 23);
             this.removeArrangementButton.TabIndex = 2;
@@ -85,7 +94,8 @@
             // 
             // addArrangementButton
             // 
-            this.addArrangementButton.Location = new System.Drawing.Point(3, 235);
+            this.addArrangementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addArrangementButton.Location = new System.Drawing.Point(3, 236);
             this.addArrangementButton.Name = "addArrangementButton";
             this.addArrangementButton.Size = new System.Drawing.Size(75, 23);
             this.addArrangementButton.TabIndex = 1;
@@ -95,12 +105,15 @@
             // 
             // arrangementListBox
             // 
+            this.arrangementListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.arrangementListBox.DataSource = this.deRangeArrangementListBindingSource;
             this.arrangementListBox.DisplayMember = "StringOf";
             this.arrangementListBox.FormattingEnabled = true;
-            this.arrangementListBox.Location = new System.Drawing.Point(0, 0);
+            this.arrangementListBox.Location = new System.Drawing.Point(3, 13);
             this.arrangementListBox.Name = "arrangementListBox";
-            this.arrangementListBox.Size = new System.Drawing.Size(173, 225);
+            this.arrangementListBox.Size = new System.Drawing.Size(170, 212);
             this.arrangementListBox.TabIndex = 0;
             this.arrangementListBox.SelectedIndexChanged += new System.EventHandler(this.arrangementListBox_SelectedIndexChanged);
             // 
@@ -117,6 +130,60 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Keyboard Shortcut";
+            // 
+            // keyCombobox
+            // 
+            this.keyCombobox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.keyboardShortCutBindingSource, "Key", true));
+            this.keyCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.keyCombobox.FormattingEnabled = true;
+            this.keyCombobox.Location = new System.Drawing.Point(6, 42);
+            this.keyCombobox.Name = "keyCombobox";
+            this.keyCombobox.Size = new System.Drawing.Size(194, 21);
+            this.keyCombobox.TabIndex = 9;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "WinModifier", true));
+            this.checkBox2.Location = new System.Drawing.Point(155, 19);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(45, 17);
+            this.checkBox2.TabIndex = 8;
+            this.checkBox2.Text = "Win";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "ShiftModifier", true));
+            this.checkBox1.Location = new System.Drawing.Point(106, 19);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(47, 17);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.Text = "Shift";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // ctrlCheckbox
+            // 
+            this.ctrlCheckbox.AutoSize = true;
+            this.ctrlCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "CtrlModifier", true));
+            this.ctrlCheckbox.Location = new System.Drawing.Point(59, 19);
+            this.ctrlCheckbox.Name = "ctrlCheckbox";
+            this.ctrlCheckbox.Size = new System.Drawing.Size(41, 17);
+            this.ctrlCheckbox.TabIndex = 6;
+            this.ctrlCheckbox.Text = "Ctrl";
+            this.ctrlCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // altCheckbox
+            // 
+            this.altCheckbox.AutoSize = true;
+            this.altCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "AltModifier", true));
+            this.altCheckbox.Location = new System.Drawing.Point(6, 19);
+            this.altCheckbox.Name = "altCheckbox";
+            this.altCheckbox.Size = new System.Drawing.Size(46, 17);
+            this.altCheckbox.TabIndex = 5;
+            this.altCheckbox.Text = "ALT";
+            this.altCheckbox.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -136,65 +203,39 @@
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 0;
             // 
-            // altCheckbox
+            // locatedWindowListbox
             // 
-            this.altCheckbox.AutoSize = true;
-            this.altCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "AltModifier", true));
-            this.altCheckbox.Location = new System.Drawing.Point(6, 19);
-            this.altCheckbox.Name = "altCheckbox";
-            this.altCheckbox.Size = new System.Drawing.Size(46, 17);
-            this.altCheckbox.TabIndex = 5;
-            this.altCheckbox.Text = "ALT";
-            this.altCheckbox.UseVisualStyleBackColor = true;
+            this.locatedWindowListbox.DataSource = this.locatedWindowBindingSource;
+            this.locatedWindowListbox.FormattingEnabled = true;
+            this.locatedWindowListbox.Location = new System.Drawing.Point(3, 163);
+            this.locatedWindowListbox.Name = "locatedWindowListbox";
+            this.locatedWindowListbox.Size = new System.Drawing.Size(233, 95);
+            this.locatedWindowListbox.TabIndex = 6;
             // 
-            // ctrlCheckbox
+            // addButton
             // 
-            this.ctrlCheckbox.AutoSize = true;
-            this.ctrlCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "CtrlModifier", true));
-            this.ctrlCheckbox.Location = new System.Drawing.Point(59, 19);
-            this.ctrlCheckbox.Name = "ctrlCheckbox";
-            this.ctrlCheckbox.Size = new System.Drawing.Size(41, 17);
-            this.ctrlCheckbox.TabIndex = 6;
-            this.ctrlCheckbox.Text = "Ctrl";
-            this.ctrlCheckbox.UseVisualStyleBackColor = true;
+            this.addButton.Location = new System.Drawing.Point(242, 163);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(38, 23);
+            this.addButton.TabIndex = 9;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // checkBox1
+            // updateButton
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "ShiftModifier", true));
-            this.checkBox1.Location = new System.Drawing.Point(106, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(47, 17);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Shift";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "WinModifier", true));
-            this.checkBox2.Location = new System.Drawing.Point(155, 19);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(45, 17);
-            this.checkBox2.TabIndex = 8;
-            this.checkBox2.Text = "Win";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // keyCombobox
-            // 
-            this.keyCombobox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.keyboardShortCutBindingSource, "Key", true));
-            this.keyCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.keyCombobox.FormattingEnabled = true;
-            this.keyCombobox.Location = new System.Drawing.Point(6, 42);
-            this.keyCombobox.Name = "keyCombobox";
-            this.keyCombobox.Size = new System.Drawing.Size(194, 21);
-            this.keyCombobox.TabIndex = 9;
+            this.updateButton.Location = new System.Drawing.Point(242, 192);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(38, 23);
+            this.updateButton.TabIndex = 10;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
             // 
             // ArrangementEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 261);
+            this.ClientSize = new System.Drawing.Size(681, 262);
             this.Controls.Add(this.splitContainer1);
             this.Name = "ArrangementEdit";
             this.Text = "ArrangementEdit";
@@ -207,6 +248,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyboardShortCutBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locatedWindowBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,5 +269,9 @@
         private System.Windows.Forms.ComboBox keyCombobox;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ListBox locatedWindowListbox;
+        private System.Windows.Forms.BindingSource locatedWindowBindingSource;
+        private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.Button addButton;
     }
 }

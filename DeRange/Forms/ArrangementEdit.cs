@@ -1,4 +1,5 @@
 ﻿using DeRange.Config;
+using DeRange.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,11 +28,9 @@ namespace DeRange
             if (m_config.Arrangements.Count > 0)
             {
                 arrangementListBox.SelectedItem = m_config.Arrangements[0];
+
                 keyboardShortCutBindingSource.DataSource = m_config.Arrangements[0].Shortcut;
-            }
-            else
-            {
-                keyboardShortCutBindingSource.DataSource = new Arrangement();
+                locatedWindowBindingSource.DataSource = m_config.Arrangements[0].WindowPositions;
             }
 
             m_config.Arrangements.ListChanged += windowConfigurationListChanged;
@@ -59,12 +58,19 @@ namespace DeRange
             if( arrangementListBox.SelectedItem != null )
             {
                 keyboardShortCutBindingSource.DataSource = ((Arrangement)arrangementListBox.SelectedItem).Shortcut;
+                locatedWindowBindingSource.DataSource = ((Arrangement)arrangementListBox.SelectedItem).WindowPositions;
             }
         }
 
         void windowConfigurationListChanged(object sender, ListChangedEventArgs e)
         {
 
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            WindowLocationSelector winSelect = new WindowLocationSelector( m_config );
+            winSelect.ShowDialog();
         }
     }
 }

@@ -64,16 +64,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActiveWindowSelector.cs">
+    <Compile Include="Forms\ActiveWindowSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ActiveWindowSelector.Designer.cs">
+    <Compile Include="Forms\ActiveWindowSelector.Designer.cs">
       <DependentUpon>ActiveWindowSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="ArrangementEdit.cs">
+    <Compile Include="Forms\ArrangementEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ArrangementEdit.Designer.cs">
+    <Compile Include="Forms\ArrangementEdit.Designer.cs">
       <DependentUpon>ArrangementEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Config\Arrangement.cs" />
@@ -82,45 +82,54 @@
     <Compile Include="DeRangeApp.cs" />
     <Compile Include="Config\Top.cs" />
     <Compile Include="Config\ParentItem.cs" />
-    <Compile Include="DeRangeMain.cs">
+    <Compile Include="Forms\DeRangeMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DeRangeMain.Designer.cs">
+    <Compile Include="Forms\DeRangeMain.Designer.cs">
       <DependentUpon>DeRangeMain.cs</DependentUpon>
     </Compile>
     <Compile Include="EnumBindingSourceDescription.cs" />
     <Compile Include="EnumDescriptionTypeConverter.cs" />
-    <Compile Include="LocationEdit.cs">
+    <Compile Include="Forms\LocationEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LocationEdit.Designer.cs">
+    <Compile Include="Forms\LocationEdit.Designer.cs">
       <DependentUpon>LocationEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Config\Window.cs" />
-    <Compile Include="WindowEdit.cs">
+    <Compile Include="Forms\WindowEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowEdit.Designer.cs">
+    <Compile Include="Forms\WindowEdit.Designer.cs">
       <DependentUpon>WindowEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WindowLocationSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WindowLocationSelector.Designer.cs">
+      <DependentUpon>WindowLocationSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowModifier.cs" />
     <Compile Include="Config\Location.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ActiveWindowSelector.resx">
+    <EmbeddedResource Include="Forms\ActiveWindowSelector.resx">
       <DependentUpon>ActiveWindowSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ArrangementEdit.resx">
+    <EmbeddedResource Include="Forms\ArrangementEdit.resx">
       <DependentUpon>ArrangementEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeRangeMain.resx">
+    <EmbeddedResource Include="Forms\DeRangeMain.resx">
       <DependentUpon>DeRangeMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LocationEdit.resx">
+    <EmbeddedResource Include="Forms\LocationEdit.resx">
       <DependentUpon>LocationEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowEdit.resx">
+    <EmbeddedResource Include="Forms\WindowEdit.resx">
       <DependentUpon>WindowEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WindowLocationSelector.resx">
+      <DependentUpon>WindowLocationSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
