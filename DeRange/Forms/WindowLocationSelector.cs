@@ -35,6 +35,22 @@ namespace DeRange.Forms
             okButton.Enabled = false;
         }
 
+        public WindowLocationSelector(Config.Top p_config, Guid p_windowGuid, Guid p_locationGuid ) : this( p_config )
+        {
+            Config.Window win = p_config.GetWindow(p_windowGuid);
+            Config.Location loc = p_config.GetLocation(p_locationGuid);
+
+            if( win != null )
+            {
+                windowListbox.SelectedItem = win;
+            }
+
+            if( loc != null )
+            {
+                locationListbox.SelectedItem = loc;
+            }
+        }
+
         private void updateButtons()
         {
             okButton.Enabled = ((windowListbox.SelectedItem != null) &&

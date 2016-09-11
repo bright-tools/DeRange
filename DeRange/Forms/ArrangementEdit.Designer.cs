@@ -34,6 +34,11 @@
             this.addArrangementButton = new System.Windows.Forms.Button();
             this.arrangementListBox = new System.Windows.Forms.ListBox();
             this.deRangeArrangementListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.removeButton = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
+            this.locatedWindowListbox = new System.Windows.Forms.ListBox();
+            this.locatedWindowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.keyCombobox = new System.Windows.Forms.ComboBox();
             this.keyboardShortCutBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -43,18 +48,14 @@
             this.altCheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.locatedWindowListbox = new System.Windows.Forms.ListBox();
-            this.locatedWindowBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.addButton = new System.Windows.Forms.Button();
-            this.updateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deRangeArrangementListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locatedWindowBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyboardShortCutBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.locatedWindowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -71,6 +72,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.removeButton);
             this.splitContainer1.Panel2.Controls.Add(this.updateButton);
             this.splitContainer1.Panel2.Controls.Add(this.addButton);
             this.splitContainer1.Panel2.Controls.Add(this.locatedWindowListbox);
@@ -116,6 +118,47 @@
             this.arrangementListBox.Size = new System.Drawing.Size(170, 212);
             this.arrangementListBox.TabIndex = 0;
             this.arrangementListBox.SelectedIndexChanged += new System.EventHandler(this.arrangementListBox_SelectedIndexChanged);
+            // 
+            // removeButton
+            // 
+            this.removeButton.Enabled = false;
+            this.removeButton.Location = new System.Drawing.Point(242, 221);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(38, 23);
+            this.removeButton.TabIndex = 11;
+            this.removeButton.Text = "Remove";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(242, 192);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(38, 23);
+            this.updateButton.TabIndex = 10;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(242, 163);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(38, 23);
+            this.addButton.TabIndex = 9;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // locatedWindowListbox
+            // 
+            this.locatedWindowListbox.DataSource = this.locatedWindowBindingSource;
+            this.locatedWindowListbox.FormattingEnabled = true;
+            this.locatedWindowListbox.Location = new System.Drawing.Point(3, 163);
+            this.locatedWindowListbox.Name = "locatedWindowListbox";
+            this.locatedWindowListbox.Size = new System.Drawing.Size(233, 95);
+            this.locatedWindowListbox.TabIndex = 6;
+            this.locatedWindowListbox.SelectedIndexChanged += new System.EventHandler(this.locatedWindowListbox_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -203,34 +246,6 @@
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 0;
             // 
-            // locatedWindowListbox
-            // 
-            this.locatedWindowListbox.DataSource = this.locatedWindowBindingSource;
-            this.locatedWindowListbox.FormattingEnabled = true;
-            this.locatedWindowListbox.Location = new System.Drawing.Point(3, 163);
-            this.locatedWindowListbox.Name = "locatedWindowListbox";
-            this.locatedWindowListbox.Size = new System.Drawing.Size(233, 95);
-            this.locatedWindowListbox.TabIndex = 6;
-            // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(242, 163);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(38, 23);
-            this.addButton.TabIndex = 9;
-            this.addButton.Text = "Add";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // updateButton
-            // 
-            this.updateButton.Location = new System.Drawing.Point(242, 192);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(38, 23);
-            this.updateButton.TabIndex = 10;
-            this.updateButton.Text = "Update";
-            this.updateButton.UseVisualStyleBackColor = true;
-            // 
             // ArrangementEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,10 +260,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.deRangeArrangementListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locatedWindowBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyboardShortCutBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.locatedWindowBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -273,5 +288,6 @@
         private System.Windows.Forms.BindingSource locatedWindowBindingSource;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button removeButton;
     }
 }

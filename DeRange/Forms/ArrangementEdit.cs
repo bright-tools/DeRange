@@ -67,10 +67,50 @@ namespace DeRange
 
         }
 
+        private void updateLocatedWindowButtons()
+        {
+            bool enabled = (locatedWindowListbox.SelectedItem != null);
+
+            removeButton.Enabled = enabled;
+            updateButton.Enabled = enabled;
+        }
+
         private void addButton_Click(object sender, EventArgs e)
         {
             WindowLocationSelector winSelect = new WindowLocationSelector( m_config );
-            winSelect.ShowDialog();
+            if( winSelect.ShowDialog() == DialogResult.OK )
+            {
+                LocatedWindow locWin = new LocatedWindow();
+
+                locWin.LocationGUID = winSelect.SelectedLocation.GUID;
+                locWin.WindowGUID = winSelect.SelectedWindow.GUID;
+
+                ((Arrangement)(arrangementListBox.SelectedItem)).WindowPositions.Add(locWin);
+                updateLocatedWindowButtons();
+            }
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            ((Arrangement)(arrangementListBox.SelectedItem)).WindowPositions.Remove((LocatedWindow)(locatedWindowListbox.SelectedItem));
+            updateLocatedWindowButtons();
+        }
+
+        private void locatedWindowListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateLocatedWindowButtons();
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            LocatedWindow locWin = (LocatedWindow)(locatedWindowListbox.SelectedItem);
+
+            WindowLocationSelector winSelect = new WindowLocationSelector(m_config,locWin.WindowGUID,locWin.LocationGUID);
+            if (winSelect.ShowDialog() == DialogResult.OK)
+            {
+                locWin.LocationGUID = winSelect.SelectedLocation.GUID;
+                locWin.WindowGUID = winSelect.SelectedWindow.GUID;
+            }
         }
     }
 }
