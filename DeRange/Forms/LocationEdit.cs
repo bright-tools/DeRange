@@ -86,11 +86,6 @@ namespace DeRange.Forms
             sizeEnabledCheckbox.Enabled = itemSelected;
         }
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateButtons();
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             bool enabled = xyPosEnabledCheckBox.Checked;
@@ -117,7 +112,6 @@ namespace DeRange.Forms
             Config.Location newPosn = new Config.Location();
             m_config.WindowPositions.Add(newPosn);
             positionList.SelectedItem = newPosn;
-            updateButtons();
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -129,7 +123,6 @@ namespace DeRange.Forms
             {
                 m_config.WindowPositions.Remove((Config.Location)positionList.SelectedItem);
             }
-            updateButtons();
         }
 
         private void updateFromWindowButton_Click(object sender, EventArgs e)
@@ -140,6 +133,11 @@ namespace DeRange.Forms
             {
                 ((Config.Location)positionList.SelectedItem).UpdateFrom(winList.Window);
             }
+        }
+
+        private void positionList_SelectedValueChanged(object sender, EventArgs e)
+        {
+            updateButtons();
         }
     }
 }

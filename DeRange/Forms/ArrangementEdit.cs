@@ -135,19 +135,12 @@ namespace DeRange
                 locWin.WindowGUID = winSelect.SelectedWindow.GUID;
 
                 SelectedArrangement.WindowPositions.Add(locWin);
-                updateLocatedWindowButtons();
             }
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
             SelectedArrangement.WindowPositions.Remove((LocatedWindow)(locatedWindowListbox.SelectedItem));
-            updateLocatedWindowButtons();
-        }
-
-        private void locatedWindowListbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateLocatedWindowButtons();
         }
 
         private void updateButton_Click(object sender, EventArgs e)
@@ -165,6 +158,11 @@ namespace DeRange
         private void testButton_Click(object sender, EventArgs e)
         {
             WindowModifier.ApplyArrangement(m_config, SelectedArrangement);
+        }
+
+        private void arrangementListBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            updateLocatedWindowButtons();
         }
     }
 }

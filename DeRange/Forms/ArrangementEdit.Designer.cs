@@ -88,7 +88,7 @@
             // removeArrangementButton
             // 
             this.removeArrangementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.removeArrangementButton.Location = new System.Drawing.Point(85, 286);
+            this.removeArrangementButton.Location = new System.Drawing.Point(85, 260);
             this.removeArrangementButton.Name = "removeArrangementButton";
             this.removeArrangementButton.Size = new System.Drawing.Size(75, 23);
             this.removeArrangementButton.TabIndex = 2;
@@ -99,7 +99,7 @@
             // addArrangementButton
             // 
             this.addArrangementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addArrangementButton.Location = new System.Drawing.Point(3, 286);
+            this.addArrangementButton.Location = new System.Drawing.Point(3, 260);
             this.addArrangementButton.Name = "addArrangementButton";
             this.addArrangementButton.Size = new System.Drawing.Size(75, 23);
             this.addArrangementButton.TabIndex = 1;
@@ -117,9 +117,10 @@
             this.arrangementListBox.FormattingEnabled = true;
             this.arrangementListBox.Location = new System.Drawing.Point(3, 13);
             this.arrangementListBox.Name = "arrangementListBox";
-            this.arrangementListBox.Size = new System.Drawing.Size(170, 264);
+            this.arrangementListBox.Size = new System.Drawing.Size(170, 238);
             this.arrangementListBox.TabIndex = 0;
             this.arrangementListBox.SelectedIndexChanged += new System.EventHandler(this.arrangementListBox_SelectedIndexChanged);
+            this.arrangementListBox.SelectedValueChanged += new System.EventHandler(this.arrangementListBox_SelectedValueChanged);
             // 
             // testButton
             // 
@@ -170,7 +171,6 @@
             this.locatedWindowListbox.Name = "locatedWindowListbox";
             this.locatedWindowListbox.Size = new System.Drawing.Size(233, 147);
             this.locatedWindowListbox.TabIndex = 6;
-            this.locatedWindowListbox.SelectedIndexChanged += new System.EventHandler(this.locatedWindowListbox_SelectedIndexChanged);
             // 
             // groupBox1
             // 

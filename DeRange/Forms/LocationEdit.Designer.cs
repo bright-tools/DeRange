@@ -122,6 +122,7 @@
             this.positionList.Name = "positionList";
             this.positionList.Size = new System.Drawing.Size(345, 238);
             this.positionList.TabIndex = 3;
+            this.positionList.SelectedValueChanged += new System.EventHandler(this.positionList_SelectedValueChanged);
             // 
             // statusComboBox
             // 

@@ -86,11 +86,6 @@ namespace DeRange.Forms
             windowNameIsRegexCheckbox.Enabled = p_enabled;
         }
 
-        private void activeWindowsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetConfigurationEditEnabled(windowConfigListBox.SelectedItem != null);   
-        }
-
         private void captureButton_Click(object sender, EventArgs e)
         {
             Forms.ActiveWindowSelector selector = new Forms.ActiveWindowSelector();
@@ -105,7 +100,6 @@ namespace DeRange.Forms
             // TODO: Add warning/confirmation in the case that window is referenced in a
             //       locatedwindow
             m_config.WindowConfigurations.Remove((Config.Window)windowConfigListBox.SelectedItem);
-            activeWindowsListBox_SelectedIndexChanged(sender, e);
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -114,6 +108,11 @@ namespace DeRange.Forms
             newConfig.m_windowTitle = "New";
             m_config.WindowConfigurations.Add(newConfig);
             windowConfigListBox.SelectedItem = newConfig;
+        }
+
+        private void activeWindowsListBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            SetConfigurationEditEnabled(windowConfigListBox.SelectedItem != null);
         }
     }
 }

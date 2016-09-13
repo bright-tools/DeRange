@@ -66,7 +66,7 @@
             this.windowConfigListBox.Name = "windowConfigListBox";
             this.windowConfigListBox.Size = new System.Drawing.Size(249, 342);
             this.windowConfigListBox.TabIndex = 2;
-            this.windowConfigListBox.SelectedIndexChanged += new System.EventHandler(this.activeWindowsListBox_SelectedIndexChanged);
+            this.windowConfigListBox.SelectedValueChanged += new System.EventHandler(this.activeWindowsListBox_SelectedValueChanged);
             // 
             // windowConfigurationsBindingSource
             // 
@@ -265,7 +265,7 @@
             this.ClientSize = new System.Drawing.Size(759, 392);
             this.Controls.Add(this.splitContainer1);
             this.Name = "WindowEdit";
-            this.Text = "DeRangeWindow";
+            this.Text = "Edit Window Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.Load += new System.EventHandler(this.Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.windowConfigurationsBindingSource)).EndInit();
