@@ -111,8 +111,9 @@ namespace DeRange.Forms
         private void addButton_Click(object sender, EventArgs e)
         {
             Config.Window newConfig = new Config.Window();
-            m_config.WindowConfigurations.Add(newConfig);
             newConfig.m_windowTitle = "New";
+            m_config.WindowConfigurations.Add(newConfig);
+            windowConfigListBox.SelectedItem = newConfig;
         }
     }
 }

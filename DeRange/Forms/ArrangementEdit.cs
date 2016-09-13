@@ -75,13 +75,19 @@ namespace DeRange
                 keyboardShortCutBindingSource.DataSource = m_config.Arrangements[0].Shortcut;
                 locatedWindowBindingSource.DataSource = m_config.Arrangements[0].WindowPositions;
             }
+            else
+            {
+                keyboardShortCutBindingSource.DataSource = new KeyboardShortcut();
+            }
 
             m_config.Arrangements.ListChanged += windowConfigurationListChanged;
         }
 
         private void addArrangementButton_Click(object sender, EventArgs e)
         {
-            m_config.Arrangements.Add(new Arrangement());
+            Arrangement newArrangement = new Arrangement();
+            m_config.Arrangements.Add( newArrangement );
+            arrangementListBox.SelectedItem = newArrangement;
         }
 
         private void removeArrangementButton_Click(object sender, EventArgs e)

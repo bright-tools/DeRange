@@ -116,6 +116,7 @@ namespace DeRange.Forms
         {
             Config.Location newPosn = new Config.Location();
             m_config.WindowPositions.Add(newPosn);
+            positionList.SelectedItem = newPosn;
             updateButtons();
         }
 
