@@ -200,6 +200,19 @@ namespace DeRange.Config
             YPos = placement.rcNormalPosition.top;
             Width = placement.rcNormalPosition.right - XPos;
             Height = placement.rcNormalPosition.bottom - YPos;
+
+            switch ( placement.showCmd)
+            {
+                case WindowHandleExtensions.WindowShowStyle.Maximize:
+                    Status = WindowStatus.Maximised;
+                    break;
+                case WindowHandleExtensions.WindowShowStyle.ShowMinimized:
+                    Status = WindowStatus.Minimised;
+                    break;
+                default:
+                    Status = WindowStatus.Located;
+                    break;
+            }
         }
     }
 }
