@@ -13,5 +13,31 @@ namespace DeRange.Config
         public bool AltModifier { get; set; }
         public bool WinModifier { get; set; }
         public Keys Key { get; set; }
+        public KeyModifier KeyModifier
+        {
+            get
+            {
+                KeyModifier mod = KeyModifier.None;
+
+                if (AltModifier)
+                {
+                    mod |= KeyModifier.Alt;
+                }
+                if (WinModifier)
+                {
+                    mod |= KeyModifier.Win;
+                }
+                if (ShiftModifier)
+                {
+                    mod |= KeyModifier.Shift;
+                }
+                if (CtrlModifier)
+                {
+                    mod |= KeyModifier.Ctrl;
+                }
+
+                return mod;
+            }
+        }
     }
 }
