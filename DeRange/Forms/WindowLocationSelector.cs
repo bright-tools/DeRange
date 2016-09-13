@@ -85,6 +85,8 @@ namespace DeRange.Forms
             {
                 locationListbox.SelectedItem = loc;
             }
+
+            updateButtons();
         }
 
         private void updateButtons()
@@ -93,13 +95,13 @@ namespace DeRange.Forms
                                 (locationListbox.SelectedItem != null));
         }
 
-        private void windowListbox_SelectedIndexChanged(object sender, EventArgs e)
+        private void windowListbox_SelectedValueChanged(object sender, EventArgs e)
         {
             updateButtons();
             SelectedWindow = (Config.Window)(windowListbox.SelectedItem);
         }
 
-        private void locationListbox_SelectedIndexChanged(object sender, EventArgs e)
+        private void locationListbox_SelectedValueChanged(object sender, EventArgs e)
         {
             updateButtons();
             SelectedLocation = (Config.Location)(locationListbox.SelectedItem);

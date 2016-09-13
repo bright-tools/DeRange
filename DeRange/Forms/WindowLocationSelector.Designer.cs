@@ -56,7 +56,7 @@
             this.locationListbox.Name = "locationListbox";
             this.locationListbox.Size = new System.Drawing.Size(458, 108);
             this.locationListbox.TabIndex = 10;
-            this.locationListbox.SelectedIndexChanged += new System.EventHandler(this.locationListbox_SelectedIndexChanged);
+            this.locationListbox.SelectedValueChanged += new System.EventHandler(this.locationListbox_SelectedValueChanged);
             // 
             // windowListbox
             // 
@@ -70,7 +70,7 @@
             this.windowListbox.Name = "windowListbox";
             this.windowListbox.Size = new System.Drawing.Size(458, 108);
             this.windowListbox.TabIndex = 9;
-            this.windowListbox.SelectedIndexChanged += new System.EventHandler(this.windowListbox_SelectedIndexChanged);
+            this.windowListbox.SelectedValueChanged += new System.EventHandler(this.windowListbox_SelectedValueChanged);
             // 
             // cancelButton
             // 
