@@ -28,6 +28,22 @@ namespace DeRange
             {
                 if (p_win.IsMatchFor(windowHandle))
                 {
+                    /* If it's a positioned or sized window and it's currently maximised or minimised, then restore it
+                     * prior to applying the position/sizing */
+                    if(p_pos.XYPosEnabled || p_pos.SizeEnabled)
+                    {
+                        WindowHandleExtensions.WINDOWPLACEMENT placement = new WindowHandleExtensions.WINDOWPLACEMENT();
+                        windowHandle.GetWindowPlacement(ref placement);
+
+                        switch( placement.showCmd )
+                        {
+                            case WindowHandleExtensions.WindowShowStyle.Maximize:
+                            case WindowHandleExtensions.WindowShowStyle.ShowMinimized:
+                                windowHandle.RestoreWindow();
+                                break;
+                        }
+                    }
+
                     if (p_pos.XYPosEnabled)
                     {
                         windowHandle.SetWindowXY(p_pos.XPos, p_pos.YPos);
