@@ -77,7 +77,7 @@ namespace DeRange
         {
             foreach( int id in m_hotKeys.Keys )
             {
-                UnregisterHotKey(IntPtr.Zero, id);
+                UnregisterHotKey(m_hwndSurrogate.Handle, id);
             }
             m_hotKeys.Clear();
         }
