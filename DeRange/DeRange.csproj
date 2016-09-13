@@ -50,6 +50,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
@@ -61,6 +63,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\ActiveWindowSelector.cs">
@@ -109,6 +112,7 @@
     <Compile Include="Forms\WindowLocationSelector.Designer.cs">
       <DependentUpon>WindowLocationSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="HotKeyManager.cs" />
     <Compile Include="WindowModifier.cs" />
     <Compile Include="Config\Location.cs" />
     <Compile Include="Program.cs" />
