@@ -68,7 +68,7 @@ namespace DeRange.Forms
             this.windowListBindingSource.DataSource = p_config.WindowConfigurations;
             this.locationListBindingSource.DataSource = p_config.WindowPositions;
 
-            okButton.Enabled = false;
+            updateButtons();
         }
 
         public WindowLocationSelector(Config.Top p_config, Guid p_windowGuid, Guid p_locationGuid ) : this( p_config )
