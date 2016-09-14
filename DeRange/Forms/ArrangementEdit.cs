@@ -81,6 +81,8 @@ namespace DeRange
             }
 
             m_config.Arrangements.ListChanged += windowConfigurationListChanged;
+
+            SetArrangementEditEnabled();
         }
 
         private void addArrangementButton_Click(object sender, EventArgs e)
@@ -95,20 +97,17 @@ namespace DeRange
             m_config.Arrangements.Remove(SelectedArrangement);
         }
 
-        private void SetArrangementEditEnabled(bool p_enabled)
+        private void SetArrangementEditEnabled()
         {
-            nameTextBox.Enabled = p_enabled;
-        }
-
-        private void arrangementListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetArrangementEditEnabled(arrangementListBox.SelectedItem != null);
-
-            if( arrangementListBox.SelectedItem != null )
-            {
-                keyboardShortCutBindingSource.DataSource = SelectedArrangement.Shortcut;
-                locatedWindowBindingSource.DataSource = SelectedArrangement.WindowPositions;
-            }
+            bool enabled = m_config.Arrangements.Count > 0;
+            nameTextBox.Enabled = enabled;
+            keyCombobox.Enabled = enabled;
+            ctrlCheckbox.Enabled = enabled;
+            altCheckbox.Enabled = enabled;
+            winCheckbox.Enabled = enabled;
+            shiftCheckbox.Enabled = enabled;
+            addButton.Enabled = enabled;
+            arrangementListBox.Enabled = enabled;
         }
 
         void windowConfigurationListChanged(object sender, ListChangedEventArgs e)
@@ -122,6 +121,7 @@ namespace DeRange
 
             removeButton.Enabled = enabled;
             updateButton.Enabled = enabled;
+            testButton.Enabled = enabled;
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -161,6 +161,21 @@ namespace DeRange
         }
 
         private void arrangementListBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            SetArrangementEditEnabled();
+            if (SelectedArrangement != null)
+            {
+                keyboardShortCutBindingSource.DataSource = SelectedArrangement.Shortcut;
+                locatedWindowBindingSource.DataSource = SelectedArrangement.WindowPositions;
+            }
+            else
+            {
+                keyboardShortCutBindingSource.DataSource = new KeyboardShortcut();
+                locatedWindowBindingSource.DataSource = new BindingList<LocatedWindow>();
+            }
+        }
+
+        private void locatedWindowListbox_SelectedValueChanged(object sender, EventArgs e)
         {
             updateLocatedWindowButtons();
         }

@@ -43,8 +43,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.keyCombobox = new System.Windows.Forms.ComboBox();
             this.keyboardShortCutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.winCheckbox = new System.Windows.Forms.CheckBox();
+            this.shiftCheckbox = new System.Windows.Forms.CheckBox();
             this.ctrlCheckbox = new System.Windows.Forms.CheckBox();
             this.altCheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -119,7 +119,6 @@
             this.arrangementListBox.Name = "arrangementListBox";
             this.arrangementListBox.Size = new System.Drawing.Size(170, 238);
             this.arrangementListBox.TabIndex = 0;
-            this.arrangementListBox.SelectedIndexChanged += new System.EventHandler(this.arrangementListBox_SelectedIndexChanged);
             this.arrangementListBox.SelectedValueChanged += new System.EventHandler(this.arrangementListBox_SelectedValueChanged);
             // 
             // testButton
@@ -171,12 +170,13 @@
             this.locatedWindowListbox.Name = "locatedWindowListbox";
             this.locatedWindowListbox.Size = new System.Drawing.Size(233, 147);
             this.locatedWindowListbox.TabIndex = 6;
+            this.locatedWindowListbox.SelectedValueChanged += new System.EventHandler(this.locatedWindowListbox_SelectedValueChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.keyCombobox);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.winCheckbox);
+            this.groupBox1.Controls.Add(this.shiftCheckbox);
             this.groupBox1.Controls.Add(this.ctrlCheckbox);
             this.groupBox1.Controls.Add(this.altCheckbox);
             this.groupBox1.Location = new System.Drawing.Point(11, 49);
@@ -196,27 +196,27 @@
             this.keyCombobox.Size = new System.Drawing.Size(194, 21);
             this.keyCombobox.TabIndex = 9;
             // 
-            // checkBox2
+            // winCheckbox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "WinModifier", true));
-            this.checkBox2.Location = new System.Drawing.Point(155, 19);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(45, 17);
-            this.checkBox2.TabIndex = 8;
-            this.checkBox2.Text = "Win";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.winCheckbox.AutoSize = true;
+            this.winCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "WinModifier", true));
+            this.winCheckbox.Location = new System.Drawing.Point(155, 19);
+            this.winCheckbox.Name = "winCheckbox";
+            this.winCheckbox.Size = new System.Drawing.Size(45, 17);
+            this.winCheckbox.TabIndex = 8;
+            this.winCheckbox.Text = "Win";
+            this.winCheckbox.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // shiftCheckbox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "ShiftModifier", true));
-            this.checkBox1.Location = new System.Drawing.Point(106, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(47, 17);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Shift";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.shiftCheckbox.AutoSize = true;
+            this.shiftCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "ShiftModifier", true));
+            this.shiftCheckbox.Location = new System.Drawing.Point(106, 19);
+            this.shiftCheckbox.Name = "shiftCheckbox";
+            this.shiftCheckbox.Size = new System.Drawing.Size(47, 17);
+            this.shiftCheckbox.TabIndex = 7;
+            this.shiftCheckbox.Text = "Shift";
+            this.shiftCheckbox.UseVisualStyleBackColor = true;
             // 
             // ctrlCheckbox
             // 
@@ -296,8 +296,8 @@
         private System.Windows.Forms.CheckBox ctrlCheckbox;
         private System.Windows.Forms.BindingSource keyboardShortCutBindingSource;
         private System.Windows.Forms.ComboBox keyCombobox;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox winCheckbox;
+        private System.Windows.Forms.CheckBox shiftCheckbox;
         private System.Windows.Forms.ListBox locatedWindowListbox;
         private System.Windows.Forms.BindingSource locatedWindowBindingSource;
         private System.Windows.Forms.Button updateButton;
