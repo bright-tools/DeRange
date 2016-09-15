@@ -76,15 +76,8 @@ namespace DeRange.Forms
             Config.Window win = p_config.GetWindow(p_windowGuid);
             Config.Location loc = p_config.GetLocation(p_locationGuid);
 
-            if( win != null )
-            {
-                windowListbox.SelectedItem = win;
-            }
-
-            if( loc != null )
-            {
-                locationListbox.SelectedItem = loc;
-            }
+            windowListbox.SelectedItem = win;
+            locationListbox.SelectedItem = loc;
 
             updateButtons();
         }

@@ -44,12 +44,12 @@ namespace DeRange.Config
 
         public Window GetWindow(Guid p_guid)
         {
-            return WindowConfigurations.First(d => d.GUID == p_guid);
+            return WindowConfigurations.SingleOrDefault(d => d.GUID == p_guid);
         }
 
         public Location GetLocation( Guid p_guid )
         {
-            return WindowPositions.First(d => d.GUID == p_guid);
+            return WindowPositions.SingleOrDefault(d => d.GUID == p_guid);
         }
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
