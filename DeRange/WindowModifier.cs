@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using Win32Interop.WinHandles;
 
@@ -35,9 +36,10 @@ namespace DeRange
             int midx = placement.rcNormalPosition.left + (width / 2);
             int midy = placement.rcNormalPosition.top + (height / 2);
 
+            Point midPoint = new Point(midx, midy);
+
             /* Is the mid-point on the specified screen? */
-            return (midx >= p_screen.WorkingArea.Left) && (midx =< p_screen.WorkingArea.Right) &&
-                   (midy >= p_screen.WorkingArea.Top) && (midy =< p_screen.WorkingArea.Bottom);
+            return p_screen.WorkingArea.Contains(midPoint);
         }
 
         static public void ApplyModification(Config.Window p_win, Config.Location p_pos)
