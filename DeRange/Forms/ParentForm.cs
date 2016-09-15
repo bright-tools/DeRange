@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.ComponentModel;
+using System.Drawing;
 
 namespace DeRange.Forms
 {
@@ -43,17 +44,40 @@ namespace DeRange.Forms
         protected abstract System.Windows.Forms.FormWindowState WindowSettingState { get; set; }
         protected abstract System.Drawing.Point                 WindowSettingLocation { get; set; }
 
+        private bool IsOnScreen( System.Drawing.Point p_point )
+        {
+            bool retVal = false;
+            /* Need to make sure that there's enough window for the user to 'grab', so
+             * we use a rect rather than just the top-left point */
+            Rectangle rect = new Rectangle(p_point.X, p_point.Y, 20, 20);
+            foreach( Screen screen in Screen.AllScreens )
+            {
+                if( screen.WorkingArea.Contains(rect))
+                {
+                    retVal = true;
+                    break;
+                }
+            }
+
+            return retVal;
+        }
+
         protected void Form_Load(object sender, EventArgs e)
         {
             if ((WindowSettingSize.Width != 0) && (WindowSettingSize.Height != 0))
             {
                 this.WindowState = WindowSettingState;
 
-                // we don't want a minimized window at startup
-                if (this.WindowState == FormWindowState.Minimized) this.WindowState = FormWindowState.Normal;
+                /* Check that the top-left point of the position that we're proposing to restore the
+                 * window to is on a screen before we do so.  Don't want to restore a window off-screen! */
+                if (IsOnScreen(WindowSettingLocation))
+                {
+                    // we don't want a minimized window at startup
+                    if (this.WindowState == FormWindowState.Minimized) this.WindowState = FormWindowState.Normal;
 
-                this.Location = WindowSettingLocation;
-                this.Size = WindowSettingSize;
+                    this.Location = WindowSettingLocation;
+                    this.Size = WindowSettingSize;
+                }
             }
         }
 
