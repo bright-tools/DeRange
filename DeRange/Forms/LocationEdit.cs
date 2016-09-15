@@ -73,7 +73,7 @@ namespace DeRange.Forms
             BindingList < KeyValuePair < int, string>> screenList = new BindingList<KeyValuePair<int, string>>();
             for ( int i = 0; i < Screen.AllScreens.Count(); i++ )
             {
-                screenList.Add( new KeyValuePair< int, string>(i, "X"+i.ToString() ));
+                screenList.Add( new KeyValuePair< int, string>(i, "on window "+i.ToString() ));
             }
             monitorCombobox.DataSource = screenList;
         }
