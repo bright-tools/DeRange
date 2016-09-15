@@ -55,6 +55,7 @@ namespace DeRange.Forms
         {
             m_config = p_config;
             InitializeComponent();
+            populateMonitorCombobox();
 
             this.statusComboBox.DataSource = System.Enum.GetValues(typeof(Config.Location.WindowStatus));
             this.deRangeWindowPositionListBindingSource.DataSource = m_config.WindowPositions;
@@ -65,6 +66,16 @@ namespace DeRange.Forms
             }
 
             updateButtons();
+        }
+
+        private void populateMonitorCombobox()
+        {
+            BindingList < KeyValuePair < int, string>> screenList = new BindingList<KeyValuePair<int, string>>();
+            for ( int i = 0; i < Screen.AllScreens.Count(); i++ )
+            {
+                screenList.Add( new KeyValuePair< int, string>(i, "X"+i.ToString() ));
+            }
+            monitorCombobox.DataSource = screenList;
         }
 
         private void updateButtons()
@@ -138,6 +149,11 @@ namespace DeRange.Forms
         private void positionList_SelectedValueChanged(object sender, EventArgs e)
         {
             updateButtons();
+        }
+
+        private void statusComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            monitorCombobox.Enabled = ((Config.Location.WindowStatus)statusComboBox.SelectedValue) == Config.Location.WindowStatus.Maximised;
         }
     }
 }

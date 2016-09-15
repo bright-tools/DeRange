@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using Win32Interop.WinHandles;
 
 namespace DeRange
@@ -21,6 +22,24 @@ namespace DeRange
             ApplyModification(win, loc);
         }
 
+        static public bool IsWindowOnScreen( WindowHandle p_handle, Screen p_screen )
+        {
+            WindowHandleExtensions.WINDOWPLACEMENT placement = new WindowHandleExtensions.WINDOWPLACEMENT();
+            p_handle.GetWindowPlacement(ref placement);
+
+            /* Work out where the mid-point of the window is.  The screen on which the midpoint resides will be
+             * the one on which the window maximises */
+            int width = placement.rcNormalPosition.right - placement.rcNormalPosition.left;
+            int height = placement.rcNormalPosition.bottom- placement.rcNormalPosition.top;
+
+            int midx = placement.rcNormalPosition.left + (width / 2);
+            int midy = placement.rcNormalPosition.top + (height / 2);
+
+            /* Is the mid-point on the specified screen? */
+            return (midx >= p_screen.WorkingArea.Left) && (midx =< p_screen.WorkingArea.Right) &&
+                   (midy >= p_screen.WorkingArea.Top) && (midy =< p_screen.WorkingArea.Bottom);
+        }
+
         static public void ApplyModification(Config.Window p_win, Config.Location p_pos)
         {
             IEnumerable<WindowHandle> currentWindows = TopLevelWindowUtils.FindWindows(w => (w.IsVisible() == true) && (w.GetWindowText() != ""));
@@ -30,7 +49,7 @@ namespace DeRange
                 {
                     /* If it's a positioned or sized window and it's currently maximised or minimised, then restore it
                      * prior to applying the position/sizing */
-                    if(p_pos.XYPosEnabled || p_pos.SizeEnabled)
+                    if(p_pos.XYPosEnabled || p_pos.SizeEnabled || (p_pos.Status == Config.Location.WindowStatus.Maximised))
                     {
                         WindowHandleExtensions.WINDOWPLACEMENT placement = new WindowHandleExtensions.WINDOWPLACEMENT();
                         windowHandle.GetWindowPlacement(ref placement);
@@ -56,6 +75,20 @@ namespace DeRange
                     switch( p_pos.Status )
                     {
                         case Config.Location.WindowStatus.Maximised:
+                            if (p_pos.MaximiseScreen < Screen.AllScreens.Length)
+                            {
+                                Screen screen = Screen.AllScreens[p_pos.MaximiseScreen];
+
+                                /* If the window is not on the screen to which it's specified to maximise,
+                                 * move it */
+                                if (!IsWindowOnScreen(windowHandle, screen))
+                                {
+                                    windowHandle.SetWindowXY(screen.WorkingArea.Left,
+                                                             screen.WorkingArea.Top );
+                                    windowHandle.SetWindowSize(screen.WorkingArea.Right - screen.WorkingArea.Left,
+                                                               screen.WorkingArea.Bottom - screen.WorkingArea.Top);
+                                }
+                            }
                             windowHandle.MaximizeWindow();
                             break;
                         case Config.Location.WindowStatus.Minimised:

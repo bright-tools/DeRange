@@ -34,6 +34,7 @@
             this.removePositionButton = new System.Windows.Forms.Button();
             this.addPositionButton = new System.Windows.Forms.Button();
             this.positionList = new System.Windows.Forms.ListBox();
+            this.monitorCombobox = new System.Windows.Forms.ComboBox();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.sizeEnabledCheckbox = new System.Windows.Forms.CheckBox();
             this.heightTextbox = new System.Windows.Forms.TextBox();
@@ -69,6 +70,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.monitorCombobox);
             this.splitContainer1.Panel2.Controls.Add(this.statusComboBox);
             this.splitContainer1.Panel2.Controls.Add(this.sizeEnabledCheckbox);
             this.splitContainer1.Panel2.Controls.Add(this.heightTextbox);
@@ -124,6 +126,18 @@
             this.positionList.TabIndex = 3;
             this.positionList.SelectedValueChanged += new System.EventHandler(this.positionList_SelectedValueChanged);
             // 
+            // monitorCombobox
+            // 
+            this.monitorCombobox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.deRangeWindowPositionListBindingSource, "MaximiseScreen", true));
+            this.monitorCombobox.DisplayMember = "Value";
+            this.monitorCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.monitorCombobox.Enabled = false;
+            this.monitorCombobox.Location = new System.Drawing.Point(176, 142);
+            this.monitorCombobox.Name = "monitorCombobox";
+            this.monitorCombobox.Size = new System.Drawing.Size(183, 21);
+            this.monitorCombobox.TabIndex = 22;
+            this.monitorCombobox.ValueMember = "Key";
+            // 
             // statusComboBox
             // 
             this.statusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.deRangeWindowPositionListBindingSource, "Status", true));
@@ -133,6 +147,7 @@
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(121, 21);
             this.statusComboBox.TabIndex = 21;
+            this.statusComboBox.SelectedValueChanged += new System.EventHandler(this.statusComboBox_SelectedValueChanged);
             // 
             // sizeEnabledCheckbox
             // 
@@ -300,5 +315,6 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Button removePositionButton;
         private System.Windows.Forms.ComboBox statusComboBox;
+        private System.Windows.Forms.ComboBox monitorCombobox;
     }
 }

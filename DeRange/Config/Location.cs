@@ -147,6 +147,21 @@ namespace DeRange.Config
             }
         }
 
+        private int mp_maximiseScreen;
+        [XmlElement(ElementName = "MaximiseScreen")]
+        public int MaximiseScreen
+        {
+            get { return mp_maximiseScreen; }
+            set
+            {
+                if (mp_maximiseScreen != value)
+                {
+                    mp_maximiseScreen = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         [XmlIgnore]
         public String StringOf
         {
