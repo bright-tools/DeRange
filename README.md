@@ -75,9 +75,7 @@ attributes.
 | Item | Description |
 |------|-------------|
 | Name | Just a name by which to refer to the arrangement |
-| Keyboard Shortcut | These controls allow the user to specify the keyboard
-shortcut associated with the arrangement.  The shortcut won't be active until
-the dialog is closed. |
+| Keyboard Shortcut | These controls allow the user to specify the keyboard shortcut associated with the arrangement.  The shortcut won't be active until the dialog is closed. |
 | Set Z-Index ... | The windows will appear on the screen in the order in which they appear in the list, i.e. the windows at the top will appear above those lower down |
 | Add, Update ... | These buttons allow the user the change which windows and locations are contained within the arrangement |
 
