@@ -85,6 +85,16 @@ In the example above:
 * The windows will be depth arrangement in order, so the Visual Studio window will appear above the Terminal window. 
 * Any windows which don't match those in the list will be moved to the back.
 
+## Q & A
+
+### When are my settings saved?
+
+Settings are saved when you exit DeRange.
+
+### I start DeRange but don't see a Window!
+
+DeRange starts up in the task tray area.
+
 ## Download
 
 Installers are available for download within the ["Releases"](https://github.com/bright-tools/DeRange/releases) area.
