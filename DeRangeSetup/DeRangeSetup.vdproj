@@ -230,15 +230,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DeRange"
-        "ProductCode" = "8:{F9EB4AEA-3111-441A-8961-BBEFC42BB8CE}"
-        "PackageCode" = "8:{DBA2B142-07AD-41E7-83B1-92B6B6975A2F}"
+        "ProductCode" = "8:{BE7CD890-6112-4382-814F-20D48B44FA1F}"
+        "PackageCode" = "8:{09F61457-D330-463E-BF5B-B80A3B6D6872}"
         "UpgradeCode" = "8:{58150C42-0AA2-43FE-B0C0-62CD792FB2AE}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:0.2.1.0"
         "Manufacturer" = "8:Bright Silence Ltd"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -766,7 +766,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_5E639DBD73D44AE2B2EA691271B13125"
             {
-            "SourcePath" = "8:..\\DeRange\\obj\\Release\\DeRange.exe"
+            "SourcePath" = "8:..\\DeRange\\obj\\Debug\\DeRange.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_02ADED76C6DE4B3CB22C527CD2253199"
