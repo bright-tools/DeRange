@@ -6,6 +6,7 @@ namespace DeRange.Forms
     public partial class DeRange : ParentForm
     {
         private Config.Top m_config;
+        private UserNotifier m_notifier;
 
         protected override System.Drawing.Size WindowSettingSize
         {
@@ -45,11 +46,12 @@ namespace DeRange.Forms
 
         HotKeyManager m_hotKeys = new HotKeyManager();
 
-        public DeRange(Config.Top p_config)
+        public DeRange(Config.Top p_config, UserNotifier p_notifier )
         {
             InitializeComponent();
 
             m_config = p_config;
+            m_notifier = p_notifier;
 
             resetHotKeys();
         }
@@ -81,10 +83,23 @@ namespace DeRange.Forms
         private void resetHotKeys()
         {
             m_hotKeys.UnregisterAll();
+            String failures = "";
 
             foreach (Config.Arrangement arrangement in m_config.Arrangements)
             {
-                m_hotKeys.Register(arrangement.Shortcut.Key, arrangement.Shortcut.KeyModifier, hotkeyCallback);
+                if( ! m_hotKeys.Register(arrangement.Shortcut.Key, arrangement.Shortcut.KeyModifier, hotkeyCallback) )
+                {
+                    if( failures.Length > 0 )
+                    {
+                        failures += ", ";
+                    }
+                    failures += arrangement.Name;
+                }
+            }
+
+            if( failures.Length > 0 )
+            {
+                m_notifier.Notify("Failed to bind keys", "Couldn't bind keys for arrangement(s): " + failures + ".\nSelected hotkeys likely already registered to a different application");
             }
         }
 

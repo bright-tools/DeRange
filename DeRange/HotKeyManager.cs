@@ -67,6 +67,7 @@ namespace DeRange
             {
                 retVal = false;
                 m_hotKeys.Remove(newKey.Id);
+
             }
 
             return retVal;
@@ -145,7 +146,7 @@ namespace DeRange
             }
         }
 
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll", SetLastError = true)]
         private static extern bool RegisterHotKey(IntPtr hWnd, int id, UInt32 fsModifiers, UInt32 vlc);
 
         [DllImport("user32.dll")]

@@ -119,6 +119,7 @@
       <DependentUpon>WindowLocationSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="HotKeyManager.cs" />
+    <Compile Include="UserNotifier.cs" />
     <Compile Include="WindowModifier.cs" />
     <Compile Include="Config\Location.cs" />
     <Compile Include="Program.cs" />

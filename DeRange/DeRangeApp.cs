@@ -6,7 +6,7 @@ using System.IO.IsolatedStorage;
 
 namespace DeRange
 {
-    public class DeRangeApp : ApplicationContext
+    public class DeRangeApp : ApplicationContext, UserNotifier
     {
         Forms.DeRange configWindow;
         NotifyIcon notifyIcon;
@@ -19,10 +19,17 @@ namespace DeRange
             setupNotifyIcon();
             loadConfig();
 
-            configWindow = new Forms.DeRange(config);
+            configWindow = new Forms.DeRange(config, this);
         }
 
         const String configFile = "derange_config.xml";
+
+        public void Notify(String title, String notification)
+        {
+            notifyIcon.BalloonTipTitle = title;
+            notifyIcon.BalloonTipText = notification;
+            notifyIcon.ShowBalloonTip(20000);
+        }
 
         void setupNotifyIcon()
         {
