@@ -23,6 +23,14 @@ namespace DeRange
             }
         }
 
+        private Config.LocatedWindow SelectedLocatedWindow
+        {
+            get
+            {
+                return (LocatedWindow)(locatedWindowListbox.SelectedItem);
+            }
+        }
+
         protected override System.Drawing.Size WindowSettingSize
         {
             get
@@ -67,6 +75,7 @@ namespace DeRange
 
             deRangeArrangementListBindingSource.DataSource = m_config.Arrangements;
             this.keyCombobox.DataSource = System.Enum.GetValues(typeof(Keys));
+            this.nonMatchingWindowsComboBox.DataSource = System.Enum.GetValues(typeof(Arrangement.NonMatchingStatus));
 
             if (m_config.Arrangements.Count > 0)
             {
@@ -108,6 +117,16 @@ namespace DeRange
             shiftCheckbox.Enabled = enabled;
             addButton.Enabled = enabled;
             arrangementListBox.Enabled = enabled;
+            nonMatchingWindowsComboBox.Enabled = enabled;
+
+            SetLocatedWindowButtons();
+        }
+
+        private void SetLocatedWindowButtons()
+        {
+            bool enabled = (m_config.Arrangements.Count > 0) && (SelectedArrangement!= null) && (SelectedLocatedWindow != null);
+            upButton.Enabled = enabled && (SelectedLocatedWindow != SelectedArrangement.WindowPositions.First());
+            downButton.Enabled = enabled && (SelectedLocatedWindow != SelectedArrangement.WindowPositions.Last());
         }
 
         void windowConfigurationListChanged(object sender, ListChangedEventArgs e)
@@ -140,18 +159,16 @@ namespace DeRange
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            SelectedArrangement.WindowPositions.Remove((LocatedWindow)(locatedWindowListbox.SelectedItem));
+            SelectedArrangement.WindowPositions.Remove(SelectedLocatedWindow);
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            LocatedWindow locWin = (LocatedWindow)(locatedWindowListbox.SelectedItem);
-
-            WindowLocationSelector winSelect = new WindowLocationSelector(m_config,locWin.WindowGUID,locWin.LocationGUID);
+            WindowLocationSelector winSelect = new WindowLocationSelector(m_config, SelectedLocatedWindow.WindowGUID, SelectedLocatedWindow.LocationGUID);
             if (winSelect.ShowDialog() == DialogResult.OK)
             {
-                locWin.LocationGUID = winSelect.SelectedLocation.GUID;
-                locWin.WindowGUID = winSelect.SelectedWindow.GUID;
+                SelectedLocatedWindow.LocationGUID = winSelect.SelectedLocation.GUID;
+                SelectedLocatedWindow.WindowGUID = winSelect.SelectedWindow.GUID;
             }
         }
 
@@ -178,6 +195,28 @@ namespace DeRange
         private void locatedWindowListbox_SelectedValueChanged(object sender, EventArgs e)
         {
             updateLocatedWindowButtons();
+
+            SetLocatedWindowButtons();
+        }
+
+        private void swapLocatedWindows( int p_first, int p_second )
+        {
+            BindingListUtils.Swap(SelectedArrangement.WindowPositions, p_first, p_second);
+            locatedWindowListbox.SelectedIndex = p_second;
+        }
+
+        private void upButton_Click(object sender, EventArgs e)
+        {
+            int selected = locatedWindowListbox.SelectedIndex;
+
+            swapLocatedWindows(selected, selected - 1);
+        }
+
+        private void downButton_Click(object sender, EventArgs e)
+        {
+            int selected = locatedWindowListbox.SelectedIndex;
+
+            swapLocatedWindows(selected, selected + 1);
         }
     }
 }

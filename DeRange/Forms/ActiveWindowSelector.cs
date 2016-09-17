@@ -57,7 +57,7 @@ namespace DeRange.Forms
         {
             activeWindowsListBox.Items.Clear();
 
-            IEnumerable<WindowHandle> currentWindows = TopLevelWindowUtils.FindWindows(w => (w.IsVisible() == true) && (w.GetWindowText() != ""));
+            IEnumerable<WindowHandle> currentWindows = WindowModifier.GetAllVisibleWindows();
 
             activeWindowsListBox.BeginUpdate();
 

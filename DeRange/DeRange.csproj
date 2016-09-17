@@ -67,6 +67,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindingListUtils.cs" />
     <Compile Include="Forms\ActiveWindowSelector.cs">
       <SubType>Form</SubType>
     </Compile>

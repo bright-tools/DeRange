@@ -2,25 +2,70 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Win32Interop.WinHandles;
+using System;
 
 namespace DeRange
 {
     class WindowModifier
     {
-        static public void ApplyArrangement(Config.Top p_config, Config.Arrangement p_arrangement)
+        static private void HandleNonMatchingWindows(Config.Arrangement p_arrangement, HashSet<WindowHandle> p_matched)
         {
-            foreach (Config.LocatedWindow locWin in p_arrangement.WindowPositions )
+            if (p_arrangement.NonMatchingWindowStatus != Config.Arrangement.NonMatchingStatus.NoChange)
             {
-                ApplyLocatedWindow(p_config,locWin);
+                /* Get all the visible windows */
+                HashSet<WindowHandle> allWindows = new HashSet<WindowHandle>(GetAllVisibleWindows());
+
+                /* Remove those we previously matched */
+                allWindows.ExceptWith(p_matched);
+
+                /* Apply appropriate change to each of the non-matched windows */
+                foreach (WindowHandle wHand in allWindows)
+                {
+                    switch (p_arrangement.NonMatchingWindowStatus)
+                    {
+                        case Config.Arrangement.NonMatchingStatus.Minimised:
+                            wHand.MinimizeWindow();
+                            break;
+                        case Config.Arrangement.NonMatchingStatus.MoveBehind:
+                            wHand.SetZPosition((IntPtr)(1));
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
         }
 
-        static public void ApplyLocatedWindow(Config.Top p_config, Config.LocatedWindow p_locatedWindow )
+        static public void ApplyArrangement(Config.Top p_config, Config.Arrangement p_arrangement)
+        {
+            HashSet<WindowHandle> matchedWindows = new HashSet<WindowHandle>();
+            IntPtr hwnd = IntPtr.Zero;
+
+            foreach (Config.LocatedWindow locWin in p_arrangement.WindowPositions)
+            {
+                HashSet<WindowHandle> thisLocWinMatches = ApplyLocatedWindow(p_config, locWin);
+
+                if (p_arrangement.SetZIndex)
+                {
+                    foreach (WindowHandle wHand in thisLocWinMatches)
+                    {
+                        wHand.SetZPosition(hwnd);
+                        hwnd = wHand.RawPtr;
+                    }
+                }
+
+                matchedWindows.UnionWith(thisLocWinMatches);
+            }
+
+            HandleNonMatchingWindows(p_arrangement, matchedWindows);
+        }
+
+        static public HashSet<WindowHandle> ApplyLocatedWindow(Config.Top p_config, Config.LocatedWindow p_locatedWindow )
         {
             Config.Location loc = p_config.GetLocation(p_locatedWindow.LocationGUID);
             Config.Window win = p_config.GetWindow(p_locatedWindow.WindowGUID);
 
-            ApplyModification(win, loc);
+            return ApplyModification(win, loc);
         }
 
         static public bool IsWindowOnScreen( WindowHandle p_handle, Screen p_screen )
@@ -42,13 +87,21 @@ namespace DeRange
             return p_screen.WorkingArea.Contains(midPoint);
         }
 
-        static public void ApplyModification(Config.Window p_win, Config.Location p_pos)
+        static public IEnumerable<WindowHandle> GetAllVisibleWindows()
         {
-            IEnumerable<WindowHandle> currentWindows = TopLevelWindowUtils.FindWindows(w => (w.IsVisible() == true) && (w.GetWindowText() != ""));
+            return TopLevelWindowUtils.FindWindows(w => (w.IsVisible() == true) && (w.GetWindowText() != ""));
+        }
+
+        static public HashSet<WindowHandle> ApplyModification(Config.Window p_win, Config.Location p_pos)
+        {
+            HashSet<WindowHandle> matches = new HashSet<WindowHandle>();
+            IEnumerable<WindowHandle> currentWindows = GetAllVisibleWindows();
             foreach (WindowHandle windowHandle in currentWindows)
             {
                 if (p_win.IsMatchFor(windowHandle))
                 {
+                    matches.Add(windowHandle);
+
                     /* If it's a positioned or sized window and it's currently maximised or minimised, then restore it
                      * prior to applying the position/sizing */
                     if(p_pos.XYPosEnabled || p_pos.SizeEnabled || (p_pos.Status == Config.Location.WindowStatus.Maximised))
@@ -105,6 +158,7 @@ namespace DeRange
                     }
                 }
             }
+            return matches;
         }
     }
 }
