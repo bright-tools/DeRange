@@ -34,8 +34,10 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.windowNameTextbox = new System.Windows.Forms.TextBox();
             this.processFileAsRegexCheckbox = new System.Windows.Forms.CheckBox();
-            this.windowNameIsRegexCheckbox = new System.Windows.Forms.CheckBox();
+            this.windowTitleIsRegexCheckbox = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.processFileMatchEnabledCheckbox = new System.Windows.Forms.CheckBox();
             this.windowClassMatchEnabledCheckbox = new System.Windows.Forms.CheckBox();
@@ -45,7 +47,7 @@
             this.windowClassTextbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.windowNameTextbox = new System.Windows.Forms.TextBox();
+            this.windowTitleTextbox = new System.Windows.Forms.TextBox();
             this.captureButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.windowConfigurationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -60,7 +62,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.windowConfigListBox.DataSource = this.windowConfigurationsBindingSource;
-            this.windowConfigListBox.DisplayMember = "m_windowTitle";
             this.windowConfigListBox.FormattingEnabled = true;
             this.windowConfigListBox.Location = new System.Drawing.Point(3, 3);
             this.windowConfigListBox.Name = "windowConfigListBox";
@@ -88,8 +89,10 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.label5);
+            this.splitContainer1.Panel2.Controls.Add(this.windowNameTextbox);
             this.splitContainer1.Panel2.Controls.Add(this.processFileAsRegexCheckbox);
-            this.splitContainer1.Panel2.Controls.Add(this.windowNameIsRegexCheckbox);
+            this.splitContainer1.Panel2.Controls.Add(this.windowTitleIsRegexCheckbox);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.processFileMatchEnabledCheckbox);
             this.splitContainer1.Panel2.Controls.Add(this.windowClassMatchEnabledCheckbox);
@@ -99,7 +102,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.windowClassTextbox);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Panel2.Controls.Add(this.windowNameTextbox);
+            this.splitContainer1.Panel2.Controls.Add(this.windowTitleTextbox);
             this.splitContainer1.Panel2.Controls.Add(this.captureButton);
             this.splitContainer1.Size = new System.Drawing.Size(743, 375);
             this.splitContainer1.SplitterDistance = 257;
@@ -128,32 +131,50 @@
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Name";
+            // 
+            // windowNameTextbox
+            // 
+            this.windowNameTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.windowConfigurationsBindingSource, "WindowName", true));
+            this.windowNameTextbox.Enabled = false;
+            this.windowNameTextbox.Location = new System.Drawing.Point(95, 3);
+            this.windowNameTextbox.Name = "windowNameTextbox";
+            this.windowNameTextbox.Size = new System.Drawing.Size(262, 20);
+            this.windowNameTextbox.TabIndex = 23;
+            // 
             // processFileAsRegexCheckbox
             // 
             this.processFileAsRegexCheckbox.AutoSize = true;
             this.processFileAsRegexCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "ProcessFileIsRegex", true));
             this.processFileAsRegexCheckbox.Enabled = false;
-            this.processFileAsRegexCheckbox.Location = new System.Drawing.Point(453, 84);
+            this.processFileAsRegexCheckbox.Location = new System.Drawing.Point(451, 114);
             this.processFileAsRegexCheckbox.Name = "processFileAsRegexCheckbox";
             this.processFileAsRegexCheckbox.Size = new System.Drawing.Size(15, 14);
             this.processFileAsRegexCheckbox.TabIndex = 22;
             this.processFileAsRegexCheckbox.UseVisualStyleBackColor = true;
             // 
-            // windowNameIsRegexCheckbox
+            // windowTitleIsRegexCheckbox
             // 
-            this.windowNameIsRegexCheckbox.AutoSize = true;
-            this.windowNameIsRegexCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "WindowTitleIsRegex", true));
-            this.windowNameIsRegexCheckbox.Enabled = false;
-            this.windowNameIsRegexCheckbox.Location = new System.Drawing.Point(453, 31);
-            this.windowNameIsRegexCheckbox.Name = "windowNameIsRegexCheckbox";
-            this.windowNameIsRegexCheckbox.Size = new System.Drawing.Size(15, 14);
-            this.windowNameIsRegexCheckbox.TabIndex = 21;
-            this.windowNameIsRegexCheckbox.UseVisualStyleBackColor = true;
+            this.windowTitleIsRegexCheckbox.AutoSize = true;
+            this.windowTitleIsRegexCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "WindowTitleIsRegex", true));
+            this.windowTitleIsRegexCheckbox.Enabled = false;
+            this.windowTitleIsRegexCheckbox.Location = new System.Drawing.Point(451, 63);
+            this.windowTitleIsRegexCheckbox.Name = "windowTitleIsRegexCheckbox";
+            this.windowTitleIsRegexCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.windowTitleIsRegexCheckbox.TabIndex = 21;
+            this.windowTitleIsRegexCheckbox.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(441, 5);
+            this.label4.Location = new System.Drawing.Point(439, 35);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 20;
@@ -164,7 +185,7 @@
             this.processFileMatchEnabledCheckbox.AutoSize = true;
             this.processFileMatchEnabledCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "m_matchProcessFile", true));
             this.processFileMatchEnabledCheckbox.Enabled = false;
-            this.processFileMatchEnabledCheckbox.Location = new System.Drawing.Point(392, 84);
+            this.processFileMatchEnabledCheckbox.Location = new System.Drawing.Point(390, 114);
             this.processFileMatchEnabledCheckbox.Name = "processFileMatchEnabledCheckbox";
             this.processFileMatchEnabledCheckbox.Size = new System.Drawing.Size(15, 14);
             this.processFileMatchEnabledCheckbox.TabIndex = 19;
@@ -175,7 +196,7 @@
             this.windowClassMatchEnabledCheckbox.AutoSize = true;
             this.windowClassMatchEnabledCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "m_matchWindowClass", true));
             this.windowClassMatchEnabledCheckbox.Enabled = false;
-            this.windowClassMatchEnabledCheckbox.Location = new System.Drawing.Point(392, 58);
+            this.windowClassMatchEnabledCheckbox.Location = new System.Drawing.Point(390, 88);
             this.windowClassMatchEnabledCheckbox.Name = "windowClassMatchEnabledCheckbox";
             this.windowClassMatchEnabledCheckbox.Size = new System.Drawing.Size(15, 14);
             this.windowClassMatchEnabledCheckbox.TabIndex = 18;
@@ -186,7 +207,7 @@
             this.windowNameMatchEnabledCheckbox.AutoSize = true;
             this.windowNameMatchEnabledCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.windowConfigurationsBindingSource, "m_matchWindowTitle", true));
             this.windowNameMatchEnabledCheckbox.Enabled = false;
-            this.windowNameMatchEnabledCheckbox.Location = new System.Drawing.Point(392, 33);
+            this.windowNameMatchEnabledCheckbox.Location = new System.Drawing.Point(390, 63);
             this.windowNameMatchEnabledCheckbox.Name = "windowNameMatchEnabledCheckbox";
             this.windowNameMatchEnabledCheckbox.Size = new System.Drawing.Size(15, 14);
             this.windowNameMatchEnabledCheckbox.TabIndex = 17;
@@ -195,7 +216,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(359, 5);
+            this.label3.Location = new System.Drawing.Point(357, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 16;
@@ -205,7 +226,7 @@
             // 
             this.processFileTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.windowConfigurationsBindingSource, "m_processFile", true));
             this.processFileTextbox.Enabled = false;
-            this.processFileTextbox.Location = new System.Drawing.Point(97, 80);
+            this.processFileTextbox.Location = new System.Drawing.Point(95, 110);
             this.processFileTextbox.Name = "processFileTextbox";
             this.processFileTextbox.Size = new System.Drawing.Size(262, 20);
             this.processFileTextbox.TabIndex = 15;
@@ -214,7 +235,7 @@
             // 
             this.windowClassTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.windowConfigurationsBindingSource, "m_windowClass", true));
             this.windowClassTextbox.Enabled = false;
-            this.windowClassTextbox.Location = new System.Drawing.Point(97, 54);
+            this.windowClassTextbox.Location = new System.Drawing.Point(95, 84);
             this.windowClassTextbox.Name = "windowClassTextbox";
             this.windowClassTextbox.Size = new System.Drawing.Size(262, 20);
             this.windowClassTextbox.TabIndex = 14;
@@ -222,7 +243,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 57);
+            this.label2.Location = new System.Drawing.Point(12, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 13;
@@ -231,20 +252,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 33);
+            this.label1.Location = new System.Drawing.Point(12, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Window Name";
+            this.label1.Text = "Window Title";
             // 
-            // windowNameTextbox
+            // windowTitleTextbox
             // 
-            this.windowNameTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.windowConfigurationsBindingSource, "m_windowTitle", true));
-            this.windowNameTextbox.Enabled = false;
-            this.windowNameTextbox.Location = new System.Drawing.Point(97, 30);
-            this.windowNameTextbox.Name = "windowNameTextbox";
-            this.windowNameTextbox.Size = new System.Drawing.Size(262, 20);
-            this.windowNameTextbox.TabIndex = 11;
+            this.windowTitleTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.windowConfigurationsBindingSource, "m_windowTitle", true));
+            this.windowTitleTextbox.Enabled = false;
+            this.windowTitleTextbox.Location = new System.Drawing.Point(95, 60);
+            this.windowTitleTextbox.Name = "windowTitleTextbox";
+            this.windowTitleTextbox.Size = new System.Drawing.Size(262, 20);
+            this.windowTitleTextbox.TabIndex = 11;
             // 
             // captureButton
             // 
@@ -293,9 +314,11 @@
         private System.Windows.Forms.TextBox windowClassTextbox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox windowNameTextbox;
+        private System.Windows.Forms.TextBox windowTitleTextbox;
         private System.Windows.Forms.CheckBox processFileAsRegexCheckbox;
-        private System.Windows.Forms.CheckBox windowNameIsRegexCheckbox;
+        private System.Windows.Forms.CheckBox windowTitleIsRegexCheckbox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox windowNameTextbox;
     }
 }

@@ -18,7 +18,12 @@ namespace DeRange.Config
             {
                 if (mp_guid != value)
                 {
+                    Registry<ParentItem>.UnRegister(this);
+
                     mp_guid = value;
+
+                    Registry<ParentItem>.Register(this);
+
                     NotifyPropertyChanged();
                 }
             }

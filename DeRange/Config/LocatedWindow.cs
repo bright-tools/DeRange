@@ -25,12 +25,21 @@ namespace DeRange.Config
             set;
         } = Guid.Empty;
 
-        public String StringOf( Top p_top )
+        public override string ToString()
         {
-            Location loc = p_top.GetLocation(LocationGUID);
-            Window win = p_top.GetWindow(WindowGUID);
+            Object locObj = Registry<ParentItem>.Query(LocationGUID);
+            Object winObj = Registry<ParentItem>.Query(WindowGUID);
+            string retVal = base.ToString();
 
-            return win + " @ " + loc;
+            if(( locObj.GetType() == typeof( Location )) &&
+               ( winObj.GetType() == typeof( Window )))
+            {
+                Window win = (Window)winObj;
+                Location loc = (Location)locObj;
+
+                retVal = win.ToString() + " @ " + loc.StringOf;
+            }
+            return retVal;
         }
     }
 }

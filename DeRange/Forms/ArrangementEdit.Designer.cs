@@ -91,14 +91,14 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.nameTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(681, 348);
-            this.splitContainer1.SplitterDistance = 176;
+            this.splitContainer1.Size = new System.Drawing.Size(674, 311);
+            this.splitContainer1.SplitterDistance = 174;
             this.splitContainer1.TabIndex = 0;
             // 
             // removeArrangementButton
             // 
             this.removeArrangementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.removeArrangementButton.Location = new System.Drawing.Point(98, 322);
+            this.removeArrangementButton.Location = new System.Drawing.Point(98, 285);
             this.removeArrangementButton.Name = "removeArrangementButton";
             this.removeArrangementButton.Size = new System.Drawing.Size(75, 23);
             this.removeArrangementButton.TabIndex = 2;
@@ -109,7 +109,7 @@
             // addArrangementButton
             // 
             this.addArrangementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addArrangementButton.Location = new System.Drawing.Point(3, 322);
+            this.addArrangementButton.Location = new System.Drawing.Point(3, 285);
             this.addArrangementButton.Name = "addArrangementButton";
             this.addArrangementButton.Size = new System.Drawing.Size(75, 23);
             this.addArrangementButton.TabIndex = 1;
@@ -127,7 +127,7 @@
             this.arrangementListBox.FormattingEnabled = true;
             this.arrangementListBox.Location = new System.Drawing.Point(3, 13);
             this.arrangementListBox.Name = "arrangementListBox";
-            this.arrangementListBox.Size = new System.Drawing.Size(170, 303);
+            this.arrangementListBox.Size = new System.Drawing.Size(168, 251);
             this.arrangementListBox.TabIndex = 0;
             this.arrangementListBox.SelectedValueChanged += new System.EventHandler(this.arrangementListBox_SelectedValueChanged);
             // 
@@ -164,8 +164,9 @@
             // 
             // downButton
             // 
+            this.downButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.downButton.Enabled = false;
-            this.downButton.Location = new System.Drawing.Point(242, 279);
+            this.downButton.Location = new System.Drawing.Point(410, 242);
             this.downButton.Name = "downButton";
             this.downButton.Size = new System.Drawing.Size(74, 23);
             this.downButton.TabIndex = 14;
@@ -175,8 +176,9 @@
             // 
             // upButton
             // 
+            this.upButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.upButton.Enabled = false;
-            this.upButton.Location = new System.Drawing.Point(242, 250);
+            this.upButton.Location = new System.Drawing.Point(410, 213);
             this.upButton.Name = "upButton";
             this.upButton.Size = new System.Drawing.Size(74, 23);
             this.upButton.TabIndex = 13;
@@ -186,7 +188,8 @@
             // 
             // testButton
             // 
-            this.testButton.Location = new System.Drawing.Point(242, 313);
+            this.testButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.testButton.Location = new System.Drawing.Point(410, 276);
             this.testButton.Name = "testButton";
             this.testButton.Size = new System.Drawing.Size(74, 23);
             this.testButton.TabIndex = 12;
@@ -196,8 +199,9 @@
             // 
             // removeButton
             // 
+            this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.removeButton.Enabled = false;
-            this.removeButton.Location = new System.Drawing.Point(242, 221);
+            this.removeButton.Location = new System.Drawing.Point(410, 184);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(74, 23);
             this.removeButton.TabIndex = 11;
@@ -207,7 +211,8 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(242, 192);
+            this.updateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.updateButton.Location = new System.Drawing.Point(410, 155);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(74, 23);
             this.updateButton.TabIndex = 10;
@@ -217,7 +222,8 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(242, 163);
+            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addButton.Location = new System.Drawing.Point(410, 126);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(74, 23);
             this.addButton.TabIndex = 9;
@@ -227,11 +233,14 @@
             // 
             // locatedWindowListbox
             // 
+            this.locatedWindowListbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.locatedWindowListbox.DataSource = this.locatedWindowBindingSource;
             this.locatedWindowListbox.FormattingEnabled = true;
             this.locatedWindowListbox.Location = new System.Drawing.Point(3, 163);
             this.locatedWindowListbox.Name = "locatedWindowListbox";
-            this.locatedWindowListbox.Size = new System.Drawing.Size(233, 173);
+            this.locatedWindowListbox.Size = new System.Drawing.Size(401, 134);
             this.locatedWindowListbox.TabIndex = 6;
             this.locatedWindowListbox.SelectedValueChanged += new System.EventHandler(this.locatedWindowListbox_SelectedValueChanged);
             // 
@@ -325,8 +334,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 348);
+            this.ClientSize = new System.Drawing.Size(674, 311);
             this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(690, 350);
             this.Name = "ArrangementEdit";
             this.Text = "ArrangementEdit";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);

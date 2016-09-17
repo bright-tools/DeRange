@@ -26,6 +26,21 @@ namespace DeRange.Config
             ProcessFileIsRegex = false;
         }
 
+        private string mp_windowName;
+        [XmlElement(ElementName = "WindowName")]
+        public String WindowName
+        {
+            get { return mp_windowName; }
+            set
+            {
+                if (mp_windowName != value)
+                {
+                    mp_windowName = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         private string mp_windowTitle;
         [XmlElement(ElementName = "WindowTitle")]
         public String m_windowTitle {
@@ -180,6 +195,20 @@ namespace DeRange.Config
             m_windowTitle = p_windowHandle.GetWindowText();
             m_windowClass = p_windowHandle.GetClassName();
             m_processFile = p_windowHandle.GetWindowExec();
+        }
+
+        public override string ToString()
+        {
+            string retVal = base.ToString();
+            if(( WindowName != null ) && ( WindowName.Length >0 ))
+            {
+                retVal = WindowName;
+            }
+            else if(( m_windowTitle!= null ) && ( m_windowTitle.Length > 0))
+            {
+                retVal = m_windowTitle;
+            }
+            return retVal;
         }
 
         public bool IsMatchFor(WindowHandle p_windowHandle)

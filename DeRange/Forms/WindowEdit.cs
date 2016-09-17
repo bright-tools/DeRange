@@ -75,15 +75,16 @@ namespace DeRange.Forms
         private void SetConfigurationEditEnabled( bool p_enabled )
         {
             captureButton.Enabled = p_enabled;
-            
+
             windowNameTextbox.Enabled = p_enabled;
+            windowTitleTextbox.Enabled = p_enabled;
             windowClassTextbox.Enabled = p_enabled;
             processFileTextbox.Enabled = p_enabled;
             processFileMatchEnabledCheckbox.Enabled = p_enabled;
             windowNameMatchEnabledCheckbox.Enabled = p_enabled;
             windowClassMatchEnabledCheckbox.Enabled = p_enabled;
             processFileAsRegexCheckbox.Enabled = p_enabled;
-            windowNameIsRegexCheckbox.Enabled = p_enabled;
+            windowTitleIsRegexCheckbox.Enabled = p_enabled;
         }
 
         private void captureButton_Click(object sender, EventArgs e)
