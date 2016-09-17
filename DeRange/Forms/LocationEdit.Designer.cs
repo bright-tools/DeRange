@@ -281,7 +281,7 @@
             this.ClientSize = new System.Drawing.Size(742, 283);
             this.Controls.Add(this.splitContainer1);
             this.Name = "LocationEdit";
-            this.Text = "DeRangePositionEdit";
+            this.Text = "Edit Window Location";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.Load += new System.EventHandler(this.Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.deRangeWindowPositionListBindingSource)).EndInit();

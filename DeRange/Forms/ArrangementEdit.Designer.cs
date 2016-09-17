@@ -338,7 +338,7 @@
             this.Controls.Add(this.splitContainer1);
             this.MinimumSize = new System.Drawing.Size(690, 350);
             this.Name = "ArrangementEdit";
-            this.Text = "ArrangementEdit";
+            this.Text = "Edit Window Arrangement";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.Load += new System.EventHandler(this.Form_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
