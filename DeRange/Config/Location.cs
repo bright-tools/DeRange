@@ -44,7 +44,7 @@ namespace DeRange.Config
             }
         }
 
-        private bool mp_xyposEnabled;
+        private bool mp_xyposEnabled = true;
         [XmlElement(ElementName = "XYPosEnabled")]
         public bool XYPosEnabled
         {
@@ -89,7 +89,7 @@ namespace DeRange.Config
             }
         }
 
-        private bool mp_sizeEnabled;
+        private bool mp_sizeEnabled = true;
         [XmlElement(ElementName = "SizeEnabled")]
         public bool SizeEnabled
         {
