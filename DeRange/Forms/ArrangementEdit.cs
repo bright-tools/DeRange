@@ -126,8 +126,8 @@ namespace DeRange
         private void SetLocatedWindowButtons()
         {
             bool enabled = (m_config.Arrangements.Count > 0) && (SelectedArrangement!= null) && (SelectedLocatedWindow != null);
-            upButton.Enabled = enabled && (SelectedLocatedWindow != SelectedArrangement.WindowPositions.First());
-            downButton.Enabled = enabled && (SelectedLocatedWindow != SelectedArrangement.WindowPositions.Last());
+            upButton.Enabled = enabled && (SelectedLocatedWindow != SelectedArrangement.WindowPositions.FirstOrDefault());
+            downButton.Enabled = enabled && (SelectedLocatedWindow != SelectedArrangement.WindowPositions.LastOrDefault());
         }
 
         void windowConfigurationListChanged(object sender, ListChangedEventArgs e)
