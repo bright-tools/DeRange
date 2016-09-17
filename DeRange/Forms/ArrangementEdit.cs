@@ -118,6 +118,7 @@ namespace DeRange
             addButton.Enabled = enabled;
             arrangementListBox.Enabled = enabled;
             nonMatchingWindowsComboBox.Enabled = enabled;
+            setZIndexCheckBox.Enabled = enabled;
 
             SetLocatedWindowButtons();
         }
