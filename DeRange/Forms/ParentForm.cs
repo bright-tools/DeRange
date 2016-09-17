@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 using System.ComponentModel;
 using System.Drawing;
+using DeRange.Properties;
 
 namespace DeRange.Forms
 {
@@ -43,6 +44,11 @@ namespace DeRange.Forms
         protected abstract System.Drawing.Size                  WindowSettingSize { get; set; }
         protected abstract System.Windows.Forms.FormWindowState WindowSettingState { get; set; }
         protected abstract System.Drawing.Point                 WindowSettingLocation { get; set; }
+
+        public ParentForm() : base()
+        {
+            this.Icon = Resources.tray_icon;
+        }
 
         private bool IsOnScreen( System.Drawing.Point p_point )
         {

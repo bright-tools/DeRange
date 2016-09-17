@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.5 r10040"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="tray_icon.png"
+   inkscape:export-filename="F:\WORK\GIT\DeRange\assets\tray_icon.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -24,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="-70.714286"
-     inkscape:cy="520"
+     inkscape:zoom="1.979899"
+     inkscape:cx="409.68402"
+     inkscape:cy="792.74261"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -52,31 +55,55 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect2985"
        width="260"
-       height="140"
+       height="102.3309"
        x="68.571426"
-       y="72.362183"
+       y="69.331726"
        rx="0"
        ry="2.8571396" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect2985-1"
        width="260"
-       height="67.714287"
-       x="67.14286"
-       y="222.36218"
+       height="104.89085"
+       x="68.637787"
+       y="187.2059"
        rx="0"
        ry="2.8571396" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:8;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect2985-7"
        width="50.369732"
-       height="218.94116"
-       x="340.52945"
-       y="72.891602"
+       height="222.27962"
+       x="344.52945"
+       y="69.861145"
        rx="0"
        ry="2.8571396" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:853.00016403%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="127.27922"
+       y="153.8315"
+       id="text3780"
+       sodipodi:linespacing="853.00016%"><tspan
+         sodipodi:role="line"
+         id="tspan3782"
+         x="127.27922"
+         y="153.8315"
+         style="font-size:100px;line-height:853.00016403%">DE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:64px;font-style:normal;font-weight:normal;line-height:853.00016403%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="85.414261"
+       y="262.85858"
+       id="text3780-4"
+       sodipodi:linespacing="853.00016%"><tspan
+         sodipodi:role="line"
+         id="tspan3782-0"
+         x="85.414261"
+         y="262.85858"
+         style="font-size:64px;line-height:853.00016403%">RANGE</tspan></text>
   </g>
 </svg>
