@@ -45,6 +45,9 @@ namespace DeRange.Forms
         }
 
         HotKeyManager m_hotKeys = new HotKeyManager();
+        ArrangementEdit m_arrangementEdit = null;
+        LocationEdit m_locationEdit = null;
+        WindowEdit m_winEdit = null;
 
         public DeRange(Config.Top p_config, UserNotifier p_notifier )
         {
@@ -58,14 +61,30 @@ namespace DeRange.Forms
 
         private void showWindowsButton_Click(object sender, EventArgs e)
         {
-            WindowEdit winList = new WindowEdit(m_config);
-            winList.Show();
+            if (m_winEdit == null)
+            {
+                m_winEdit = new WindowEdit(m_config);
+                m_winEdit.FormClosing += windowsEditDone;
+                m_winEdit.Show();
+            } 
+            else
+            {
+                m_winEdit.Activate();
+            }
         }
 
         private void showWindowPositionsButton_Click(object sender, EventArgs e)
         {
-            LocationEdit winPost = new LocationEdit(m_config);
-            winPost.Show();
+            if (m_locationEdit == null)
+            {
+                m_locationEdit = new LocationEdit(m_config);
+                m_locationEdit.FormClosing += locationEditDone;
+                m_locationEdit.Show();
+            } 
+            else
+            {
+                m_locationEdit.Activate();
+            }
         }
 
         private void hotkeyCallback(HotKeyManager.HotKey p_hotKey)
@@ -103,16 +122,34 @@ namespace DeRange.Forms
             }
         }
 
+        private void windowsEditDone(object sender, FormClosingEventArgs e)
+        {
+            m_winEdit = null;
+        }
+
+        private void locationEditDone(object sender, FormClosingEventArgs e)
+        {
+            m_locationEdit = null;
+        }
+
         private void arrangementEditDone(object sender, FormClosingEventArgs e)
         {
+            m_arrangementEdit = null;
             resetHotKeys();
         }
 
         private void showWindowCollectionButton_Click(object sender, EventArgs e)
         {
-            ArrangementEdit winArr = new ArrangementEdit(m_config);
-            winArr.FormClosing += arrangementEditDone;
-            winArr.Show();
+            if (m_arrangementEdit == null)
+            {
+                m_arrangementEdit = new ArrangementEdit(m_config);
+                m_arrangementEdit.FormClosing += arrangementEditDone;
+                m_arrangementEdit.Show();
+            }
+            else
+            {
+                m_arrangementEdit.Activate();
+            }
         }
     }
 }
