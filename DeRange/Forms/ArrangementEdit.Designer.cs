@@ -91,8 +91,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.nameTextBox);
-            this.splitContainer1.Size = new System.Drawing.Size(674, 311);
-            this.splitContainer1.SplitterDistance = 174;
+            this.splitContainer1.Size = new System.Drawing.Size(699, 311);
+            this.splitContainer1.SplitterDistance = 180;
             this.splitContainer1.TabIndex = 0;
             // 
             // removeArrangementButton
@@ -127,7 +127,7 @@
             this.arrangementListBox.FormattingEnabled = true;
             this.arrangementListBox.Location = new System.Drawing.Point(3, 13);
             this.arrangementListBox.Name = "arrangementListBox";
-            this.arrangementListBox.Size = new System.Drawing.Size(168, 251);
+            this.arrangementListBox.Size = new System.Drawing.Size(174, 251);
             this.arrangementListBox.TabIndex = 0;
             this.arrangementListBox.SelectedValueChanged += new System.EventHandler(this.arrangementListBox_SelectedValueChanged);
             // 
@@ -166,9 +166,9 @@
             // 
             this.downButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.downButton.Enabled = false;
-            this.downButton.Location = new System.Drawing.Point(410, 242);
+            this.downButton.Location = new System.Drawing.Point(412, 242);
             this.downButton.Name = "downButton";
-            this.downButton.Size = new System.Drawing.Size(74, 23);
+            this.downButton.Size = new System.Drawing.Size(91, 23);
             this.downButton.TabIndex = 14;
             this.downButton.Text = "Move Down";
             this.downButton.UseVisualStyleBackColor = true;
@@ -178,9 +178,9 @@
             // 
             this.upButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.upButton.Enabled = false;
-            this.upButton.Location = new System.Drawing.Point(410, 213);
+            this.upButton.Location = new System.Drawing.Point(412, 213);
             this.upButton.Name = "upButton";
-            this.upButton.Size = new System.Drawing.Size(74, 23);
+            this.upButton.Size = new System.Drawing.Size(91, 23);
             this.upButton.TabIndex = 13;
             this.upButton.Text = "Move Up";
             this.upButton.UseVisualStyleBackColor = true;
@@ -189,9 +189,9 @@
             // testButton
             // 
             this.testButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.testButton.Location = new System.Drawing.Point(410, 276);
+            this.testButton.Location = new System.Drawing.Point(412, 276);
             this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(74, 23);
+            this.testButton.Size = new System.Drawing.Size(91, 23);
             this.testButton.TabIndex = 12;
             this.testButton.Text = "Test";
             this.testButton.UseVisualStyleBackColor = true;
@@ -201,9 +201,11 @@
             // 
             this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.removeButton.Enabled = false;
-            this.removeButton.Location = new System.Drawing.Point(410, 184);
+            this.removeButton.Image = global::DeRange.Properties.Resources.Remove_16x;
+            this.removeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.removeButton.Location = new System.Drawing.Point(412, 184);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(74, 23);
+            this.removeButton.Size = new System.Drawing.Size(91, 23);
             this.removeButton.TabIndex = 11;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
@@ -212,9 +214,11 @@
             // updateButton
             // 
             this.updateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.updateButton.Location = new System.Drawing.Point(410, 155);
+            this.updateButton.Image = global::DeRange.Properties.Resources.UpdateListItem_16x;
+            this.updateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.updateButton.Location = new System.Drawing.Point(412, 155);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(74, 23);
+            this.updateButton.Size = new System.Drawing.Size(91, 23);
             this.updateButton.TabIndex = 10;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
@@ -223,9 +227,11 @@
             // addButton
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addButton.Location = new System.Drawing.Point(410, 126);
+            this.addButton.Image = global::DeRange.Properties.Resources.Add_16x;
+            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addButton.Location = new System.Drawing.Point(412, 126);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(74, 23);
+            this.addButton.Size = new System.Drawing.Size(91, 23);
             this.addButton.TabIndex = 9;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
@@ -238,9 +244,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.locatedWindowListbox.DataSource = this.locatedWindowBindingSource;
             this.locatedWindowListbox.FormattingEnabled = true;
-            this.locatedWindowListbox.Location = new System.Drawing.Point(3, 163);
+            this.locatedWindowListbox.Location = new System.Drawing.Point(5, 126);
             this.locatedWindowListbox.Name = "locatedWindowListbox";
-            this.locatedWindowListbox.Size = new System.Drawing.Size(401, 134);
+            this.locatedWindowListbox.Size = new System.Drawing.Size(401, 173);
             this.locatedWindowListbox.TabIndex = 6;
             this.locatedWindowListbox.SelectedValueChanged += new System.EventHandler(this.locatedWindowListbox_SelectedValueChanged);
             // 
@@ -334,7 +340,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 311);
+            this.ClientSize = new System.Drawing.Size(699, 311);
             this.Controls.Add(this.splitContainer1);
             this.MinimumSize = new System.Drawing.Size(690, 350);
             this.Name = "ArrangementEdit";

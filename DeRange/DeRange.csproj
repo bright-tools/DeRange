@@ -185,7 +185,12 @@
       <Name>Win32Interop.WinHandles</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\Add_14x.png" />
+    <None Include="Resources\Add_16x.png" />
+    <Content Include="Resources\Remove_16x.png" />
+    <None Include="Resources\UpdateListItem_16x.png" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
