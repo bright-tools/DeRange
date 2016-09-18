@@ -106,6 +106,12 @@
       <DependentUpon>LocationEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Config\Window.cs" />
+    <Compile Include="Forms\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ParentForm.cs" />
     <Compile Include="Forms\WindowEdit.cs">
       <SubType>Form</SubType>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LocationEdit.resx">
       <DependentUpon>LocationEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WindowEdit.resx">
       <DependentUpon>WindowEdit.cs</DependentUpon>

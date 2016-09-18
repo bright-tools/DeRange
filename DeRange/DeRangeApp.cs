@@ -3,12 +3,14 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.IO;
 using System.IO.IsolatedStorage;
+using Microsoft.Win32;
 
 namespace DeRange
 {
     public class DeRangeApp : ApplicationContext, UserNotifier
     {
         Forms.DeRange configWindow;
+        Forms.Options optionsWindow;
         NotifyIcon notifyIcon;
         Config.Top config;
 
@@ -19,10 +21,26 @@ namespace DeRange
             setupNotifyIcon();
             loadConfig();
 
+            checkOptions();
+
             configWindow = new Forms.DeRange(config, this);
         }
 
         const String configFile = "derange_config.xml";
+
+        private void checkOptions()
+        {
+            RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            
+            if ( Properties.Settings.Default.RunAtStartup )
+            {
+                rkApp.SetValue("DeRange", Application.ExecutablePath);
+            }
+            else
+            {
+                rkApp.DeleteValue("DeRange", false);
+            }
+        }
 
         public void Notify(String title, String notification)
         {
@@ -40,11 +58,12 @@ namespace DeRange
             // TODO: Add keyboard shortcuts to menu.
 
             MenuItem configMenuItem = new MenuItem("Configuration", new EventHandler(ShowConfig));
+            MenuItem optionsMenuItem = new MenuItem("Options", new EventHandler(ShowOptions));
             MenuItem exitMenuItem = new MenuItem("Exit", new EventHandler(Exit));
 
             notifyIcon = new NotifyIcon();
             notifyIcon.Icon = Properties.Resources.tray_icon;
-            notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { configMenuItem, exitMenuItem });
+            notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { configMenuItem, optionsMenuItem, exitMenuItem });
             notifyIcon.Visible = true;
         }
 
@@ -95,6 +114,27 @@ namespace DeRange
             }
         }
 
+        void ShowOptions(object sender, EventArgs e)
+        {
+            // If we are already showing the window, merely focus it.
+            if (optionsWindow == null)
+            {
+                optionsWindow = new Forms.Options();
+                optionsWindow.FormClosed += optionsFormClosed;
+                optionsWindow.Show();
+            }
+            else
+            {
+                optionsWindow.Activate();
+            }
+        }
+
+        void optionsFormClosed(object sender, EventArgs e)
+        {
+            optionsWindow = null;
+            checkOptions();
+        }
+
         void ShowConfig(object sender, EventArgs e)
         {
             // If we are already showing the window, merely focus it.
@@ -116,6 +156,8 @@ namespace DeRange
         private void OnApplicationExit(object sender, EventArgs e)
         {
             writeConfig();
+            Properties.Settings.Default.Save();
+
             //Cleanup so that the icon will be removed when the application is closed
             notifyIcon.Visible = false;
         }

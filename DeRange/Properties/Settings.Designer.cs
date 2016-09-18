@@ -238,5 +238,53 @@ namespace DeRange.Properties {
                 this["WindowLocationSelectorSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RunAtStartup {
+            get {
+                return ((bool)(this["RunAtStartup"]));
+            }
+            set {
+                this["RunAtStartup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState OptionsEditState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["OptionsEditState"]));
+            }
+            set {
+                this["OptionsEditState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Size OptionsEditSize {
+            get {
+                return ((global::System.Drawing.Size)(this["OptionsEditSize"]));
+            }
+            set {
+                this["OptionsEditSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point OptionsEditLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["OptionsEditLocation"]));
+            }
+            set {
+                this["OptionsEditLocation"] = value;
+            }
+        }
     }
 }
