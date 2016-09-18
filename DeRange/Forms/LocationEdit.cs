@@ -114,7 +114,7 @@ namespace DeRange.Forms
                 Config.Window win= new Config.Window( winList.Window );
                 Config.Location pos = (Config.Location)positionList.SelectedItem;
 
-                WindowModifier.ApplyModification(win, pos);
+                WindowModifier.ApplyModification(win, pos, false);
             }
         }
 

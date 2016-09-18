@@ -1,14 +1,10 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 
 namespace DeRange.Config
 {
-    public class ParentItem : INotifyPropertyChanged
+    public class ParentItem : ChangeItem
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private Guid mp_guid;
         [XmlElement(ElementName = "GUID")]
         public Guid GUID
@@ -32,14 +28,6 @@ namespace DeRange.Config
         public ParentItem()
         {
             GUID = Guid.NewGuid();
-        }
-
-        virtual protected void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

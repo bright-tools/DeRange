@@ -165,11 +165,14 @@ namespace DeRange
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            WindowLocationSelector winSelect = new WindowLocationSelector(m_config, SelectedLocatedWindow.WindowGUID, SelectedLocatedWindow.LocationGUID);
+            WindowLocationSelector winSelect = new WindowLocationSelector(m_config, SelectedLocatedWindow.WindowGUID, 
+                                                                          SelectedLocatedWindow.LocationGUID,
+                                                                          SelectedLocatedWindow.AllowMultipleMatches);
             if (winSelect.ShowDialog() == DialogResult.OK)
             {
                 SelectedLocatedWindow.LocationGUID = winSelect.SelectedLocation.GUID;
                 SelectedLocatedWindow.WindowGUID = winSelect.SelectedWindow.GUID;
+                SelectedLocatedWindow.AllowMultipleMatches = winSelect.AllowMultipleMatches;
             }
         }
 

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Win32Interop.WinHandles;
 using System;
+using static Win32Interop.WinHandles.TopLevelWindowUtils;
 
 namespace DeRange
 {
@@ -43,7 +44,7 @@ namespace DeRange
 
             foreach (Config.LocatedWindow locWin in p_arrangement.WindowPositions)
             {
-                HashSet<WindowHandle> thisLocWinMatches = ApplyLocatedWindow(p_config, locWin);
+                HashSet<WindowHandle> thisLocWinMatches = ApplyLocatedWindow(p_config, locWin, matchedWindows);
 
                 if (p_arrangement.SetZIndex)
                 {
@@ -60,12 +61,12 @@ namespace DeRange
             HandleNonMatchingWindows(p_arrangement, matchedWindows);
         }
 
-        static public HashSet<WindowHandle> ApplyLocatedWindow(Config.Top p_config, Config.LocatedWindow p_locatedWindow )
+        static public HashSet<WindowHandle> ApplyLocatedWindow(Config.Top p_config, Config.LocatedWindow p_locatedWindow, HashSet<WindowHandle> p_exclude = null)
         {
             Config.Location loc = p_config.GetLocation(p_locatedWindow.LocationGUID);
             Config.Window win = p_config.GetWindow(p_locatedWindow.WindowGUID);
 
-            return ApplyModification(win, loc);
+            return ApplyModification(win, loc, p_locatedWindow.AllowMultipleMatches, p_exclude);
         }
 
         static public bool IsWindowOnScreen( WindowHandle p_handle, Screen p_screen )
@@ -89,16 +90,16 @@ namespace DeRange
 
         static public IEnumerable<WindowHandle> GetAllVisibleWindows()
         {
-            return TopLevelWindowUtils.FindWindows(w => (w.IsVisible() == true) && (w.GetWindowText() != ""));
+            return TopLevelWindowUtils.FindWindows(w => (w.IsVisible() == true) && (w.GetWindowText() != ""), FindWindowSortType.SortByWinHandle);
         }
 
-        static public HashSet<WindowHandle> ApplyModification(Config.Window p_win, Config.Location p_pos)
+        static public HashSet<WindowHandle> ApplyModification(Config.Window p_win, Config.Location p_pos, bool p_allowMultiple, HashSet<WindowHandle> p_exclude = null)
         {
             HashSet<WindowHandle> matches = new HashSet<WindowHandle>();
             IEnumerable<WindowHandle> currentWindows = GetAllVisibleWindows();
             foreach (WindowHandle windowHandle in currentWindows)
             {
-                if (p_win.IsMatchFor(windowHandle))
+                if (((p_exclude == null) || !(p_exclude.Contains(windowHandle))) && p_win.IsMatchFor(windowHandle))
                 {
                     matches.Add(windowHandle);
 
@@ -155,6 +156,11 @@ namespace DeRange
 
                         default:
                             break;
+                    }
+
+                    if( !p_allowMultiple )
+                    {
+                        break;
                     }
                 }
             }

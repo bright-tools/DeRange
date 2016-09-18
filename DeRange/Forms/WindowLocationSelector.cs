@@ -50,6 +50,14 @@ namespace DeRange.Forms
             }
         }
 
+        public bool AllowMultipleMatches
+        {
+            get
+            {
+                return allowMultipleMatchesCheckBox.Checked;
+            }
+        }
+
         public Config.Window SelectedWindow
         {
             get; set;
@@ -71,13 +79,14 @@ namespace DeRange.Forms
             updateButtons();
         }
 
-        public WindowLocationSelector(Config.Top p_config, Guid p_windowGuid, Guid p_locationGuid ) : this( p_config )
+        public WindowLocationSelector(Config.Top p_config, Guid p_windowGuid, Guid p_locationGuid, bool p_multiple ) : this( p_config )
         {
             Config.Window win = p_config.GetWindow(p_windowGuid);
             Config.Location loc = p_config.GetLocation(p_locationGuid);
 
             windowListbox.SelectedItem = win;
             locationListbox.SelectedItem = loc;
+            allowMultipleMatchesCheckBox.Checked = p_multiple;
 
             updateButtons();
         }

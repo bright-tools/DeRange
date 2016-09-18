@@ -95,6 +95,20 @@ Settings are saved when you exit DeRange.
 
 DeRange starts up in the task tray area.
 
+### How does window matching work?
+
+The list of configured windows within an arrangement is assessed in order from
+top to bottom.
+
+For each configuration all windows which have not yet been matched are compared
+against the criteria.
+
+If the match is configured to allow multiple matches, then all windows matching
+the criterial will have the location settings applied.  In the case that
+multiple matching is not enabled, the first window to match will have the
+location settings applied after which DeRange will move to the next window in
+the list.
+
 ## Download
 
 Installers are available for download within the ["Releases"](https://github.com/bright-tools/DeRange/releases) area.

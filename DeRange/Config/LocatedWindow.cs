@@ -5,7 +5,7 @@ namespace DeRange.Config
 {
     [Serializable]
     [XmlRoot(ElementName = "LocatedWindow")]
-    public class LocatedWindow
+    public class LocatedWindow : ChangeItem
     {
         public LocatedWindow()
         {
@@ -25,6 +25,21 @@ namespace DeRange.Config
             set;
         } = Guid.Empty;
 
+        private bool mp_allowMultipleMatches;
+        [XmlElement(ElementName = "AllowMultipleMatches")]
+        public bool AllowMultipleMatches
+        {
+            get { return mp_allowMultipleMatches; }
+            set
+            {
+                if (mp_allowMultipleMatches != value)
+                {
+                    mp_allowMultipleMatches = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         public override string ToString()
         {
             Object locObj = Registry<ParentItem>.Query(LocationGUID);
@@ -38,6 +53,11 @@ namespace DeRange.Config
                 Location loc = (Location)locObj;
 
                 retVal = win.ToString() + " @ " + loc.StringOf;
+
+                if( AllowMultipleMatches )
+                {
+                    retVal += " [Multiple]";
+                }
             }
             return retVal;
         }
