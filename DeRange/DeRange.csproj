@@ -196,8 +196,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Add_14x.png" />
+    <None Include="Resources\Substitution_16x.png" />
+    <None Include="Resources\Test_16x.png" />
+    <None Include="Resources\StackDown_16x.png" />
+    <None Include="Resources\StackUp_16x.png" />
     <None Include="Resources\Add_16x.png" />
+    <None Include="Resources\ModalPicker_16x.png" />
     <Content Include="Resources\Remove_16x.png" />
     <None Include="Resources\UpdateListItem_16x.png" />
   </ItemGroup>

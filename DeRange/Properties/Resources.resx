@@ -133,4 +133,19 @@
   <data name="LICENSE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LICENSE.rtf;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="ModalPicker_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ModalPicker_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StackDown_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StackDown_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StackUp_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StackUp_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Substitution_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Substitution_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Test_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Test_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
