@@ -165,7 +165,6 @@ namespace DeRange.Config
             m_windowTitle = p_windowHandle.GetWindowText();
             m_windowClass = p_windowHandle.GetClassName();
             m_processFile = p_windowHandle.GetWindowExec();
-            m_processName = p_windowHandle.GetProcessName();
         }
 
         public override string ToString()
