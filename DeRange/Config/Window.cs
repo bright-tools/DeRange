@@ -20,7 +20,6 @@ namespace DeRange.Config
 
             m_matchWindowClass = true;
             m_matchProcessFile = true;
-            m_matchProcessName = true;
             m_matchWindowTitle = true;
             WindowTitleIsRegex = false;
             ProcessFileIsRegex = false;
@@ -80,35 +79,6 @@ namespace DeRange.Config
                 if (mp_regexWindowTitle != value)
                 {
                     mp_regexWindowTitle = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
-        private String mp_processName;
-        [XmlElement(ElementName = "ProcessName")]
-        public String m_processName {
-            get { return mp_processName; }
-            set
-            {
-                if( mp_processName != value )
-                {
-                    mp_processName = value;
-                    NotifyPropertyChanged();
-                }
-            }
-        }
-
-        private bool mp_matchProcessName;
-        [XmlElement(ElementName = "MatchProcessName")]
-        public bool m_matchProcessName
-        {
-            get { return mp_matchProcessName; }
-            set
-            {
-                if( mp_matchProcessName != value )
-                {
-                    mp_matchProcessName = value;
                     NotifyPropertyChanged();
                 }
             }
@@ -195,6 +165,7 @@ namespace DeRange.Config
             m_windowTitle = p_windowHandle.GetWindowText();
             m_windowClass = p_windowHandle.GetClassName();
             m_processFile = p_windowHandle.GetWindowExec();
+            m_processName = p_windowHandle.GetProcessName();
         }
 
         public override string ToString()
