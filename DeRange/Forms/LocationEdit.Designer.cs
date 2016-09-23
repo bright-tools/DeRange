@@ -93,22 +93,26 @@
             // removePositionButton
             // 
             this.removePositionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.removePositionButton.Image = global::DeRange.Properties.Resources.Remove_16x;
             this.removePositionButton.Location = new System.Drawing.Point(115, 245);
             this.removePositionButton.Name = "removePositionButton";
             this.removePositionButton.Size = new System.Drawing.Size(75, 23);
             this.removePositionButton.TabIndex = 5;
             this.removePositionButton.Text = "Remove";
+            this.removePositionButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.removePositionButton.UseVisualStyleBackColor = true;
             this.removePositionButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // addPositionButton
             // 
             this.addPositionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addPositionButton.Image = global::DeRange.Properties.Resources.Add_16x;
             this.addPositionButton.Location = new System.Drawing.Point(34, 245);
             this.addPositionButton.Name = "addPositionButton";
             this.addPositionButton.Size = new System.Drawing.Size(75, 23);
             this.addPositionButton.TabIndex = 4;
             this.addPositionButton.Text = "Add";
+            this.addPositionButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addPositionButton.UseVisualStyleBackColor = true;
             this.addPositionButton.Click += new System.EventHandler(this.addPositionButton_Click_1);
             // 
@@ -212,21 +216,25 @@
             // 
             // updateFromWindowButton
             // 
+            this.updateFromWindowButton.Image = global::DeRange.Properties.Resources.Substitution_16x;
             this.updateFromWindowButton.Location = new System.Drawing.Point(11, 245);
             this.updateFromWindowButton.Name = "updateFromWindowButton";
-            this.updateFromWindowButton.Size = new System.Drawing.Size(117, 23);
+            this.updateFromWindowButton.Size = new System.Drawing.Size(138, 23);
             this.updateFromWindowButton.TabIndex = 13;
             this.updateFromWindowButton.Text = "Update from Window";
+            this.updateFromWindowButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.updateFromWindowButton.UseVisualStyleBackColor = true;
             this.updateFromWindowButton.Click += new System.EventHandler(this.updateFromWindowButton_Click);
             // 
             // testButton
             // 
-            this.testButton.Location = new System.Drawing.Point(134, 245);
+            this.testButton.Image = global::DeRange.Properties.Resources.ModalPicker_16x;
+            this.testButton.Location = new System.Drawing.Point(160, 245);
             this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(105, 23);
+            this.testButton.Size = new System.Drawing.Size(116, 23);
             this.testButton.TabIndex = 12;
             this.testButton.Text = "Apply to Window";
+            this.testButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.testButton.UseVisualStyleBackColor = true;
             this.testButton.Click += new System.EventHandler(this.applyButton_Click);
             // 
