@@ -34,6 +34,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.windowNameTextbox = new System.Windows.Forms.TextBox();
             this.processFileAsRegexCheckbox = new System.Windows.Forms.CheckBox();
@@ -49,7 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.windowTitleTextbox = new System.Windows.Forms.TextBox();
             this.captureButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.windowConfigurationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -64,6 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.windowConfigListBox.DataSource = this.windowConfigurationsBindingSource;
             this.windowConfigListBox.FormattingEnabled = true;
+            this.windowConfigListBox.IntegralHeight = false;
             this.windowConfigListBox.Location = new System.Drawing.Point(3, 3);
             this.windowConfigListBox.Name = "windowConfigListBox";
             this.windowConfigListBox.Size = new System.Drawing.Size(249, 342);
@@ -132,6 +133,15 @@
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 115);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Process EXE";
             // 
             // label5
             // 
@@ -281,21 +291,13 @@
             this.captureButton.UseVisualStyleBackColor = true;
             this.captureButton.Click += new System.EventHandler(this.captureButton_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 115);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 13);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Process EXE";
-            // 
             // WindowEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 392);
             this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(775, 431);
             this.Name = "WindowEdit";
             this.Text = "Edit Window Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);

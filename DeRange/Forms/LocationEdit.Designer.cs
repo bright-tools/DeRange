@@ -124,6 +124,7 @@
             this.positionList.DataSource = this.deRangeWindowPositionListBindingSource;
             this.positionList.DisplayMember = "StringOf";
             this.positionList.FormattingEnabled = true;
+            this.positionList.IntegralHeight = false;
             this.positionList.Location = new System.Drawing.Point(0, 4);
             this.positionList.Name = "positionList";
             this.positionList.Size = new System.Drawing.Size(345, 238);
@@ -288,6 +289,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 283);
             this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(758, 322);
             this.Name = "LocationEdit";
             this.Text = "Edit Window Location";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);

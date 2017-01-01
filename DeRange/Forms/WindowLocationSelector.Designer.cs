@@ -119,11 +119,11 @@
             this.splitContainer1.SplitterDistance = 123;
             this.splitContainer1.TabIndex = 13;
             // 
-            // allowMultipleMatchssCheckBox
+            // allowMultipleMatchesCheckBox
             // 
             this.allowMultipleMatchesCheckBox.AutoSize = true;
             this.allowMultipleMatchesCheckBox.Location = new System.Drawing.Point(7, 132);
-            this.allowMultipleMatchesCheckBox.Name = "allowMultipleMatchssCheckBox";
+            this.allowMultipleMatchesCheckBox.Name = "allowMultipleMatchesCheckBox";
             this.allowMultipleMatchesCheckBox.Size = new System.Drawing.Size(140, 17);
             this.allowMultipleMatchesCheckBox.TabIndex = 13;
             this.allowMultipleMatchesCheckBox.Text = "Allow Multiple Matches?";
@@ -137,6 +137,7 @@
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(481, 292);
             this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(497, 331);
             this.Name = "WindowLocationSelector";
             this.Text = "Choose Window & Location Combination";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
