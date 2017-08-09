@@ -74,19 +74,18 @@ namespace DeRange
             InitializeComponent();
 
             deRangeArrangementListBindingSource.DataSource = m_config.Arrangements;
-            this.keyCombobox.DataSource = System.Enum.GetValues(typeof(Keys));
             this.nonMatchingWindowsComboBox.DataSource = System.Enum.GetValues(typeof(Arrangement.NonMatchingStatus));
 
             if (m_config.Arrangements.Count > 0)
             {
                 arrangementListBox.SelectedItem = m_config.Arrangements[0];
 
-                keyboardShortCutBindingSource.DataSource = m_config.Arrangements[0].Shortcut;
+                hotKeySelector1.DataSource = m_config.Arrangements[0].Shortcut;
                 locatedWindowBindingSource.DataSource = m_config.Arrangements[0].WindowPositions;
             }
             else
             {
-                keyboardShortCutBindingSource.DataSource = new KeyboardShortcut();
+                hotKeySelector1.DataSource = new KeyboardShortcut();
             }
 
             m_config.Arrangements.ListChanged += windowConfigurationListChanged;
@@ -109,12 +108,9 @@ namespace DeRange
         private void SetArrangementEditEnabled()
         {
             bool enabled = m_config.Arrangements.Count > 0;
+
+            hotKeySelector1.Enabled = enabled;
             nameTextBox.Enabled = enabled;
-            keyCombobox.Enabled = enabled;
-            ctrlCheckbox.Enabled = enabled;
-            altCheckbox.Enabled = enabled;
-            winCheckbox.Enabled = enabled;
-            shiftCheckbox.Enabled = enabled;
             addButton.Enabled = enabled;
             arrangementListBox.Enabled = enabled;
             nonMatchingWindowsComboBox.Enabled = enabled;
@@ -186,12 +182,12 @@ namespace DeRange
             SetArrangementEditEnabled();
             if (SelectedArrangement != null)
             {
-                keyboardShortCutBindingSource.DataSource = SelectedArrangement.Shortcut;
+                hotKeySelector1.DataSource = SelectedArrangement.Shortcut;
                 locatedWindowBindingSource.DataSource = SelectedArrangement.WindowPositions;
             }
             else
             {
-                keyboardShortCutBindingSource.DataSource = new KeyboardShortcut();
+                hotKeySelector1.DataSource = new KeyboardShortcut();
                 locatedWindowBindingSource.DataSource = new BindingList<LocatedWindow>();
             }
         }

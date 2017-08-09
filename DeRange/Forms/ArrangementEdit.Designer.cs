@@ -34,6 +34,7 @@
             this.addArrangementButton = new System.Windows.Forms.Button();
             this.arrangementListBox = new System.Windows.Forms.ListBox();
             this.deRangeArrangementListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hotKeySelector1 = new DeRange.Forms.HotKeySelector();
             this.nonMatchingWindowsComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.setZIndexCheckBox = new System.Windows.Forms.CheckBox();
@@ -45,13 +46,6 @@
             this.addButton = new System.Windows.Forms.Button();
             this.locatedWindowListbox = new System.Windows.Forms.ListBox();
             this.locatedWindowBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.keyCombobox = new System.Windows.Forms.ComboBox();
-            this.keyboardShortCutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.winCheckbox = new System.Windows.Forms.CheckBox();
-            this.shiftCheckbox = new System.Windows.Forms.CheckBox();
-            this.ctrlCheckbox = new System.Windows.Forms.CheckBox();
-            this.altCheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -60,8 +54,6 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deRangeArrangementListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.locatedWindowBindingSource)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.keyboardShortCutBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -80,6 +72,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.hotKeySelector1);
             this.splitContainer1.Panel2.Controls.Add(this.nonMatchingWindowsComboBox);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.setZIndexCheckBox);
@@ -90,7 +83,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.updateButton);
             this.splitContainer1.Panel2.Controls.Add(this.addButton);
             this.splitContainer1.Panel2.Controls.Add(this.locatedWindowListbox);
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.nameTextBox);
             this.splitContainer1.Panel2MinSize = 500;
@@ -140,6 +132,13 @@
             this.arrangementListBox.Size = new System.Drawing.Size(177, 337);
             this.arrangementListBox.TabIndex = 0;
             this.arrangementListBox.SelectedValueChanged += new System.EventHandler(this.arrangementListBox_SelectedValueChanged);
+            // 
+            // hotKeySelector1
+            // 
+            this.hotKeySelector1.Location = new System.Drawing.Point(3, 41);
+            this.hotKeySelector1.Name = "hotKeySelector1";
+            this.hotKeySelector1.Size = new System.Drawing.Size(214, 79);
+            this.hotKeySelector1.TabIndex = 17;
             // 
             // nonMatchingWindowsComboBox
             // 
@@ -273,74 +272,6 @@
             this.locatedWindowListbox.TabIndex = 6;
             this.locatedWindowListbox.SelectedValueChanged += new System.EventHandler(this.locatedWindowListbox_SelectedValueChanged);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.keyCombobox);
-            this.groupBox1.Controls.Add(this.winCheckbox);
-            this.groupBox1.Controls.Add(this.shiftCheckbox);
-            this.groupBox1.Controls.Add(this.ctrlCheckbox);
-            this.groupBox1.Controls.Add(this.altCheckbox);
-            this.groupBox1.Location = new System.Drawing.Point(11, 49);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(206, 72);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Keyboard Shortcut";
-            // 
-            // keyCombobox
-            // 
-            this.keyCombobox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.keyboardShortCutBindingSource, "Key", true));
-            this.keyCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.keyCombobox.FormattingEnabled = true;
-            this.keyCombobox.Location = new System.Drawing.Point(6, 42);
-            this.keyCombobox.Name = "keyCombobox";
-            this.keyCombobox.Size = new System.Drawing.Size(194, 21);
-            this.keyCombobox.TabIndex = 9;
-            // 
-            // winCheckbox
-            // 
-            this.winCheckbox.AutoSize = true;
-            this.winCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "WinModifier", true));
-            this.winCheckbox.Location = new System.Drawing.Point(155, 19);
-            this.winCheckbox.Name = "winCheckbox";
-            this.winCheckbox.Size = new System.Drawing.Size(45, 17);
-            this.winCheckbox.TabIndex = 8;
-            this.winCheckbox.Text = "Win";
-            this.winCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // shiftCheckbox
-            // 
-            this.shiftCheckbox.AutoSize = true;
-            this.shiftCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "ShiftModifier", true));
-            this.shiftCheckbox.Location = new System.Drawing.Point(106, 19);
-            this.shiftCheckbox.Name = "shiftCheckbox";
-            this.shiftCheckbox.Size = new System.Drawing.Size(47, 17);
-            this.shiftCheckbox.TabIndex = 7;
-            this.shiftCheckbox.Text = "Shift";
-            this.shiftCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // ctrlCheckbox
-            // 
-            this.ctrlCheckbox.AutoSize = true;
-            this.ctrlCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "CtrlModifier", true));
-            this.ctrlCheckbox.Location = new System.Drawing.Point(59, 19);
-            this.ctrlCheckbox.Name = "ctrlCheckbox";
-            this.ctrlCheckbox.Size = new System.Drawing.Size(41, 17);
-            this.ctrlCheckbox.TabIndex = 6;
-            this.ctrlCheckbox.Text = "Ctrl";
-            this.ctrlCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // altCheckbox
-            // 
-            this.altCheckbox.AutoSize = true;
-            this.altCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.keyboardShortCutBindingSource, "AltModifier", true));
-            this.altCheckbox.Location = new System.Drawing.Point(6, 19);
-            this.altCheckbox.Name = "altCheckbox";
-            this.altCheckbox.Size = new System.Drawing.Size(46, 17);
-            this.altCheckbox.TabIndex = 5;
-            this.altCheckbox.Text = "ALT";
-            this.altCheckbox.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -377,9 +308,6 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.deRangeArrangementListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.locatedWindowBindingSource)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.keyboardShortCutBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -392,14 +320,7 @@
         private System.Windows.Forms.Button addArrangementButton;
         private System.Windows.Forms.ListBox arrangementListBox;
         private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox altCheckbox;
-        private System.Windows.Forms.CheckBox ctrlCheckbox;
-        private System.Windows.Forms.BindingSource keyboardShortCutBindingSource;
-        private System.Windows.Forms.ComboBox keyCombobox;
-        private System.Windows.Forms.CheckBox winCheckbox;
-        private System.Windows.Forms.CheckBox shiftCheckbox;
         private System.Windows.Forms.ListBox locatedWindowListbox;
         private System.Windows.Forms.BindingSource locatedWindowBindingSource;
         private System.Windows.Forms.Button updateButton;
@@ -411,5 +332,6 @@
         private System.Windows.Forms.CheckBox setZIndexCheckBox;
         private System.Windows.Forms.ComboBox nonMatchingWindowsComboBox;
         private System.Windows.Forms.Label label2;
+        private Forms.HotKeySelector hotKeySelector1;
     }
 }
