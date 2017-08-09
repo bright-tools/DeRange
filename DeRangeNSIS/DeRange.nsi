@@ -20,7 +20,10 @@ SetCompressor /SOLID bzip2
   ; Show a warning when the user cancels the install
   !define MUI_ABORTWARNING
   !define MUI_FINISHPAGE_NOAUTOCLOSE
-
+  !define MUI_FINISHPAGE_RUN "$INSTDIR\DeRange.exe"
+  !define MUI_FINISHPAGE_SHOWREADME
+  !define MUI_FINISHPAGE_SHOWREADME_TEXT "Run at startup"
+  !define MUI_FINISHPAGE_SHOWREADME_FUNCTION AddToStartup
 ;--------------------------------
 ;Pages
  
@@ -70,3 +73,7 @@ Section "Uninstall"
   DeleteRegKey /ifempty HKCU "Software\Bright Silence Ltd\DeRange"
   DeleteRegValue HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Run" "DeRange"
 SectionEnd
+
+Function AddToStartup
+   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "DeRange" '"$INSTDIR\DeRange.exe"'
+FunctionEnd
