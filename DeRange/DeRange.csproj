@@ -105,6 +105,12 @@
     </Compile>
     <Compile Include="EnumBindingSourceDescription.cs" />
     <Compile Include="EnumDescriptionTypeConverter.cs" />
+    <Compile Include="Forms\HotKeySelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\HotKeySelector.Designer.cs">
+      <DependentUpon>HotKeySelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LocationEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DeRangeMain.resx">
       <DependentUpon>DeRangeMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HotKeySelector.resx">
+      <DependentUpon>HotKeySelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LocationEdit.resx">
       <DependentUpon>LocationEdit.cs</DependentUpon>
