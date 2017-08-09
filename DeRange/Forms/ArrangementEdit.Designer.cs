@@ -76,6 +76,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.removeArrangementButton);
             this.splitContainer1.Panel1.Controls.Add(this.addArrangementButton);
             this.splitContainer1.Panel1.Controls.Add(this.arrangementListBox);
+            this.splitContainer1.Panel1MinSize = 175;
             // 
             // splitContainer1.Panel2
             // 
@@ -92,8 +93,9 @@
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.nameTextBox);
+            this.splitContainer1.Panel2MinSize = 500;
             this.splitContainer1.Size = new System.Drawing.Size(689, 374);
-            this.splitContainer1.SplitterDistance = 189;
+            this.splitContainer1.SplitterDistance = 185;
             this.splitContainer1.TabIndex = 0;
             // 
             // removeArrangementButton
@@ -135,7 +137,7 @@
             this.arrangementListBox.IntegralHeight = false;
             this.arrangementListBox.Location = new System.Drawing.Point(3, 3);
             this.arrangementListBox.Name = "arrangementListBox";
-            this.arrangementListBox.Size = new System.Drawing.Size(181, 337);
+            this.arrangementListBox.Size = new System.Drawing.Size(177, 337);
             this.arrangementListBox.TabIndex = 0;
             this.arrangementListBox.SelectedValueChanged += new System.EventHandler(this.arrangementListBox_SelectedValueChanged);
             // 
@@ -176,7 +178,7 @@
             this.downButton.Enabled = false;
             this.downButton.Image = global::DeRange.Properties.Resources.StackDown_16x;
             this.downButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.downButton.Location = new System.Drawing.Point(400, 311);
+            this.downButton.Location = new System.Drawing.Point(404, 311);
             this.downButton.Name = "downButton";
             this.downButton.Size = new System.Drawing.Size(89, 23);
             this.downButton.TabIndex = 14;
@@ -191,7 +193,7 @@
             this.upButton.Enabled = false;
             this.upButton.Image = global::DeRange.Properties.Resources.StackUp_16x;
             this.upButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.upButton.Location = new System.Drawing.Point(400, 282);
+            this.upButton.Location = new System.Drawing.Point(404, 282);
             this.upButton.Name = "upButton";
             this.upButton.Size = new System.Drawing.Size(89, 23);
             this.upButton.TabIndex = 13;
@@ -205,7 +207,7 @@
             this.testButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.testButton.Image = global::DeRange.Properties.Resources.Test_16x;
             this.testButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.testButton.Location = new System.Drawing.Point(400, 345);
+            this.testButton.Location = new System.Drawing.Point(404, 345);
             this.testButton.Name = "testButton";
             this.testButton.Size = new System.Drawing.Size(89, 23);
             this.testButton.TabIndex = 12;
@@ -220,7 +222,7 @@
             this.removeButton.Enabled = false;
             this.removeButton.Image = global::DeRange.Properties.Resources.Remove_16x;
             this.removeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.removeButton.Location = new System.Drawing.Point(400, 253);
+            this.removeButton.Location = new System.Drawing.Point(404, 253);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(89, 23);
             this.removeButton.TabIndex = 11;
@@ -234,7 +236,7 @@
             this.updateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.updateButton.Image = global::DeRange.Properties.Resources.UpdateListItem_16x;
             this.updateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.updateButton.Location = new System.Drawing.Point(400, 224);
+            this.updateButton.Location = new System.Drawing.Point(404, 224);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(89, 23);
             this.updateButton.TabIndex = 10;
@@ -248,7 +250,7 @@
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addButton.Image = global::DeRange.Properties.Resources.Add_16x;
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(400, 195);
+            this.addButton.Location = new System.Drawing.Point(404, 195);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(89, 23);
             this.addButton.TabIndex = 9;
@@ -267,7 +269,7 @@
             this.locatedWindowListbox.IntegralHeight = false;
             this.locatedWindowListbox.Location = new System.Drawing.Point(5, 126);
             this.locatedWindowListbox.Name = "locatedWindowListbox";
-            this.locatedWindowListbox.Size = new System.Drawing.Size(389, 243);
+            this.locatedWindowListbox.Size = new System.Drawing.Size(393, 243);
             this.locatedWindowListbox.TabIndex = 6;
             this.locatedWindowListbox.SelectedValueChanged += new System.EventHandler(this.locatedWindowListbox_SelectedValueChanged);
             // 

@@ -88,6 +88,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.addButton);
             this.splitContainer1.Panel1.Controls.Add(this.removeButton);
             this.splitContainer1.Panel1.Controls.Add(this.windowConfigListBox);
+            this.splitContainer1.Panel1MinSize = 220;
             // 
             // splitContainer1.Panel2
             // 
@@ -107,6 +108,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.windowTitleTextbox);
             this.splitContainer1.Panel2.Controls.Add(this.captureButton);
+            this.splitContainer1.Panel2MinSize = 480;
             this.splitContainer1.Size = new System.Drawing.Size(743, 375);
             this.splitContainer1.SplitterDistance = 257;
             this.splitContainer1.TabIndex = 3;

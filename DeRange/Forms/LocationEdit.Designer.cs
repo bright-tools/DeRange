@@ -59,7 +59,8 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(2, 6);
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -67,6 +68,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.removePositionButton);
             this.splitContainer1.Panel1.Controls.Add(this.addPositionButton);
             this.splitContainer1.Panel1.Controls.Add(this.positionList);
+            this.splitContainer1.Panel1MinSize = 200;
             // 
             // splitContainer1.Panel2
             // 
@@ -86,15 +88,16 @@
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.xPosTextbox);
-            this.splitContainer1.Size = new System.Drawing.Size(738, 273);
-            this.splitContainer1.SplitterDistance = 348;
+            this.splitContainer1.Panel2MinSize = 370;
+            this.splitContainer1.Size = new System.Drawing.Size(742, 283);
+            this.splitContainer1.SplitterDistance = 338;
             this.splitContainer1.TabIndex = 1;
             // 
             // removePositionButton
             // 
             this.removePositionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.removePositionButton.Image = global::DeRange.Properties.Resources.Remove_16x;
-            this.removePositionButton.Location = new System.Drawing.Point(115, 245);
+            this.removePositionButton.Location = new System.Drawing.Point(115, 255);
             this.removePositionButton.Name = "removePositionButton";
             this.removePositionButton.Size = new System.Drawing.Size(75, 23);
             this.removePositionButton.TabIndex = 5;
@@ -107,7 +110,7 @@
             // 
             this.addPositionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addPositionButton.Image = global::DeRange.Properties.Resources.Add_16x;
-            this.addPositionButton.Location = new System.Drawing.Point(34, 245);
+            this.addPositionButton.Location = new System.Drawing.Point(34, 255);
             this.addPositionButton.Name = "addPositionButton";
             this.addPositionButton.Size = new System.Drawing.Size(75, 23);
             this.addPositionButton.TabIndex = 4;
@@ -127,7 +130,7 @@
             this.positionList.IntegralHeight = false;
             this.positionList.Location = new System.Drawing.Point(0, 4);
             this.positionList.Name = "positionList";
-            this.positionList.Size = new System.Drawing.Size(345, 238);
+            this.positionList.Size = new System.Drawing.Size(335, 248);
             this.positionList.TabIndex = 3;
             this.positionList.SelectedValueChanged += new System.EventHandler(this.positionList_SelectedValueChanged);
             // 
