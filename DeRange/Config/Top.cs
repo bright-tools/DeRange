@@ -52,6 +52,20 @@ namespace DeRange.Config
             return WindowPositions.SingleOrDefault(d => d.GUID == p_guid);
         }
 
+        public void Merge( Top p_other )
+        {
+            WindowPositions.Union(p_other.WindowPositions);
+            WindowConfigurations.Union(p_other.WindowConfigurations);
+            Arrangements.Union(p_other.Arrangements);
+        }
+
+        public void Clear()
+        {
+            Arrangements.Clear();
+            WindowConfigurations.Clear();
+            WindowPositions.Clear();
+        }
+
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

@@ -99,6 +99,24 @@ namespace DeRange.Forms
             }
         }
 
+        public void CleanUp()
+        {
+            m_hotKeys.UnregisterAll();
+            if (m_arrangementEdit != null)
+            { 
+                m_arrangementEdit.Close();
+            }
+            if (m_winEdit != null)
+            {
+                m_winEdit.Close();
+            }
+            if (m_locationEdit != null)
+            {
+                m_locationEdit.Close();
+            }
+            Close();
+        }
+
         private void resetHotKeys()
         {
             m_hotKeys.UnregisterAll();
