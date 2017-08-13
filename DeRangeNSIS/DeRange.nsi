@@ -10,7 +10,7 @@ InstallDir "$PROGRAMFILES\Bright Silence Ltd\DeRange"
 SetCompressor /SOLID bzip2
 
 ;Get installation folder from registry if available
- InstallDirRegKey HKCU "Software\Bright Silence Ltd\DeRange" ""
+InstallDirRegKey HKCU "Software\Bright Silence Ltd\DeRange" "InstallDir"
 
 !include "MUI2.nsh"
 !include "DotNetChecker.nsh"
@@ -58,6 +58,10 @@ Section "Install"
 
   CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\${PRODUCT_NAME}.lnk" "$INSTDIR\DeRange.exe" "" "$INSTDIR\DeRange.exe" 0
 
+  WriteRegStr HKCU "Software\Bright Silence Ltd\DeRange" "InstallDir" "$INSTDIR"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}" "DisplayName" "DeRange"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}" "UninstallString" '"$INSTDIR\Uninstall.exe"'
+
   WriteUninstaller "$INSTDIR\Uninstall.exe"
 SectionEnd
 
@@ -70,10 +74,41 @@ Section "Uninstall"
 
   RMDir "$INSTDIR"
 
-  DeleteRegKey /ifempty HKCU "Software\Bright Silence Ltd\DeRange"
+  DeleteRegKey   HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
+  DeleteRegKey   HKCU "Software\Bright Silence Ltd\DeRange"
   DeleteRegValue HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Run" "DeRange"
 SectionEnd
 
 Function AddToStartup
    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "DeRange" '"$INSTDIR\DeRange.exe"'
+FunctionEnd
+
+Function .onInit
+ 
+  ReadRegStr $R0 HKCU \
+  "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}" \
+  "UninstallString"
+  StrCmp $R0 "" done
+ 
+  MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION \
+  "${PRODUCT_NAME} is already installed. $\n$\nClick `OK` to remove the \
+  previous version or `Cancel` to cancel this upgrade." \
+  IDOK uninst
+  Abort
+ 
+;Run the uninstaller
+uninst:
+  ClearErrors
+  ReadRegStr $R1 HKCU "Software\Bright Silence Ltd\DeRange" "InstallDir"
+  ExecWait '$R0'
+ 
+  IfErrors no_remove_uninstaller done
+    ;You can either use Delete /REBOOTOK in the uninstaller or add some code
+    ;here to remove the uninstaller. Use a registry key to check
+    ;whether the user has chosen to uninstall. If you are using an uninstaller
+    ;components page, make sure all sections are uninstalled.
+  no_remove_uninstaller:
+ 
+done:
+ 
 FunctionEnd
